@@ -40,7 +40,11 @@ set splitright
 set splitbelow
 
 set number relativenumber
-
+""""""TURN OFF THE ARROWS
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
 """""""""""""""""""""""""""""" COC CONFIG """""""""""""""""""""""""""""""
 " TextEdit might fail if hidden is not set.
 set hidden
