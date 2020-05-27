@@ -1,0 +1,20 @@
+{
+ "languageserver": {
+    "clangd": {
+      "command": "clangd",
+      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+    },
+    "rust": {
+      "command": "rust-analyzer",
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml"]
+    },
+     "golang": {
+      "command": "/home/valery/Cache/go_path/bin/gopls",
+      "rootPatterns": ["go.mod"],
+      "disableWorkspaceFolders": true,
+      "filetypes": ["go"]
+    }
+  }
+}
