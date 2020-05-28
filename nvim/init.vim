@@ -1,15 +1,17 @@
 set encoding=UTF-8
 set mouse=a
 filetype plugin indent on
-set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 
 call plug#begin('~/.vim/plugged')
 " VIM enhancements
 "Plug 'https://github.com/vim-syntastic/syntastic'
+Plug 'brooth/far.vim'
 Plug 'https://github.com/majutsushi/tagbar'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'haya14busa/is.vim'
+
 " GUI enhancements
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
@@ -35,6 +37,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 call plug#end()
+
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left
 
 set splitright
 set splitbelow
@@ -221,18 +225,29 @@ let g:rbpt_colorpairs = [
 
 let g:rbpt_max = 16
 
-let g:rbpt_loadcmd_toggle = 0
+let g:rbpt_loadcmd_toggle = 1
 
 """""""""""AIRLINE
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 """""""""""""""""""""""""""""""""""""""GOLANG
-
+let g:go_highlight_diagnostic_warnings = 1
+let g:go_highlight_diagnostic_errors = 1
+let g:go_highlight_variable_assignments = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_format_strings = 1
+let g:go_highlight_function_calls = 1
 let g:go_highlight_structs = 1 
 let g:go_highlight_methods = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_extra_types = 1
 
