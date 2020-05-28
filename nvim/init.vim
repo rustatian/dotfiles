@@ -11,7 +11,7 @@ Plug 'brooth/far.vim'
 Plug 'https://github.com/majutsushi/tagbar'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'haya14busa/is.vim'
-
+Plug 'mileszs/ack.vim'
 " GUI enhancements
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
@@ -38,12 +38,14 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
-vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left
-
 set splitright
 set splitbelow
 
 set number relativenumber
+
+""save
+nmap <leader>w :w!<cr>
+
 """"""TURN OFF THE ARROWS
 noremap <Left> <Nop>
 noremap <Right> <Nop>
@@ -251,3 +253,5 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_function_parameters = 1
 let g:go_highlight_extra_types = 1
 
+""""""""""""""""""""""""""""""""""""""VIM-AIRLINE
+let g:airline#extensions#tabline#enabled = 1
