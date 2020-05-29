@@ -44,7 +44,7 @@ set splitbelow
 set number relativenumber
 
 ""save
-nmap <leader>w :w!<cr>
+nmap <leader>s :w!<cr>
 
 """"""TURN OFF THE ARROWS
 noremap <Left> <Nop>
