@@ -172,7 +172,6 @@ bindsym $mod+r mode "resize"
 
 
 set $Locker i3lock && sleep 1
-
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     # bindsym l exec --no-startup-id dm-tool lock
@@ -187,33 +186,21 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
 bindsym $mod+Pause mode "$mode_system"
 
 bar {
-    font pango:Jetbrains Mono 11
+    font pango:Jetbrains Mono 10
     position top
     tray_output DP-0
     status_command i3status-rs /home/valery/.config/i3status-rust/config.toml 
 }
-# Color scheme (Gruvbox dark)
-set $color_normal_white  #a89984
-set $color_bright_white  #ebdbb2
-set $color_normal_gray   #222222
-set $color_bright_gray   #3c3836
-set $color_bright_yellow #f99921
-set $color_normal_black  #282828
-set $color_unused        #ff0000
-# set $color_test          $secondary
-set $color_test2         #bf9237
-set $color_black         #000000
 
-set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color2 #f0f0f0
+# dwm <clientclass>         <border> <bg> <text> <indicator>
+client.focused          #196584 #005577 #eeeeee #006891
+client.focused_inactive #565656 #444444 #eeeeee #5E5E5E
+client.unfocused        #373737 #222222 #bbbbbb #3B3B3B
+client.urgent           #7E1919 #700000 #eeeeee #8A0000
 
-#colors                  border                 background             text                   indicator       child_border
-client.focused            $color_test2            $color_bright_gray     $color_bright_white    $color_bright_white   $color_test2
-client.focused_inactive   $color_bright_gray     $color_bright_gray     $color_bright_white    $color_unused   $color_normal_black
-client.unfocused          $color_normal_gray     $color_normal_gray     $color_normal_white    $color_unused   $color_normal_black client.urgent             $color_bright_yellow   $color_bright_yellow   $color_normal_black    $color_unused   $color_unused
-client.placeholder        $color_unused          $color_normal_black    $color_unused          $color_unused   $color_unused
+# $i3-background
+exec_always --no-startup-id xsetroot -solid '#005577'
 

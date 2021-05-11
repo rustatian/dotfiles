@@ -27,13 +27,13 @@ interval = 1
 [[block]]
 block = "net"
 device = "enp4s0"
-format = "{speed_down;K*b} {speed_up;K*b} {graph_down}"
+format = "{ip} {speed_down;K*b} {speed_up;K*b} {graph_down}"
 interval = 1
 
 [[block]]
 block = "cpu"
 interval = 1
-format = "{utilization} {frequency}"
+format = "{barchart} {utilization} {frequency}"
 
 [[block]]
 block = "memory"
@@ -67,6 +67,10 @@ collapsed = false
 interval = 1
 format = "{min} min, {max} max, {average} avg"
 chip = "k10temp-pci-00c3"
+
+[[block]]
+block = "keyboard_layout"
+driver = "localebus"
 
 [[block]]
 block = "time"
