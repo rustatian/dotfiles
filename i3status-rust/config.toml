@@ -1,5 +1,5 @@
-theme = "slick"
-icons = "awesome5"
+theme = "native"
+icons = "awesome"
 
 [[block]]
 block = "music"
@@ -18,7 +18,6 @@ alert = 10.0
 
 [[block]]
 block = "nvidia_gpu"
-label = "GTX980"
 show_memory = true
 show_clocks = true
 show_power_draw = true
@@ -27,13 +26,13 @@ interval = 1
 [[block]]
 block = "net"
 device = "enp4s0"
-format = "{ip} {speed_down;K*b} {speed_up;K*b} {graph_down}"
+format = "{speed_down;K*b} {speed_up;K*b} {graph_down}"
 interval = 1
 
 [[block]]
 block = "cpu"
 interval = 1
-format = "{barchart} {utilization} {frequency}"
+format = "{utilization} {frequency}"
 
 [[block]]
 block = "memory"
@@ -65,14 +64,16 @@ format = "{running}/{total}"
 block = "temperature"
 collapsed = false
 interval = 1
-format = "{min} min, {max} max, {average} avg"
+format = "{min} min, {max} max"
 chip = "k10temp-pci-00c3"
+inputs = ["Tccd1", "Tccd2"]
 
 [[block]]
 block = "keyboard_layout"
-driver = "localebus"
+driver = "setxkbmap"
+interval = 1
 
 [[block]]
 block = "time"
-interval = 60
-format = "%a %d/%m %R"
+interval = 1
+format = "%a %d/%m %R:%S"
