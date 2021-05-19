@@ -3,7 +3,11 @@
   <img src="https://imgur.com/smdfJDb.png" />
 </a>
 
-used packages:  
+----
+
+### Packages:  
+```
 1. https://github.com/PatrickF1/fzf.fish  
 2. fish, fzf, fd, bat  
 3. 
+```
