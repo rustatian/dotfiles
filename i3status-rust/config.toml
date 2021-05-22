@@ -19,9 +19,12 @@ alert = 10.0
 [[block]]
 block = "nvidia_gpu"
 show_memory = true
-show_clocks = true
-show_power_draw = true
 interval = 1
+
+[[block]]
+block = "github"
+format = "{total}"
+interval = 10
 
 [[block]]
 block = "net"
