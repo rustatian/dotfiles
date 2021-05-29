@@ -4,8 +4,8 @@
 ----
 
 ### Packages:  
-```
+
 1. https://github.com/PatrickF1/fzf.fish  
-2. fish, fzf, fd, bat  
-3. 
-```
+2. fish, fzf, fd, bat   
+3. ripgrep  
+4. 
