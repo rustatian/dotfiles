@@ -8,5 +8,5 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-Xcursor.size: 38
+Xcursor.size: 36
 Xcursor.theme: Bibata-Original-Classic
