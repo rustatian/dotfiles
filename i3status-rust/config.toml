@@ -19,7 +19,7 @@ alert = 10.0
 [[block]]
 block = "nvidia_gpu"
 show_memory = true
-interval = 1
+interval = 10
 
 [[block]]
 block = "github"
@@ -29,7 +29,7 @@ interval = 10
 [[block]]
 block = "net"
 device = "enp4s0"
-format = "{speed_down;K*b} {speed_up;K*b} {graph_down}"
+format = "{ip} {speed_down;K*b} {speed_up;K*b}"
 interval = 1
 
 [[block]]
@@ -66,7 +66,7 @@ format = "{running}/{total}"
 [[block]]
 block = "temperature"
 collapsed = false
-interval = 1
+interval = 5
 format = "{min} min, {max} max"
 chip = "k10temp-pci-00c3"
 inputs = ["Tccd1", "Tccd2"]
@@ -78,5 +78,5 @@ interval = 1
 
 [[block]]
 block = "time"
-interval = 60
+interval = 1
 format = "%a %d/%m %R"
