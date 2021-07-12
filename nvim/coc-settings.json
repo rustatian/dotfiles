@@ -11,7 +11,7 @@
       "rootPatterns": ["Cargo.toml"]
     },
      "golang": {
-      "command": "/home/valery/Cache/go_path/bin/gopls",
+      "command": "gopls",
       "rootPatterns": ["go.mod"],
       "disableWorkspaceFolders": true,
       "filetypes": ["go"]
