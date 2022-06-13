@@ -19,7 +19,7 @@ Plug 'mileszs/ack.vim'
 Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'sheerun/vim-polyglot'
-Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 " Semantic language support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -36,6 +36,8 @@ Plug 'https://github.com/tpope/vim-fugitive'
 " FILES FIND
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" OTHER
+Plug 'fladson/vim-kitty'
 
 call plug#end()
 
@@ -56,9 +58,8 @@ if (empty($TMUX))
 endif
 
 syntax on
-colorscheme gruvbox
+colorscheme onedark
 set bg=dark
-let g:gruvbox_contrast_dark = 'hard'
 set splitright
 set splitbelow
 
@@ -219,19 +220,6 @@ let g:rustfmt_autosave = 1
 map <C-n> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-"""""GRUVBOX
-" deal with colors
-if !has('gui_running')
-  set t_Co=256
-endif
-if (match($TERM, "-256color") != -1) && (match($TERM, "screen-256color") == -1)
-  " screen does not (yet) support truecolor
-  set termguicolors
-endif
-
-set bg=dark
-
 
 """""""""""AIRLINE
 let g:airline#extensions#tabline#enabled = 1
