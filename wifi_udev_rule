@@ -1,0 +1,2 @@
+/etc/udev/rules.d/81-wifi-powersave.rules
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="wl*", RUN+="/usr/bin/iw dev $name set power_save off"
