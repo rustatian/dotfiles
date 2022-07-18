@@ -20,6 +20,7 @@ Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'sheerun/vim-polyglot'
 Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
 " Semantic language support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -58,7 +59,7 @@ if (empty($TMUX))
 endif
 
 syntax on
-colorscheme onedark
+colorscheme gruvbox
 set bg=dark
 set splitright
 set splitbelow
