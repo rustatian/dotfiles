@@ -1,4 +1,6 @@
-theme = "slick"
+[theme]
+theme = "native"
+[icons]
 icons = "awesome6"
 
 [[block]]
@@ -10,7 +12,7 @@ player = "spotify"
 block = "github"
 format = "$total.eng(1)|$mention.eng(1)"
 interval = 60
-token = "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"
+token = ""
 
 [[block]]
 block = "disk_space"
@@ -36,6 +38,11 @@ format_swap = "$swap_used_percents.eng(2)"
 block = "nvidia_gpu"
 interval = 1
 format = "GPU l:$utilization t:$temperature c:$clocks"
+
+[[block]]
+interval = 1
+block = "net"
+format = "{$signal_strength $ssid $frequency|Wired connection} via $device $speed_up $speed_down"
 
 [[block]]
 block = "cpu"
@@ -66,4 +73,5 @@ driver = "kbddbus"
 [[block]]
 block = "time"
 interval = 1
+locale = "pl_PL"
 format = "%a %d/%m %R"
