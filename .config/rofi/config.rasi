@@ -1,6 +1,0 @@
-configuration {
-show-icons: true;
-icon-theme: "Papirus-Dark";
-font: "Jetbrains Mono 16";
-theme: "materia";
-}
