@@ -1,14 +1,14 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
+env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  #TERM: alacritty
+  TERM: xterm-256color
 
 window:
   # Window dimensions (changes require restart)
@@ -16,7 +16,7 @@ window:
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
   dimensions:
-    columns: 160 
+    columns: 120 
     lines: 35
 
   # Window position (changes require restart)
@@ -95,7 +95,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-   family: SF Mono
+   family: Blex Mono Nerd Font
     # The `style` can be specified to pick a specific face.
    style: Medium
 
@@ -133,7 +133,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 15.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -554,32 +554,52 @@ cursor:
   #   - Trace
   #log_level: Warn
 
-# XTerm's default colors
 colors:
   # Default colors
   primary:
-    background: '0x000000'
-    foreground: '0xffffff'
+    background: '0x2c2c2c'
+    foreground: '0xd6d6d6'
+
+    dim_foreground:    '0xdbdbdb'
+    bright_foreground: '0xd9d9d9'
+    dim_background:    '0x202020' # not sure
+    bright_background: '0x3a3a3a' # not sure
+
+  # Cursor colors
+  cursor:
+    text:   '0x2c2c2c'
+    cursor: '0xd9d9d9'
+
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xcd0000'
-    green:   '0x00cd00'
-    yellow:  '0xcdcd00'
-    blue:    '0x0000ee'
-    magenta: '0xcd00cd'
-    cyan:    '0x00cdcd'
-    white:   '0xe5e5e5'
+    black:   '0x1c1c1c'
+    red:     '0xbc5653'
+    green:   '0x909d63'
+    yellow:  '0xebc17a'
+    blue:    '0x7eaac7'
+    magenta: '0xaa6292'
+    cyan:    '0x86d3ce'
+    white:   '0xcacaca'
 
   # Bright colors
   bright:
-    black:   '0x7f7f7f'
-    red:     '0xff0000'
-    green:   '0x00ff00'
-    yellow:  '0xffff00'
-    blue:    '0x5c5cff'
-    magenta: '0xff00ff'
-    cyan:    '0x00ffff'
-    white:   '0xffffff'
+    black:   '0x636363'
+    red:     '0xbc5653'
+    green:   '0x909d63'
+    yellow:  '0xebc17a'
+    blue:    '0x7eaac7'
+    magenta: '0xaa6292'
+    cyan:    '0x86d3ce'
+    white:   '0xf7f7f7'
 
+  # Dim colors
+  dim:
+    black:   '0x232323'
+    red:     '0x74423f'
+    green:   '0x5e6547'
+    yellow:  '0x8b7653'
+    blue:    '0x556b79'
+    magenta: '0x6e4962'
+    cyan:    '0x5c8482'
+    white:   '0x828282'
 draw_bold_text_with_bright_colors: false

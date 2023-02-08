@@ -13,9 +13,9 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Inter Medium 11
+font pango:BlexMono Nerd Font Mono Medium 10
 
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 0
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
@@ -30,7 +30,7 @@ exec --no-startup-id "xset s off && xset -dpms && xset s noblank"
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nvidia-settings --load-config-only --config .nvidia-settings-rc
-exec --no-startup-id feh --bg-fill ~/Pictures/trees.jpg
+exec --no-startup-id feh --bg-fill ~/Pictures/ROG.jpg
 exec --no-startup-id xfce4-clipman
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id kbdd
@@ -206,10 +206,20 @@ mode "$mode_system" {
 bindsym $mod+Pause mode "$mode_system"
 
 bar {
-    font pango:Source Code Pro Bold 12, FontAwesome 12
-    separator_symbol "++"
-    position bottom
+    font pango:BlexMono Nerd Font Mono Medium 10
+    separator_symbol "|"
+    position top
     workspace_buttons yes
     status_command i3status -c ~/.config/i3status/i3status.conf
+    tray_padding 5
+    colors {
+        background #000000
+        statusline #ffffff
+
+        focused_workspace  #ffffff #285577
+        active_workspace   #ffffff #333333
+        inactive_workspace #888888 #222222
+        urgent_workspace   #ffffff #900000
+    }
 }
 
