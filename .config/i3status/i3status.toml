@@ -1,5 +1,5 @@
 [theme]
-theme = "plain"
+theme = "dracula"
 [icons]
 icons = "awesome6"
 
@@ -16,7 +16,7 @@ format = " $icon RTX 3080Ti $utilization $temperature $clocks "
 
 [[block]]
 block = "github"
-token = "..."
+token = ""
 format = " $icon $total.eng(w:1) "
 info = ["total"]
 warning = ["mention","review_requested"]
@@ -29,13 +29,33 @@ interval = 1
 
 [[block]]
 block = "disk_space"
+path = "/run/media/valery/backups"
+info_type = "available"
+alert_unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+format = " $icon backups: $available.eng(w:2) "
+
+[[block]]
+block = "disk_space"
+path = "/run/media/valery/data"
+info_type = "available"
+alert_unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+format = " $icon data: $available.eng(w:2) "
+
+[[block]]
+block = "disk_space"
 path = "/"
 info_type = "available"
 alert_unit = "GB"
 interval = 20
 warning = 20.0
 alert = 10.0
-format = " $icon root: $available.eng(w:2) "
+format = " $icon main: $available.eng(w:2) "
 
 [[block]]
 block = "memory"
@@ -56,6 +76,10 @@ block = "sound"
 [[block.click]]
 button = "left"
 cmd = "pavucontrol"
+
+[[block]]
+block = "keyboard_layout"
+driver = "kbddbus"
 
 [[block]]
 block = "time"
