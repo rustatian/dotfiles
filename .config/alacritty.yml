@@ -95,9 +95,9 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-   family: Berkeley Mono 
+   family: Berkeley Mono
     # The `style` can be specified to pick a specific face.
-   style: Medium
+   style: Regular
 
   # Bold font face
   #bold:
@@ -133,7 +133,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 13.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -553,35 +553,44 @@ cursor:
   #   - Debug
   #   - Trace
   #log_level: Warn
-# github Alacritty Colors
 colors:
-  # Default colors
   primary:
-    background: '0x24292e'
-    foreground: '0xd1d5da'
-
-  # Normal colors
+    background: "0x191724"
+    foreground: "0xe0def4"
+  cursor:
+    text: "0xe0def4"
+    cursor: "0x524f67"
+  vi_mode_cursor:
+    text: "0xe0def4"
+    cursor: "0x524f67"
+  line_indicator:
+    foreground: None
+    background: None
+  selection:
+    text: "0xe0def4"
+    background: "0x403d52"
   normal:
-    black:   '0x586069'
-    red:     '0xea4a5a'
-    green:   '0x34d058'
-    yellow:  '0xffea7f'
-    blue:    '0x2188ff'
-    magenta: '0xb392f0'
-    cyan:    '0x39c5cf'
-    white:   '0xd1d5da'
-
-  # Bright colors
+    black: "0x26233a"
+    red: "0xeb6f92"
+    green: "0x31748f"
+    yellow: "0xf6c177"
+    blue: "0x9ccfd8"
+    magenta: "0xc4a7e7"
+    cyan: "0xebbcba"
+    white: "0xe0def4"
   bright:
-    black:   '0x959da5'
-    red:     '0xf97583'
-    green:   '0x85e89d'
-    yellow:  '0xffea7f'
-    blue:    '0x79b8ff'
-    magenta: '0xb392f0'
-    cyan:    '0x56d4dd'
-    white:   '0xfafbfc'
-
-  indexed_colors:
-    - { index: 16, color: '0xd18616' }
-    - { index: 17, color: '0xf97583' }
+    black: "0x6e6a86"
+    red: "0xeb6f92"
+    green: "0x31748f"
+    yellow: "0xf6c177"
+    blue: "0x9ccfd8"
+    magenta: "0xc4a7e7"
+    cyan: "0xebbcba"
+    white: "0xe0def4"
+  hints:
+    start:
+      foreground: "#908caa"
+      background: "#1f1d2e"
+    end:
+      foreground: "#6e6a86"
+      background: "#1f1d2e"

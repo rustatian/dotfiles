@@ -1,0 +1,10 @@
+{
+  "Lua": {
+    "runtime": {
+      "path": [
+        "?/init.lua"
+      ]
+    }
+  }
+}
+

@@ -30,6 +30,7 @@ exec --no-startup-id "xset s off && xset -dpms && xset s noblank"
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id "setxkbmap -model pc105 -layout pl,ru -option grp:win_space_toggle"
 exec --no-startup-id picom -c /home/valery/.config/picom/picom.conf
 exec --no-startup-id nvidia-settings --load-config-only --config .nvidia-settings-rc
 exec --no-startup-id feh --bg-fill ~/Pictures/forest.jpg
@@ -37,8 +38,7 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id xfce4-clipman
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id kbdd
-exec --no-startup-id companion
-exec --no-startup-id "setxkbmap -model pc105 -layout pl,ru -option grp:win_space_toggle"
+exec --no-startup-id /usr/local/opt/companion-stable/companion
 exec --no-startup-id discord
 exec --no-startup-id slack
 exec --no-startup-id whatsapp-nativefier
@@ -68,7 +68,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindcode $mod+40 exec "rofi -combi-modi window,drun,ssh -font \\"Inconsolata Medium 32\\" -show drun -icon-theme \\"Papirus-dark\\" -show-icons"
+bindcode $mod+40 exec rofi -modi drun -show drun -config ~/.config/rofi/rofidmenu.rasi
 
 # change focus
 bindsym $mod+j focus left
@@ -210,7 +210,7 @@ mode "$mode_system" {
 bindsym $mod+Pause mode "$mode_system"
 
 bar {
-    font pango:Berkeley Mono 10
+    font pango: Berkeley Mono 10
     position bottom
     workspace_buttons yes
     status_command i3status-rs ~/.config/i3status/i3status.toml
