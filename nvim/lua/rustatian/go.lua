@@ -1,9 +1,5 @@
 require('go').setup()
 
-require("neodev").setup({
-  library = { plugins = { "nvim-dap-ui" }, types = true },
-})
-
 local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",

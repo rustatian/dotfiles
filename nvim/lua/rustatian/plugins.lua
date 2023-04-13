@@ -38,35 +38,31 @@ packer.init({
 })
 
 return require('packer').startup(function(use)
-  --
-  -- Package manager
-  --
+  ---------------------
+  -- Package manager --
+  ---------------------
   use ({'wbthomason/packer.nvim'})
   use ({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
   
-  --
-  -- Go
-  --
+  --------
+  -- Go --
+  --------
   use ({'ray-x/go.nvim'})
   use ({'ray-x/guihua.lua'}) -- recommended if need floating window support
   use ({"folke/neodev.nvim"})
+  use ({'leoluz/nvim-dap-go'})
 
-  -- 
-  -- GUI enhancement
-  --
-  use({
-	'rose-pine/neovim',
-	 as = 'rose-pine',
-	 config = function()
-		vim.cmd('colorscheme rose-pine')
-	 end
-  })
+  ---------------------
+  -- GUI enhancement --
+  ---------------------
+  use ({'navarasu/onedark.nvim'})
   use ({'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'})
   use ({'nvim-tree/nvim-web-devicons'})
+  use ({'nvim-treesitter/nvim-treesitter-context'})
 
-  --
-  -- LSP configuration
-  --
+  -----------------------
+  -- LSP configuration --
+  -----------------------
   use ({
     "williamboman/mason.nvim",
     run = ":MasonUpdate" -- :MasonUpdate updates registry contents
@@ -78,43 +74,41 @@ return require('packer').startup(function(use)
   end
   use ({'simrat39/rust-tools.nvim'})
 
-  --
-  -- Snippers
-  --
+  --------------
+  -- Snippers --
+  --------------
   use ({'L3MON4D3/LuaSnip'})
   use ({'rafamadriz/friendly-snippets'})
   use ({"github/copilot.vim"})
 
-  --
-  -- Autocopletion
-  --
+  -------------------
+  -- Autocopletion --
+  -------------------
   use ({'hrsh7th/nvim-cmp'})
   use ({'hrsh7th/cmp-buffer'})
   use ({'hrsh7th/cmp-path'})
   use ({'saadparwaiz1/cmp_luasnip'})
   use ({'hrsh7th/cmp-nvim-lsp'})
   use ({'hrsh7th/cmp-nvim-lua'})
-  use({
+  use ({
     "folke/trouble.nvim",
       config = function()
           require("trouble").setup {
               icons = true,
-              -- your configuration comes here
-              -- or leave it empty to use the default settings
-              -- refer to the configuration section below
           }
       end
   })
 
-  --
-  -- Debugging
-  --
+  ---------------
+  -- Debugging --
+  ---------------
   use ({'mfussenegger/nvim-dap'})
-  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use ({"rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} })
+  use ({'theHamsta/nvim-dap-virtual-text'})
   
-  --
-  -- Tree
-  --
+  ----------
+  -- Tree --
+  ----------
   use ({
 	 'nvim-telescope/telescope.nvim', tag = '0.1.1',
 	  requires = { {'nvim-lua/plenary.nvim'} }
@@ -129,17 +123,17 @@ return require('packer').startup(function(use)
   end
   })
 
-  --
-  -- Other
-  --
-  -- Terminal
-  use ({"akinsho/toggleterm.nvim", tag = '*', config = function()
-  	require("toggleterm").setup()
-  end })
+  -----------
+  -- Other --
+  -----------
+
   -- Autopairs
   use ({
 	"windwp/nvim-autopairs",
 	config = function() require("nvim-autopairs").setup {} end
   })
+
+  -- Git
+  use ({ 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }) 
 
 end)
