@@ -2,17 +2,61 @@ require("neodev").setup({
   library = { plugins = { "nvim-dap-ui" }, types = true },
 })
 
-require("nvim-dap-virtual-text").setup()
+require("nvim-dap-virtual-text").setup {
+  enabled = true,
+
+
+  -- DapVirtualTextEnable, DapVirtualTextDisable, DapVirtualTextToggle, DapVirtualTextForceRefresh
+  enabled_commands = false,
+
+
+  -- highlight changed values with NvimDapVirtualTextChanged, else always NvimDapVirtualText
+  highlight_changed_variables = true,
+  highlight_new_as_changed = true,
+
+  -- prefix virtual text with comment string
+  commented = false,
+
+  show_stop_reason = true,
+  -- experimental features:
+  virt_text_pos = "eol", -- position of virtual text, see `:h nvim_buf_set_extmark()`
+  all_frames = false, -- show virtual text for all stack frames not only current. Only works for debugpy on my machine.
+}
+
+
 require("dapui").setup()
+local dap, dapui = require("dap"), require("dapui")
+dap.listeners.after.event_initialized["dapui_config"] = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+  dapui.close()
+end
+
+-------------
+-- Keymaps --
+-------------
+vim.keymap.set("n", "<F5>", ":lua require'dap'.continue()<CR>")
+vim.keymap.set("n", "<F10>", ":lua require'dap'.step_over()<CR>")
+vim.keymap.set("n", "<F11>", ":lua require'dap'.step_into()<CR>")
+vim.keymap.set("n", "<F12>", ":lua require'dap'.step_out()<CR>")
+vim.keymap.set("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>")
+vim.keymap.set("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('breakpoint condition: '))<CR>")
+vim.keymap.set("n", "<leader>lp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('log point message: '))<CR>")
+vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
+-- Go
+vim.keymap.set("n", "<leader>dt", ":lua require'dap-go'.debug_test()<CR>")
+vim.keymap.set("n", "<leader>dl", ":lua require'dap-go'.debug_last_test()<CR>")
+
+-- Rust
+vim.keymap.set("n", "<leader>rl", ":RustLastDebug <CR>")
 
 require('dap-go').setup {
-  -- Additional dap configurations can be added.
-  -- dap_configurations accepts a list of tables where each entry
-  -- represents a dap configuration. For more details do:
-  -- :help dap-configuration
   dap_configurations = {
     {
-      -- Must be "go" or it will be ignored by the plugin
       type = "go",
       name = "Attach remote",
       mode = "remote",
@@ -38,7 +82,7 @@ dap.adapters.lldb = {
   name = 'lldb'
 }
 
-dap.configurations.cpp = {
+dap.configurations.rust = {
   {
     name = 'Launch',
     type = 'lldb',
@@ -49,23 +93,26 @@ dap.configurations.cpp = {
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
     args = {},
+      initCommands = function()
+      -- Find out where to look for the pretty printer Python module
+      local rustc_sysroot = vim.fn.trim(vim.fn.system('rustc --print sysroot'))
 
-    -- 💀
-    -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
-    --
-    --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-    --
-    -- Otherwise you might get the following error:
-    --
-    --    Error on launch: Failed to attach to the target process
-    --
-    -- But you should be aware of the implications:
-    -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
-    -- runInTerminal = false,
+      local script_import = 'command script import "' .. rustc_sysroot .. '/lib/rustlib/etc/lldb_lookup.py"'
+      local commands_file = rustc_sysroot .. '/lib/rustlib/etc/lldb_commands'
+
+      local commands = {}
+      local file = io.open(commands_file, 'r')
+      if file then
+
+        for line in file:lines() do
+          table.insert(commands, line)
+        end
+        file:close()
+      end
+
+      table.insert(commands, 1, script_import)
+
+      return commands
+    end,
   },
 }
-
--- If you want to use this for Rust and C, add something like this:
-
-dap.configurations.c = dap.configurations.cpp
-dap.configurations.rust = dap.configurations.cpp

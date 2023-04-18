@@ -7,3 +7,10 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
+
+----------------
+-- Nvim-Tree ---
+----------------
+
+-- global
+-- vim.api.nvim_set_keymap("n", "<C-h>", ":NvimTreeToggle<CR>", {silent = true, noremap = true})

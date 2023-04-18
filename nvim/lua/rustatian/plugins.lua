@@ -52,9 +52,19 @@ return require('packer').startup(function(use)
   use ({"folke/neodev.nvim"})
   use ({'leoluz/nvim-dap-go'})
 
+  ----------
+  -- Rust --
+  ----------
+  use ({'rust-lang/rust.vim'})
+  use ({'simrat39/rust-tools.nvim'})
+
   ---------------------
   -- GUI enhancement --
-  ---------------------
+  --------------------- 
+  use ({
+  	'nvim-lualine/lualine.nvim',
+  	requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  })
   use ({'navarasu/onedark.nvim'})
   use ({'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'})
   use ({'nvim-tree/nvim-web-devicons'})
@@ -72,7 +82,6 @@ return require('packer').startup(function(use)
   if packer_bootstrap then
     require('packer').sync()
   end
-  use ({'simrat39/rust-tools.nvim'})
 
   --------------
   -- Snippers --
@@ -119,7 +128,7 @@ return require('packer').startup(function(use)
          'nvim-tree/nvim-web-devicons',
   },
   config = function()
-    require("nvim-tree").setup {}
+    require("nvim-tree").setup{}
   end
   })
 
@@ -134,6 +143,6 @@ return require('packer').startup(function(use)
   })
 
   -- Git
-  use ({ 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }) 
+  use ({'lewis6991/gitsigns.nvim'})
 
 end)
