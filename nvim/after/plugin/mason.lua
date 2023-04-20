@@ -3,7 +3,9 @@ if not status_ok then
   return
 end
 
-require("mason").setup({
+local servers = {'gopls', 'rust_analyzer'}
+
+mason.setup({
     ui = {
         icons = {
             package_installed = "✓",
@@ -12,4 +14,8 @@ require("mason").setup({
         }
     }
 })
-require("mason-lspconfig").setup()
+
+require('mason-lspconfig').setup {
+	ensure_installed = servers,
+}
+

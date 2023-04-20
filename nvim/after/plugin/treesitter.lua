@@ -1,6 +1,9 @@
+vim.opt.runtimepath:append("/home/valery/.config/nvim/treesitter")
+
 require'nvim-treesitter.configs'.setup {
+  parser_install_dir = "/home/valery/.config/nvim/treesitter",
   -- A list of parser names, or "all"
-  ensure_installed = { "make", "markdown", "php", "python", "c", "cpp", "lua", "rust", "go" },
+  --ensure_installed = { "make", "gomod", "bash", "yaml", "markdown", "dockerfile", "php", "python", "c", "cpp", "lua", "rust", "go" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
