@@ -12,19 +12,20 @@ return {
         require('crates').setup()
     end,
   },
-  ---------------------
-  -- GUI enhancement --
-  --------------------- 
+
+  -----------------------
+  -- GUI enhancements --
+  -----------------------
   {
 	'nvim-lualine/lualine.nvim',
   	dependencies = 'nvim-tree/nvim-web-devicons',
   },
-  'navarasu/onedark.nvim',
   {
 	'akinsho/bufferline.nvim', 
 	version = "v3.*", 
 	dependencies = 'nvim-tree/nvim-web-devicons',
   },
+  'navarasu/onedark.nvim',
   'nvim-tree/nvim-web-devicons',
   'nvim-treesitter/nvim-treesitter-context',
   'onsails/lspkind.nvim',
@@ -102,5 +103,13 @@ return {
 
   -- Git
  'lewis6991/gitsigns.nvim',
+
+ -- Comment
+ {
+	 'numToStr/Comment.nvim',
+	 config = function()
+		 require('Comment').setup()
+	 end
+ },
 }
 

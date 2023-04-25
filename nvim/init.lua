@@ -7,6 +7,18 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ';'
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.o.hlsearch = false
+
+-- save undo history
+vim.o.undofile = true
+
+-- case insensitive search
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+-- decrease update time
+vim.o.updatetime = 250
+vim.wo.signcolumn = 'yes'
 
 -- set termguicolors to enable highlight groups
 set.termguicolors = true

@@ -89,43 +89,36 @@ require("dapui").setup({
 })
 local dap, dapui = require("dap"), require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open()
+  dapui.open({reset=true})
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close()
+  dapui.close({reset=true})
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close()
+  dapui.close({reset=true})
 end
 
-require('dap-go').setup {
-  dap_configurations = {
-    {
-      type = "go",
-      name = "Attach remote",
-      mode = "remote",
-      request = "attach",
-    },
-  },
-  -- delve configurations
-  delve = {
-    -- time to wait for delve to initialize the debug session.
-    -- default to 20 seconds
-    initialize_timeout_sec = 20,
-    -- a string that defines the port to start delve debugger.
-    -- default to string "${port}" which instructs nvim-dap
-    -- to start the process in a random available port
-    port = "${port}"
-  },
+-----------------
+-- Go Debugger --
+-----------------
+require('dap-go').setup()
+dap.adapters.delve = {
+  type = 'server',
+  port = '${port}',
+  executable = {
+    command = 'dlv',
+    args = {'dap', '-l', '127.0.0.1:${port}'},
+  }
 }
 
-local dap = require('dap')
+-------------------
+-- RUST Debugger --
+-------------------
 dap.adapters.lldb = {
   type = 'executable',
   command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
   name = 'lldb'
 }
-
 dap.configurations.rust = {
   {
     name = 'Launch',
@@ -165,16 +158,22 @@ dap.configurations.rust = {
 -- Debug Keymaps --
 -------------------
 vim.keymap.set("n", "<F5>", ":lua require'dap'.continue()<CR>")
+vim.keymap.set("n", "<F6>", ":lua require'dapui'.toggle({reset=true})<CR>")
+vim.keymap.set("n", "<F9>", ":lua require'dap'.close()<CR>")
 vim.keymap.set("n", "<F10>", ":lua require'dap'.step_over()<CR>")
 vim.keymap.set("n", "<F11>", ":lua require'dap'.step_into()<CR>")
 vim.keymap.set("n", "<F12>", ":lua require'dap'.step_out()<CR>")
+
+
+-- Breakpoints
 vim.keymap.set("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>")
 vim.keymap.set("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('breakpoint condition: '))<CR>")
 vim.keymap.set("n", "<leader>lp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('log point message: '))<CR>")
 vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
+
 -- Go
-vim.keymap.set("n", "<leader>dt", ":lua require'dap-go'.debug_test()<CR>")
-vim.keymap.set("n", "<leader>dl", ":lua require'dap-go'.debug_last_test()<CR>")
+vim.keymap.set("n", "<leader>gt", ":lua require'dap-go'.debug_test()<CR>")
+vim.keymap.set("n", "<leader>gl", ":lua require'dap-go'.debug_last_test()<CR>")
 
 -- Rust
 vim.keymap.set("n", "<leader>rl", ":RustLastDebug <CR>")

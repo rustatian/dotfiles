@@ -14,12 +14,16 @@ local on_attach = function(client)
     require'completion'.on_attach(client)
 end
 
+--rust-analyzer.cachePriming.numThreads
 require'lspconfig'.rust_analyzer.setup ({
         capabilities = capabilities,
         settings = {
                 ["rust-analyzer"] = {
+		cachePriming = {
+			numThreads = 24,
+		},
                 checkOnSave = {
-                        command = "clippy",
+                        command = "cargo clippy --all-targets --all-features -- -D warnings",
                         },
                 imports = {
                         granularity = {
