@@ -1,6 +1,6 @@
 -- theme
 require('onedark').setup {
-    style = 'warmer',
+    style = 'darker',
     code_style = {
         comments = 'none',
         keywords = 'none',
@@ -9,6 +9,7 @@ require('onedark').setup {
         variables = 'none'
     },
 }
+
 require('onedark').load()
 
 -- lualine

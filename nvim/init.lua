@@ -34,7 +34,6 @@ set.termguicolors = true
 set.showmatch = true
 set.ignorecase = true
 set.cursorline = true
-set.autowriteall = true
 
 local group = vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
 local set_cursorline = function(event, value, pattern)

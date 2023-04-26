@@ -177,3 +177,4 @@ vim.keymap.set("n", "<leader>gl", ":lua require'dap-go'.debug_last_test()<CR>")
 
 -- Rust
 vim.keymap.set("n", "<leader>rl", ":RustLastDebug <CR>")
+vim.keymap.set("n", "<leader>rd", ":RustDebuggables <CR>")
