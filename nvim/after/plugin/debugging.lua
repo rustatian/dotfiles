@@ -87,6 +87,9 @@ require("dapui").setup({
       max_value_lines = 100
     }
 })
+
+
+
 local dap, dapui = require("dap"), require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open({reset=true})
@@ -101,7 +104,9 @@ end
 -----------------
 -- Go Debugger --
 -----------------
+
 require('dap-go').setup()
+
 dap.adapters.delve = {
   type = 'server',
   port = '${port}',
@@ -109,6 +114,43 @@ dap.adapters.delve = {
     command = 'dlv',
     args = {'dap', '-l', '127.0.0.1:${port}'},
   }
+}
+
+dap.adapters.go = {
+  type = 'executable';
+  command = 'node';
+  args = {
+	os.getenv('HOME') .. '/.config/nvim/vscode-go/dist/debugAdapter.js'
+  };
+}
+
+-- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
+dap.configurations.go = {
+  {
+    type = 'go';
+    name = 'Debug (VSCode)';
+    request = 'launch';
+    buildFlags = "-race",
+    showLog = false;
+    program = "${file}";
+    dlvToolPath = vim.fn.exepath('dlv')  -- Adjust to where delve is installed
+  },
+  {
+    type = "delve",
+    name = "Debug (delve)",
+    request = "launch",
+    buildFlags = "-race",
+    cwd = "${fileDirname}", 
+    program = "${file}",
+  },
+  {
+    type = "delve",
+    name = "Debug test (go.mod)",
+    buildFlags = "-race",
+    request = "launch",
+    mode = "test",
+    program = "./${relativeFileDirname}"
+  } 
 }
 
 -------------------
@@ -119,6 +161,7 @@ dap.adapters.lldb = {
   command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
   name = 'lldb'
 }
+
 dap.configurations.rust = {
   {
     name = 'Launch',
@@ -177,4 +220,30 @@ vim.keymap.set("n", "<leader>gl", ":lua require'dap-go'.debug_last_test()<CR>")
 
 -- Rust
 vim.keymap.set("n", "<leader>rl", ":RustLastDebug <CR>")
-vim.keymap.set("n", "<leader>rd", ":RustDebuggables <CR>")
+vim.keymap.set("n", "<leader>rd", ":RustDebuggables<CR>")
+
+-- Gui
+local dap_breakpoint = {
+  error = {
+    text = "🛑",
+    texthl = "LspDiagnosticsSignError",
+    linehl = "",
+    numhl = "",
+  },
+  rejected = {
+    text = "🐛",
+    texthl = "LspDiagnosticsSignHint",
+    linehl = "",
+    numhl = "",
+  },
+  stopped = {
+    text = "🌟",
+    texthl = "LspDiagnosticsSignInformation",
+    linehl = "DiagnosticUnderlineInfo",
+    numhl = "LspDiagnosticsSignInformation",
+  },
+}
+
+vim.fn.sign_define("DapBreakpoint", dap_breakpoint.error)
+vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
+vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)

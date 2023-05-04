@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-local servers = {'gopls', 'rust_analyzer'}
+local servers = {'gopls', 'rust_analyzer' } --'buf', 'cmakelint', 'codelldb', 'delve', 'goimports', 'golangci-lint', 'gomodifytags', 'gotest', 'protolint', 'pydocstyle', 'pylint'}
 
 mason.setup({
     ui = {

@@ -19,9 +19,6 @@ require'lspconfig'.rust_analyzer.setup ({
         capabilities = capabilities,
         settings = {
                 ["rust-analyzer"] = {
-		cachePriming = {
-			numThreads = 24,
-		},
                 checkOnSave = {
                         command = "cargo clippy --all-targets --all-features -- -D warnings",
                         },
