@@ -46,6 +46,34 @@ require'lspconfig'.gopls.setup {
         on_attach = on_attach,
 }
 
+require'lspconfig'.bufls.setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+}
+
+require'lspconfig'.bashls.setup{}
+require'lspconfig'.grammarly.setup{}
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require'lspconfig'.jsonls.setup {
+  capabilities = capabilities,
+}
+
+require'lspconfig'.marksman.setup{}
+require('lspconfig').yamlls.setup {
+  settings = {
+    yaml = {
+      schemas = {
+        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+        ["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] = "/*.k8s.yaml",
+	["https://cdn.jsdelivr.net/gh/roadrunner-server/roadrunner@latest/schemas/config/3.0.schema.json"] = ".rr*.yaml",
+      },
+    },
+  }
+}
+
 require'lspconfig'.golangci_lint_ls.setup {
          capabilities = capabilities,
          on_attach = on_attach,

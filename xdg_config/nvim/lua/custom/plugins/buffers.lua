@@ -31,14 +31,14 @@ return {
             diagnostics_indicator = function(count, level, diagnostics_dict, context)
                 return "("..count..")"
             end,
-            offsets = {
-                {
-                    filetype = "NvimTree",
-                    text = "File Explorer",
-                    text_align = "center",
-                    separator = true
-                }
-            },
+            -- offsets = {
+            --     {
+            --         filetype = "NvimTree",
+            --         text = "File Explorer",
+            --         text_align = "center",
+            --         separator = true
+            --     }
+            -- },
             color_icons = true, -- whether or not to add the filetype icon highlights
             show_buffer_icons = true, -- disable filetype icons for buffers
             show_buffer_close_icons = true,
