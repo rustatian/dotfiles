@@ -4,8 +4,9 @@ return {
 	dependencies = {
   		'ray-x/guihua.lua', -- recommended if need floating window support
   		"folke/neodev.nvim",
-  		'leoluz/nvim-dap-go',
 	},
+  	event = {"CmdlineEnter"},
+  	ft = {"go", 'gomod'},
 	build = ':lua require("go.install").update_all_sync()',
   },
 }

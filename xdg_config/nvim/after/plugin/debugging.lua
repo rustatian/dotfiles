@@ -105,8 +105,6 @@ end
 -- Go Debugger --
 -----------------
 
-require('dap-go').setup()
-
 dap.adapters.delve = {
   type = 'server',
   port = '${port}',
@@ -208,15 +206,12 @@ vim.keymap.set("n", "<F11>", ":lua require'dap'.step_into()<CR>")
 vim.keymap.set("n", "<F12>", ":lua require'dap'.step_out()<CR>")
 
 
--- Breakpoints
+-- DAP
 vim.keymap.set("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>")
 vim.keymap.set("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('breakpoint condition: '))<CR>")
 vim.keymap.set("n", "<leader>lp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('log point message: '))<CR>")
-vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
-
--- Go
-vim.keymap.set("n", "<leader>gt", ":lua require'dap-go'.debug_test()<CR>")
-vim.keymap.set("n", "<leader>gl", ":lua require'dap-go'.debug_last_test()<CR>")
+vim.keymap.set("n", "<leader>ro", ":lua require'dap'.repl.open()<CR>")
+vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
 
 -- Rust
 vim.keymap.set("n", "<leader>rl", ":RustLastDebug <CR>")

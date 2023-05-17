@@ -1,0 +1,4 @@
+{
+	"go.languageServerFlags": ["-rpc.trace", "serve"],
+	"go.toolsManagement.checkForUpdates": "off"
+}
