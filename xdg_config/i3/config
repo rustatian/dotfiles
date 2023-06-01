@@ -34,7 +34,6 @@ exec --no-startup-id "setxkbmap -model pc105 -layout pl,ru -option grp:win_space
 exec --no-startup-id picom -c /home/valery/.config/picom/picom.conf
 exec --no-startup-id nvidia-settings --load-config-only --config .nvidia-settings-rc
 exec --no-startup-id feh --bg-fill ~/Pictures/forest.jpg
-exec --no-startup-id redshift-gtk
 exec --no-startup-id xfce4-clipman
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id kbdd
@@ -209,18 +208,9 @@ mode "$mode_system" {
 
 bindsym $mod+Pause mode "$mode_system"
 bar {
-    font pango: FiraCode Nerd Font Mono Ret 10,Fira Code Retina 9
+    font pango: FiraCode Nerd Font Mono Med 10,Fira Code Medium 9
     position top
     workspace_buttons yes
     status_command i3status-rs ~/.config/i3/i3status.toml
     tray_padding 3
-    colors {
-        background #282a36
-        statusline #ffffff
-
-        focused_workspace  #ffffff #285577
-        active_workspace   #ffffff #333333
-        inactive_workspace #888888 #222222
-        urgent_workspace   #ffffff #900000
-    }
 }

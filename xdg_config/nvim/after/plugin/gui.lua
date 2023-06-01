@@ -1,27 +1,17 @@
-require('onedark').setup {
-    style = 'warmer',
-    code_style = {
-        comments = 'none',
-        keywords = 'none',
-        functions = 'none',
-        strings = 'none',
-        variables = 'none'
-    },
-    diagnostics = {
-        darker = true, -- darker colors for diagnostic
-        undercurl = true,   -- use undercurl instead of underline for diagnostics
-        background = true,    -- use background color for virtual text
-    },
-}
-
-require('onedark').load()
+require'onedarkpro'.setup({})
+require'onedarkpro'.load()
+vim.cmd("colorscheme onedark_dark")
 
 -- lualine
 require('lualine').setup {
     options = {
 	icons_enabled = true,
-	theme = 'onedark',
+	theme = 'onedark_dark',
 	component_separator = '|',
 	section_separator = '',
     }
 }
+
+require("barbecue").setup({
+  attach_navic = false, -- prevent barbecue from automatically attaching nvim-navic
+})

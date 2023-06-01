@@ -91,15 +91,6 @@ require("dapui").setup({
 
 
 local dap, dapui = require("dap"), require("dapui")
-dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open({reset=true})
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close({reset=true})
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close({reset=true})
-end
 
 -----------------
 -- Go Debugger --
@@ -118,7 +109,7 @@ dap.adapters.go = {
   type = 'executable';
   command = 'node';
   args = {
-	os.getenv('HOME') .. '/.config/nvim/vscode-go/dist/debugAdapter.js'
+	os.getenv('HOME') .. '/.vscode-server/extensions/golang.go-0.38.0/dist/debugAdapter.js';
   };
 }
 
@@ -147,6 +138,7 @@ dap.configurations.go = {
     buildFlags = "-race",
     request = "launch",
     mode = "test",
+    cwd = "${fileDirname}",
     program = "./${relativeFileDirname}"
   } 
 }

@@ -16,6 +16,16 @@ return {
   -----------------------
   -- GUI enhancements --
   -----------------------
+
+  {
+  	"utilyre/barbecue.nvim",
+  	name = "barbecue",
+  	version = "*",
+  	dependencies = {
+    		"SmiteshP/nvim-navic",
+    		"nvim-tree/nvim-web-devicons", -- optional dependency
+  	},
+  },
   {
 	'nvim-lualine/lualine.nvim',
   	dependencies = 'nvim-tree/nvim-web-devicons',
@@ -25,7 +35,11 @@ return {
 	version = "v3.*", 
 	dependencies = 'nvim-tree/nvim-web-devicons',
   },
-  'navarasu/onedark.nvim',
+  {
+  	"olimorris/onedarkpro.nvim",
+  	priority = 1001 -- Ensure it loads first
+  },
+  'folke/tokyonight.nvim',
   'nvim-tree/nvim-web-devicons',
   'nvim-treesitter/nvim-treesitter-context',
   'onsails/lspkind.nvim',
