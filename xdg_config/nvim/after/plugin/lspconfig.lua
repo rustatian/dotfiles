@@ -1,6 +1,7 @@
 local null_ls = require("null-ls")
 null_ls.setup({
     sources = {
+	null_ls.builtins.code_actions.gitsigns,
         null_ls.builtins.formatting.rustfmt,
         null_ls.builtins.diagnostics.fish,
         null_ls.builtins.diagnostics.gitlint,
@@ -61,6 +62,31 @@ require'lspconfig'.gopls.setup {
 }
 
 require'lspconfig'.bufls.setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+}
+
+require'lspconfig'.docker_compose_language_service.setup{
+        capabilities = capabilities,
+        on_attach = on_attach,
+}
+
+require'lspconfig'.dockerls.setup{
+        capabilities = capabilities,
+        on_attach = on_attach,
+}
+
+require'lspconfig'.jsonls.setup {
+  	capabilities = capabilities,
+        on_attach = on_attach,
+}
+
+require'lspconfig'.sqlls.setup{
+  	capabilities = capabilities,
+        on_attach = on_attach,
+}
+
+require'lspconfig'.semgrep.setup {
         capabilities = capabilities,
         on_attach = on_attach,
 }

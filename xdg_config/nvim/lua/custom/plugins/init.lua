@@ -36,10 +36,10 @@ return {
 	dependencies = 'nvim-tree/nvim-web-devicons',
   },
   {
-  	"olimorris/onedarkpro.nvim",
+	"navarasu/onedark.nvim",
+	lazy = false,
   	priority = 1001 -- Ensure it loads first
   },
-  'folke/tokyonight.nvim',
   'nvim-tree/nvim-web-devicons',
   'nvim-treesitter/nvim-treesitter-context',
   'onsails/lspkind.nvim',

@@ -24,21 +24,21 @@ return {
             max_name_length = 18,
             max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
             truncate_names = true, -- whether or not tab names should be truncated
-            tab_size = 18,
+            tab_size = 20,
             diagnostics = "nvim_lsp",
             diagnostics_update_in_insert = false,
             -- The diagnostics indicator can be set to nil to keep the buffer name highlight but delete the highlighting
             diagnostics_indicator = function(count, level, diagnostics_dict, context)
                 return "("..count..")"
             end,
-            -- offsets = {
-            --     {
-            --         filetype = "NvimTree",
-            --         text = "File Explorer",
-            --         text_align = "center",
-            --         separator = true
-            --     }
-            -- },
+            offsets = {
+                {
+                    filetype = "NvimTree",
+                    text = "File Explorer",
+                    text_align = "center",
+                    separator = true
+                }
+            },
             color_icons = true, -- whether or not to add the filetype icon highlights
             show_buffer_icons = true, -- disable filetype icons for buffers
             show_buffer_close_icons = true,
