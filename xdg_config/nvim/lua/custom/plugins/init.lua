@@ -44,7 +44,10 @@ return {
   'nvim-treesitter/nvim-treesitter-context',
   'onsails/lspkind.nvim',
   'tjdevries/express_line.nvim',
-  'j-hui/fidget.nvim',
+  {
+	  'j-hui/fidget.nvim',
+	  branch = "legacy",
+  },
 
   --------------
   -- Snippers --

@@ -86,11 +86,6 @@ require'lspconfig'.sqlls.setup{
         on_attach = on_attach,
 }
 
-require'lspconfig'.semgrep.setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-}
-
 require'lspconfig'.bashls.setup{}
 require'lspconfig'.grammarly.setup{}
 

@@ -184,8 +184,7 @@ require("el").setup {
   end,
 }
 
-require("fidget").setup {
-
+require"fidget".setup{
   text = {
     spinner = "moon",
   },
@@ -197,44 +196,3 @@ require("fidget").setup {
     relative = "editor",
   },
 }
-
---[[
-
-let s:left_sep = ' ❯❯ '
-let s:right_sep = ' ❮❮ '
-
-        let s:seperator.filenameright = ''
-        let s:seperator.filesizeright = ''
-        let s:seperator.gitleft = ''
-        let s:seperator.gitright = ''
-        let s:seperator.lineinfoleft = ''
-        let s:seperator.lineformatright = ''
-        let s:seperator.EndSeperate = ' '
-        let s:seperator.emptySeperate1 = ''
-    elseif a:style == 'slant-cons'
-        let s:seperator.homemoderight = ''
-        let s:seperator.filenameright = ''
-
-        let s:seperator.filesizeright = '' let s:seperator.gitleft = ''
-        let s:seperator.gitright = ''
-
-        let s:seperator.lineinfoleft = ''
-        let s:seperator.lineformatright = ''
-        let s:seperator.EndSeperate = ' '
-        let s:seperator.emptySeperate1 = ''
-    elseif a:style == 'slant-fade'
-        let s:seperator.homemoderight = ''
-        let s:seperator.filenameright = ''
-        let s:seperator.filesizeright = ''
-        let s:seperator.gitleft = ''
-        let s:seperator.gitright = ''
-        " let s:seperator.gitright = ''
-        let s:seperator.lineinfoleft = ''
-
-        let s:seperator.lineformatright = ''
-        let s:seperator.EndSeperate = ' '
-
-        let s:seperator.emptySeperate1 = ''
---]]
-
-
