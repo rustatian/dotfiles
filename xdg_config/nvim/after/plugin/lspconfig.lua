@@ -86,6 +86,11 @@ require'lspconfig'.sqlls.setup{
         on_attach = on_attach,
 }
 
+require'lspconfig'.pylsp.setup{
+  	capabilities = capabilities,
+        on_attach = on_attach,
+}
+
 require'lspconfig'.bashls.setup{}
 require'lspconfig'.grammarly.setup{}
 
