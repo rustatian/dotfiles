@@ -36,7 +36,7 @@ return {
 	dependencies = 'nvim-tree/nvim-web-devicons',
   },
   {
-	"navarasu/onedark.nvim",
+	"catppuccin/nvim",
 	lazy = false,
   	priority = 1001 -- Ensure it loads first
   },
