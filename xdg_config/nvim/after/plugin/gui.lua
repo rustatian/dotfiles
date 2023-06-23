@@ -29,27 +29,21 @@ require("catppuccin").setup({
         types = {},
         operators = {},
     },
-    color_overrides = {
-	mocha = {
-		base = "#000000",
-		mantle = "#000000",
-		crust = "#000000",
-	},
-    },
+    color_overrides = {},
     custom_highlights = {},
     integrations = {
         cmp = true,
         gitsigns = true,
         nvimtree = true,
         telescope = true,
-        notify = false,
+        notify = true,
         mini = false,
     },
 })
 
-require('catppuccin').load()
 -- setup must be called before loading
 vim.cmd.colorscheme "catppuccin"
+require('catppuccin').load()
 
 -- lualine
 require('lualine').setup {
@@ -64,3 +58,5 @@ require('lualine').setup {
 require("barbecue").setup({
   attach_navic = false, -- prevent barbecue from automatically attaching nvim-navic
 })
+
+require'notify'.setup({})

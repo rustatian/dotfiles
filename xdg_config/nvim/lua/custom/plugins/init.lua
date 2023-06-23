@@ -40,14 +40,15 @@ return {
 	lazy = false,
   	priority = 1001 -- Ensure it loads first
   },
-  'nvim-tree/nvim-web-devicons',
-  'nvim-treesitter/nvim-treesitter-context',
-  'onsails/lspkind.nvim',
-  'tjdevries/express_line.nvim',
   {
 	  'j-hui/fidget.nvim',
 	  branch = "legacy",
   },
+  'nvim-tree/nvim-web-devicons',
+  'nvim-treesitter/nvim-treesitter-context',
+  'onsails/lspkind.nvim',
+  'tjdevries/express_line.nvim',
+  'rcarriga/nvim-notify',
 
   --------------
   -- Snippers --
