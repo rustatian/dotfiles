@@ -14,7 +14,7 @@ return {
             middle_mouse_command = nil,          -- can be a string | function, | false see "Mouse actions"
             indicator = {
                 icon = '▎', -- this should be omitted if indicator style is not 'icon'
-                style = 'icon',
+                style = 'none',
             },
             buffer_close_icon = '󰅖',
             modified_icon = '●',
@@ -36,6 +36,7 @@ return {
                     filetype = "NvimTree",
                     text = "File Explorer",
                     text_align = "center",
+            	    highlight = "Directory",
                     separator = true
                 }
             },
@@ -49,7 +50,7 @@ return {
             persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
             -- can also be a table containing 2 custom separators
             -- [focused and unfocused]. eg: { '|', '|' }
-            separator_style = "thin",
+            separator_style = "slant",
             enforce_regular_tabs = true,
             always_show_bufferline = true,
             hover = {
