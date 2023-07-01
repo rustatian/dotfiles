@@ -269,3 +269,5 @@ bar {
     	binding_mode       #2F343A #900000 #FFFFFF
   }
 }
+
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
