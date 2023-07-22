@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango: BerkeleyMono Nerd Font 9
+font pango: BerkeleyMono Nerd Font Bold 9
 
 for_window [class=".*"] border pixel 0
 for_window [window_role="pop-up"] floating enable
@@ -30,12 +30,13 @@ exec --no-startup-id "xset s off && xset -dpms && xset s noblank"
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id sh .screenlayout/3d.sh
+
+exec --no-startup-id nvidia-settings --load-config-only --config .nvidia-settings-rc
+# exec --no-startup-id sh .screenlayout/3d.sh
 exec --no-startup-id "setxkbmap -model pc105 -layout pl,ru -option grp:win_space_toggle"
-exec --no-startup-id picom --config /home/valery/.config/picom/picom.conf
+# exec --no-startup-id picom --config /home/valery/.config/picom/picom.conf
 exec --no-startup-id feh --bg-fill ~/Pictures/adam-kool.jpg
 exec --no-startup-id xfce4-clipman
-exec --no-startup-id redshift -P -O 4500
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id kbdd
 exec --no-startup-id discord
@@ -209,9 +210,9 @@ mode "$mode_system" {
 bindsym $mod+Pause mode "$mode_system"
 bar {
     font pango: BerkeleyMono Nerd Font Bold 9
-    position top
+    position bottom
     workspace_buttons yes
     status_command i3status-rs $HOME/.config/i3/i3status.toml
-    tray_padding 3
-    tray_output DP-3
+    tray_padding 2
+    tray_output DP-2
 }

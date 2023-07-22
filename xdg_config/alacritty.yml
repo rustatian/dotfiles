@@ -17,7 +17,7 @@ window:
     x: 0
     y: 0
 
-  opacity: 0.99
+  opacity: 1
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
   decorations: full
@@ -30,17 +30,17 @@ scrolling:
 # Font configuration
 font:
   normal:
-   family: FiraCode Nerd Font Propo
-   style: Medium
+   family: BerkeleyMono Nerd Font
+   style: Bold
 
   bold:
-    family: FiraCode Nerd Font Propo
+    family: BerkeleyMono Nerd Font
     style: Bold
 
   italic:
-    family: FiraCode Nerd Font Propo
+    family: BerkeleyMono Nerd Font
     style: Italic
-  size: 20.0
+  size: 13.0
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true

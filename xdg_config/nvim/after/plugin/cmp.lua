@@ -123,3 +123,9 @@ local cmp = require'cmp'
       { name = 'buffer' }
     }
   })
+
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({
+    { name = 'cmdline' }
+  })
+})
