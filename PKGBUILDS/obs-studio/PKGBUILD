@@ -1,6 +1,6 @@
 pkgname=obs-studio
 pkgver='30.0.0'
-pkgrel='2'
+pkgrel='3'
 pkgdesc="Free, open source software for live streaming and recording"
 arch=('x86_64')
 url="https://obsproject.com"
@@ -16,7 +16,7 @@ optdepends=(
 	'sndio: Sndio input client'
 	'v4l2loopback-dkms: virtual camera support'
 )
-source=(obs-studio::git+https://github.com/obsproject/obs-studio.git#tag=30.0.0-beta2	
+source=(obs-studio::git+https://github.com/obsproject/obs-studio.git#tag=30.0.0-beta3	
 	com.obsproject.Studio.desktop)
 md5sums=('SKIP'
          'SKIP'
@@ -46,7 +46,7 @@ build() {
 		-DENABLE_AJA=OFF \
 		-DENABLE_JACK=ON \
 		-DENABLE_NEW_MPEGTS_OUTPUT=OFF \
-		-DOBS_VERSION_OVERRIDE="30.0.0-beta1" ..
+		-DOBS_VERSION_OVERRIDE="30.0.0-beta3" ..
 
 	make
 }
