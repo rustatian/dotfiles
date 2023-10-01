@@ -1,5 +1,19 @@
 return {
   ----------
+  -- Sys  --
+  ----------
+
+  {
+	  "folke/neodev.nvim", 
+	  opts = {}
+  },
+  { 
+	  "lukas-reineke/indent-blankline.nvim", 
+	  main = "ibl", 
+	  opts = {} 
+  },
+  
+  ----------
   -- Rust --
   ----------
   'rust-lang/rust.vim',
