@@ -4,4 +4,4 @@ kernel=D:\\wsl\\archlinux\\bzImage
 swap=64G
 swapfile=D:\\wsl\\archlinux\\arch-swap.vhdx
 [experimental]
-autoMemoryReclaim=true
+autoMemoryReclaim=gradual
