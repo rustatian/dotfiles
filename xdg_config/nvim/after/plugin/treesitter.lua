@@ -1,7 +1,7 @@
-vim.opt.runtimepath:append("/home/valery/.config/nvim/treesitter")
+vim.opt.runtimepath:append("/Users/rustatian/.config/nvim/treesitter")
 
 require'nvim-treesitter.configs'.setup {
-  parser_install_dir = "/home/valery/.config/nvim/treesitter",
+  parser_install_dir = "/Users/rustatian/.config/nvim/treesitter",
   -- A list of parser names, or "all"
   ensure_installed = { "make", "html", "gomod", "bash", "yaml", "markdown", "dockerfile", "php", "python", "c", "cpp", "lua", "rust", "go" },
 
