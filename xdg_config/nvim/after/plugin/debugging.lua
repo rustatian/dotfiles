@@ -109,7 +109,7 @@ dap.adapters.go = {
   type = 'executable';
   command = 'node';
   args = {
-	os.getenv('HOME') .. '/.vscode-server/extensions/golang.go-0.39.0/dist/debugAdapter.js';
+	os.getenv('HOME') .. '/.vscode-server/extensions/golang.go-0.40.0/dist/debugAdapter.js';
   };
 }
 

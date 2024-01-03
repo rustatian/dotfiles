@@ -91,6 +91,14 @@ require'lspconfig'.pylsp.setup{
         on_attach = on_attach,
 }
 
+require 'lspconfig'.intelephense.setup {
+	capabilities = capabilities,
+        on_attach = on_attach,
+	init_options = {
+		globalStoragePath = os.getenv('HOME') .. '/.local/share/intelephense'
+	}
+}
+
 require'lspconfig'.bashls.setup{}
 require'lspconfig'.grammarly.setup{}
 
