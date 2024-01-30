@@ -38,8 +38,8 @@ TERM = "xterm-256color"
 size = 13.0
 
 [font.normal]
-family = "BerkeleyMono Nerd Font"
-style = "Bold"
+family = "MonaspiceNe Nerd Font"
+style = "Medium"
 
 [[hints.enabled]]
 command = "xdg-open"

@@ -23,3 +23,12 @@ disabled = false
 threshold = -1
 symbol = ' '
 style = 'bold dimmed green'
+
+
+[gcloud]
+format = '[$symbol$active]($style) '
+style = 'bold yellow'
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = '🔖 '

@@ -20,6 +20,10 @@ vim.o.smartcase = true
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
+-- fold text
+vim.o.foldtext= ''
+vim.o.fillchars = 'fold: '
+
 -- set termguicolors to enable highlight groups
 set.termguicolors = true
 
