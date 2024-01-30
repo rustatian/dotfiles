@@ -15,32 +15,8 @@ local on_attach = function(client)
     require'completion'.on_attach(client)
 end
 
---rust-analyzer.cachePriming.numThreads
-require'lspconfig'.rust_analyzer.setup ({
-        capabilities = capabilities,
-        settings = {
-                ["rust-analyzer"] = {
-                checkOnSave = {
-                        command = "cargo clippy --all-targets --all-features -- -D warnings",
-                        },
-                imports = {
-                        granularity = {
-                                group = "module",
-                                },
-                prefix = "self",
-                        },
-                cargo = {
-                        buildScripts = {
-                                enable = true,
-                                },
-                        },
-                procMacro = {
-                        enable = true
-                        },
-                }
-        },
-        on_attach = on_attach,
-})
+
+-- Rust-Analyzer setup in the init.lua
 
 lspconfig = require'lspconfig'
 util = require'lspconfig/util'

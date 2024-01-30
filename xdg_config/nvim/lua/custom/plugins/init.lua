@@ -4,15 +4,49 @@ return {
   ----------
 
   {
-	  "folke/neodev.nvim", 
-	  opts = {}
+    "folke/neodev.nvim", 
+     opts = {}
   },
   
   ----------
   -- Rust --
   ----------
-  'rust-lang/rust.vim',
-  'simrat39/rust-tools.nvim',
+  {
+    "mrcjkb/rustaceanvim",
+    version = '^4',
+    init = function()
+      -- Configure rustaceanvim here
+      vim.g.rustaceanvim = {
+	        server = {
+		on_attach = function(client, bufnr)
+			require("lang.on_attach").setup_all(client, bufnr)
+        	end,
+        settings = {
+                ["rust-analyzer"] = {
+                	checkOnSave = {
+                        	command = "cargo clippy --all-targets --all-features -- -D warnings",
+                        },
+                	imports = {
+                        	granularity = {
+                                	group = "module",
+                                },
+                		prefix = "self",
+                        },
+                	cargo = {
+                        	buildScripts = {
+                                	enable = true,
+                                },
+                        },
+                	procMacro = {
+                        	enable = true
+                        },
+                    }
+        	},
+	      }
+      }
+    end,
+    ft = { 'rust' },
+  },
   {
     'saecki/crates.nvim',
     version = 'v0.*',
@@ -58,6 +92,7 @@ return {
   'onsails/lspkind.nvim',
   'tjdevries/express_line.nvim',
   'rcarriga/nvim-notify',
+  'mhartington/formatter.nvim',
 
   --------------
   -- Snippers --
@@ -71,6 +106,7 @@ return {
   },
   'rafamadriz/friendly-snippets',
   "github/copilot.vim",
+  "saadparwaiz1/cmp_luasnip",
 
   -------------------
   -- Autocopletion --
