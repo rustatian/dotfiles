@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-local servers = {'gopls', 'rust_analyzer', 'yamlls', 'bufls', 'cmake', 'dockerls', 'docker_compose_language_service', 'golangci_lint_ls', 'grammarly', 'lua_ls', 'marksman', 'intelephense', 'pylsp', 'taplo' } --'buf', 'cmakelint', 'codelldb', 'delve', 'goimports', 'golangci-lint', 'gomodifytags', 'gotest', 'protolint', 'pydocstyle', 'pylint'}
+local servers = {'gopls', 'rust_analyzer', 'yamlls', 'bufls', 'cmake', 'dockerls', 'docker_compose_language_service', 'golangci_lint_ls', 'grammarly', 'lua_ls', 'marksman', 'intelephense', 'pylsp', 'taplo' } 
 
 mason.setup({
     ui = {

@@ -12,40 +12,6 @@ return {
   -- Rust --
   ----------
   {
-    "mrcjkb/rustaceanvim",
-    version = '^4',
-    init = function()
-      -- Configure rustaceanvim here
-      vim.g.rustaceanvim = {
-	        server = {
-		on_attach = function(client, bufnr)
-			require("lang.on_attach").setup_all(client, bufnr)
-        	end,
-        settings = {
-                ["rust-analyzer"] = {
-                	checkOnSave = {
-                        	command = "cargo clippy --all-targets --all-features -- -D warnings",
-                        },
-                	imports = {
-                        	granularity = {
-                                	group = "module",
-                                },
-                		prefix = "self",
-                        },
-                	cargo = {
-                        	buildScripts = {
-                                	enable = true,
-                                },
-                        },
-                	procMacro = {
-                        	enable = true
-                        },
-                    }
-        	},
-	      }
-      }
-    end,
-    ft = { 'rust' },
   },
   {
     'saecki/crates.nvim',
@@ -165,7 +131,8 @@ return {
   },
 
   -- Git
- 'lewis6991/gitsigns.nvim',
+ 	'lewis6991/gitsigns.nvim',
+	'tpope/vim-fugitive',
 
  -- Comment
  {
