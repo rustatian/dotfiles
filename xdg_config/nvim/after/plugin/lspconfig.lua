@@ -21,6 +21,11 @@ end
 lspconfig = require'lspconfig'
 util = require'lspconfig/util'
 
+require'lspconfig'.jsonls.setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+}
+
 require'lspconfig'.gopls.setup {
     	cmd = {"gopls", "serve"},
     	filetypes = {"go", "gomod"},
