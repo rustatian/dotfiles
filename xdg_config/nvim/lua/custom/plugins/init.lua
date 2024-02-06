@@ -45,13 +45,13 @@ return {
 	dependencies = 'nvim-tree/nvim-web-devicons',
   },
   {
-	"navarasu/onedark.nvim",
-	lazy = false,
-  	priority = 1001 -- Ensure it loads first
-  },
+  	"folke/tokyonight.nvim",
+  	lazy = false,
+  	priority = 1000,
+  	opts = {},
+  },	
   {
-	  'j-hui/fidget.nvim',
-	  branch = "legacy",
+	'j-hui/fidget.nvim',
   },
   'nvim-tree/nvim-web-devicons',
   'nvim-treesitter/nvim-treesitter-context',
