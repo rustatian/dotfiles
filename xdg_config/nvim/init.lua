@@ -60,23 +60,22 @@ set_cursorline("FileType", false, "TelescopePrompt")
 vim.autoindent = true
 vim.cindent = true
 vim.wrap = true
-
 vim.tabstop = 4
-
 vim.breakindent = true
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
+  vim.fn.system({
     "git",
     "clone",
     "--filter=blob:none",
-    "--single-branch",
     "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
     lazypath,
-  }
+  })
 end
 
-vim.opt.runtimepath:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("custom.plugins", {
   ui = {
