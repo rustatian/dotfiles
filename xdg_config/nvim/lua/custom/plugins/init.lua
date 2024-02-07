@@ -23,7 +23,6 @@ return {
   -----------------------
   -- GUI enhancements --
   -----------------------
-
   {
   	"utilyre/barbecue.nvim",
   	name = "barbecue",
@@ -142,5 +141,10 @@ return {
 		 require('Comment').setup()
 	 end
  },
+
+ -- WakaTime
+ { 	'wakatime/vim-wakatime', 
+ 	lazy = false,
+ }
 }
 
