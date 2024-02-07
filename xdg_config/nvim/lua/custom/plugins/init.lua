@@ -45,13 +45,16 @@ return {
 	dependencies = 'nvim-tree/nvim-web-devicons',
   },
   {
-  	"folke/tokyonight.nvim",
+  	"bluz71/vim-moonfly-colors",
+	name = "moonfly",
   	lazy = false,
   	priority = 1000,
-  	opts = {},
   },	
   {
 	'j-hui/fidget.nvim',
+  },
+  {     "lukas-reineke/indent-blankline.nvim", 
+  	main = "ibl", 
   },
   'nvim-tree/nvim-web-devicons',
   'nvim-treesitter/nvim-treesitter-context',

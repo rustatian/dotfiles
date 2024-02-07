@@ -1,6 +1,7 @@
 return {
     "mrcjkb/rustaceanvim",
     version = '^4',
+    lazy = false,
     init = function()
       -- Configure rustaceanvim here
       vim.g.rustaceanvim = {

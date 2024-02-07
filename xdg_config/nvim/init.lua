@@ -26,6 +26,9 @@ vim.o.fillchars = 'fold: '
 
 -- set termguicolors to enable highlight groups
 set.termguicolors = true
+-- theme
+vim.g.moonflyNormalFloat = true
+vim.g.moonflyTerminalColors = true
 
 set.encoding = 'UTF-8'
 set.mouse = 'a'

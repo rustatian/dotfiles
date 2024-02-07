@@ -48,6 +48,10 @@ lspkind.init{
       TypeParameter = ""
     },
 }
+
+local winhighlight = {
+  winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+}
  -- Set up nvim-cmp.
 local cmp = require'cmp'
   cmp.setup({
@@ -58,8 +62,8 @@ local cmp = require'cmp'
       end,
     },
     window = {
-       completion = cmp.config.window.bordered(),
-       documentation = cmp.config.window.bordered(),
+       completion = cmp.config.window.bordered(winhighlight),
+       documentation = cmp.config.window.bordered(winhighlight),
     },
     formatting = {
     -- Youtube: How to set up nice formatting for your sources.
