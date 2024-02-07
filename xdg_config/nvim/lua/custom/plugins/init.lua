@@ -12,8 +12,6 @@ return {
   -- Rust --
   ----------
   {
-  },
-  {
     'saecki/crates.nvim',
     version = 'v0.*',
     dependencies = 'nvim-lua/plenary.nvim',

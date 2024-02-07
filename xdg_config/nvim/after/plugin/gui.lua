@@ -1,4 +1,5 @@
 vim.cmd[[colorscheme moonfly]]
+vim.cmd[[hi WinSeparator guibg=None]]
 
 -- lualine
 require('lualine').setup {

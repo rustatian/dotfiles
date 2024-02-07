@@ -1,11 +1,10 @@
-
 vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
         diagnostics = {
-        enable = false,
-        show_on_dirs = false,
+        enable = true,
+        show_on_dirs = true,
         show_on_open_dirs = true,
         debounce_delay = 50,
         severity = {
@@ -20,7 +19,7 @@ require("nvim-tree").setup({
         },
       },
   renderer = {
-    group_empty = true,
+    group_empty = false,
   },
   filters = {
     dotfiles = false,
