@@ -61,6 +61,9 @@ local cmp = require'cmp'
         require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
       end,
     },
+    view = {
+	    entries = 'custom'
+    },
     window = {
        completion = cmp.config.window.bordered(winhighlight),
        documentation = cmp.config.window.bordered(winhighlight),
@@ -90,7 +93,6 @@ local cmp = require'cmp'
 	['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     experimental = {
-      entries = native,
       ghost_text = true,
     },
     sources = cmp.config.sources({
@@ -120,13 +122,6 @@ local cmp = require'cmp'
     })
   })
 
-  -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline({ '/', '?' }, {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = 'buffer' }
-    }
-  })
 
 cmp.setup.cmdline(':', {
   sources = cmp.config.sources({
