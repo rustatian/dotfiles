@@ -9,7 +9,7 @@ return {
 		on_attach = function(client, bufnr)
 			vim.keymap.set(
     				"n",
-    				"<leader>a",
+    				"<leader>z",
     				function()
         				vim.cmd.RustLsp('codeAction')
     				end,
