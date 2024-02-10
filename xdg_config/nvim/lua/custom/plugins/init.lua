@@ -37,15 +37,9 @@ return {
   	dependencies = 'nvim-tree/nvim-web-devicons',
   },
   {
-	'akinsho/bufferline.nvim', 
-	version = "v3.*", 
-	dependencies = 'nvim-tree/nvim-web-devicons',
-  },
-  {
-  	"bluz71/vim-moonfly-colors",
-	name = "moonfly",
-  	lazy = false,
-  	priority = 1000,
+  	"catppuccin/nvim",
+	name = "catppuccin",
+  	priority = 1001,
   },	
   {
 	'j-hui/fidget.nvim',
@@ -106,7 +100,6 @@ return {
   ----------
   {
 	 'nvim-telescope/telescope.nvim', 
-	 version = '0.*',
 	 dependencies = 'nvim-lua/plenary.nvim',
   },
 
