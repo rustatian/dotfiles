@@ -5,7 +5,6 @@ return {
 
   {
     "folke/neodev.nvim", 
-     opts = {}
   },
   
   ----------
@@ -13,7 +12,7 @@ return {
   ----------
   {
     'saecki/crates.nvim',
-    version = 'v0.*',
+    version = '*',
     dependencies = 'nvim-lua/plenary.nvim',
     config = function()
         require('crates').setup()
@@ -60,7 +59,7 @@ return {
   {
 	"L3MON4D3/LuaSnip",
 	-- follow latest release.
-	version = "v1.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+	version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
 	-- install jsregexp (optional!:).
 	build = "make install_jsregexp",
   },
