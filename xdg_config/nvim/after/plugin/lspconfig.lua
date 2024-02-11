@@ -22,17 +22,17 @@ require("neodev").setup({
 	pathStrict = true,
 })
 
-local null_ls = require("null-ls")
-null_ls.setup({
-	sources = {
-		null_ls.builtins.code_actions.gitsigns,
-		null_ls.builtins.formatting.rustfmt,
-		null_ls.builtins.diagnostics.fish,
-		null_ls.builtins.diagnostics.gitlint,
-		null_ls.builtins.diagnostics.golangci_lint,
-		null_ls.builtins.completion.spell,
-	},
-})
+-- local null_ls = require("null-ls")
+-- null_ls.setup({
+-- 	sources = {
+-- 		null_ls.builtins.code_actions.gitsigns,
+-- 		null_ls.builtins.formatting.rustfmt,
+-- 		null_ls.builtins.diagnostics.fish,
+-- 		null_ls.builtins.diagnostics.gitlint,
+-- 		null_ls.builtins.diagnostics.golangci_lint,
+-- 		null_ls.builtins.completion.spell,
+-- 	},
+-- })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local on_attach = function(client)

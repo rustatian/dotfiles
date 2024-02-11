@@ -8,8 +8,8 @@ return {
 	},
 	"neovim/nvim-lspconfig",
 	"williamboman/mason-lspconfig.nvim",
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		dependencies = "nvim-lua/plenary.nvim",
-	},
+	-- {
+	-- 	"jose-elias-alvarez/null-ls.nvim",
+	-- 	dependencies = "nvim-lua/plenary.nvim",
+	-- },
 }

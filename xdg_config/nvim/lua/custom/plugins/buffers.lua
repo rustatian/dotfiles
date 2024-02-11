@@ -1,11 +1,9 @@
 return {
 	"akinsho/bufferline.nvim",
-	after = "catppuccin",
 	version = "v4.*",
 	dependencies = "nvim-tree/nvim-web-devicons",
 	config = function()
 		require("bufferline").setup({
-			-- highlights = require("catppuccin.groups.integrations.bufferline").get(),
 			options = {
 				mode = "buffers", -- set to "tabs" to only show tabpages instead
 				themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
@@ -33,9 +31,9 @@ return {
 				diagnostics_indicator = function(count, level, diagnostics_dict, context)
 					return "(" .. count .. ")"
 				end,
-				get_element_icon = function(buf)
-					return require("nvim-web-devicons").get_icon(buf.filetype, { default = true })
-				end,
+				-- get_element_icon = function(buf)
+				-- 	return require("nvim-web-devicons").get_icon(buf.filetype, { default = true })
+				-- end,
 				offsets = {
 					{
 						filetype = "NvimTree",
