@@ -31,9 +31,15 @@ return {
 				diagnostics_indicator = function(count, level, diagnostics_dict, context)
 					return "(" .. count .. ")"
 				end,
-				-- get_element_icon = function(buf)
-				-- 	return require("nvim-web-devicons").get_icon(buf.filetype, { default = true })
-				-- end,
+				get_element_icon = function(element)
+					-- element consists of {filetype: string, path: string, extension: string, directory: string}
+					-- This can be used to change how bufferline fetches the icon
+					-- for an element e.g. a buffer or a tab.
+					-- e.g.
+					local icon, hl =
+						require("nvim-web-devicons").get_icon_by_filetype(element.filetype, { default = true })
+					return icon, hl
+				end,
 				offsets = {
 					{
 						filetype = "NvimTree",
