@@ -36,9 +36,9 @@ return {
   	dependencies = 'nvim-tree/nvim-web-devicons',
   },
   {
-  	"navarasu/onedark.nvim",
-	name = "onedark",
-  	priority = 1001,
+  	"folke/tokyonight.nvim",
+	lazy = false,
+  	priority = 1000,
   },	
   {
 	'j-hui/fidget.nvim',
