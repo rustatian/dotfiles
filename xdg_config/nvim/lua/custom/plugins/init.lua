@@ -1,142 +1,129 @@
 return {
-  ----------
-  -- Sys  --
-  ----------
+	----------
+	-- Sys  --
+	----------
+	{
+		-- SHOULD BE SETUP BEFORE lspconfig
+		"folke/neodev.nvim",
+	},
 
-  {
-    "folke/neodev.nvim", 
-  },
-  
-  ----------
-  -- Rust --
-  ----------
-  {
-    'saecki/crates.nvim',
-    version = '*',
-    dependencies = 'nvim-lua/plenary.nvim',
-    config = function()
-        require('crates').setup()
-    end,
-  },
+	----------
+	-- Rust --
+	----------
+	{
+		"saecki/crates.nvim",
+		version = "*",
+		dependencies = "nvim-lua/plenary.nvim",
+		config = function()
+			require("crates").setup()
+		end,
+	},
 
-  -----------------------
-  -- GUI enhancements --
-  -----------------------
-  {
-  	"utilyre/barbecue.nvim",
-  	name = "barbecue",
-  	version = "*",
-  	dependencies = {
-    		"SmiteshP/nvim-navic",
-    		"nvim-tree/nvim-web-devicons", -- optional dependency
-  	},
-  },
-  {
-	'nvim-lualine/lualine.nvim',
-  	dependencies = 'nvim-tree/nvim-web-devicons',
-  },
-  {
-  	"folke/tokyonight.nvim",
-	lazy = false,
-  	priority = 1000,
-  },	
-  {
-	'j-hui/fidget.nvim',
-  },
-  {     "lukas-reineke/indent-blankline.nvim", 
-  	main = "ibl", 
-  },
-  'nvim-tree/nvim-web-devicons',
-  'nvim-treesitter/nvim-treesitter-context',
-  'onsails/lspkind.nvim',
-  'tjdevries/express_line.nvim',
-  'rcarriga/nvim-notify',
-  'mhartington/formatter.nvim',
+	-----------------------
+	-- GUI enhancements --
+	-----------------------
+	{
+		"utilyre/barbecue.nvim",
+		name = "barbecue",
+		version = "*",
+		dependencies = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons", -- optional dependency
+		},
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = "nvim-tree/nvim-web-devicons",
+	},
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+	},
+	{
+		"j-hui/fidget.nvim",
+	},
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl" },
+	"nvim-tree/nvim-web-devicons",
+	"nvim-treesitter/nvim-treesitter-context",
+	"onsails/lspkind.nvim",
+	"tjdevries/express_line.nvim",
+	"rcarriga/nvim-notify",
+	"mhartington/formatter.nvim",
 
-  --------------
-  -- Snippers --
-  --------------
-  {
-	"L3MON4D3/LuaSnip",
-	-- follow latest release.
-	version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-	-- install jsregexp (optional!:).
-	build = "make install_jsregexp",
-  },
-  'rafamadriz/friendly-snippets',
-  "github/copilot.vim",
-  "saadparwaiz1/cmp_luasnip",
+	--------------
+	-- Snippers --
+	--------------
+	{
+		"L3MON4D3/LuaSnip",
+		version = "v2.*",
+		build = "make install_jsregexp",
+	},
+	"rafamadriz/friendly-snippets",
+	"github/copilot.vim",
+	"saadparwaiz1/cmp_luasnip",
 
-  -------------------
-  -- Autocopletion --
-  -------------------
-  'hrsh7th/nvim-cmp',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-path',
-  'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/cmp-nvim-lua',
-  {
-    "folke/trouble.nvim",
-    config = function()
-          require("trouble").setup {
-              icons = true,
-          }
-      end
-  },
+	-------------------
+	-- Autocopletion --
+	-------------------
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-nvim-lua",
 
-  ---------------
-  -- Debugging --
-  ---------------
-  'mfussenegger/nvim-dap',
-  {
-	  "rcarriga/nvim-dap-ui", 
-	  dependencies = "mfussenegger/nvim-dap", 
-  },
-  'theHamsta/nvim-dap-virtual-text',
-  
-  ----------
-  -- Tree --
-  ----------
-  {
-	 'nvim-telescope/telescope.nvim', 
-	 dependencies = 'nvim-lua/plenary.nvim',
-  },
+	-------------------
+	--  Diagnostic   --
+	-------------------
+	"folke/trouble.nvim",
 
-  {
-        'nvim-tree/nvim-tree.lua',
-  	dependencies = 'nvim-tree/nvim-web-devicons',
-  	config = function()
-    		require("nvim-tree").setup()
-  	end,
-  },
+	---------------
+	-- Debugging --
+	---------------
+	"mfussenegger/nvim-dap",
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = "mfussenegger/nvim-dap",
+	},
+	"theHamsta/nvim-dap-virtual-text",
 
-  -----------
-  -- Other --
-  -----------
+	----------
+	-- Tree --
+	----------
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = "nvim-lua/plenary.nvim",
+	},
 
-  -- Autopairs 
-  {
-	"windwp/nvim-autopairs",
-	config = function() 
-		require("nvim-autopairs").setup {} 
-	end,
-  },
+	{
+		"nvim-tree/nvim-tree.lua",
+		dependencies = "nvim-tree/nvim-web-devicons",
+	},
 
-  -- Git
- 	'lewis6991/gitsigns.nvim',
-	'tpope/vim-fugitive',
+	-----------
+	-- Other --
+	-----------
 
- -- Comment
- {
-	 'numToStr/Comment.nvim',
-	 config = function()
-		 require('Comment').setup()
-	 end
- },
+	-- Autopairs
+	{
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
+	},
 
- -- WakaTime
- { 	'wakatime/vim-wakatime', 
- 	lazy = false,
- }
+	-- Git
+	"lewis6991/gitsigns.nvim",
+	"tpope/vim-fugitive",
+
+	-- Comment
+	{
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	},
+
+	-- WakaTime
+	{ "wakatime/vim-wakatime", lazy = false },
 }
-

@@ -33,8 +33,8 @@ return {
 				diagnostics_indicator = function(count, level, diagnostics_dict, context)
 					return "(" .. count .. ")"
 				end,
-				get_element_icon = function(buf) 
-					return require('nvim-web-devicons').get_icon(buf.filetype, {default = true})
+				get_element_icon = function(buf)
+					return require("nvim-web-devicons").get_icon(buf.filetype, { default = true })
 				end,
 				offsets = {
 					{
