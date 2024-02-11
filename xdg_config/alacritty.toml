@@ -56,7 +56,7 @@ size = 13.0
 
 [font.normal]
 family = "MonaspiceNe Nerd Font"
-style = "Medium"
+style = "Regular"
 
 [[hints.enabled]]
 command = "xdg-open"
@@ -76,9 +76,6 @@ multiplier = 3
 
 [selection]
 save_to_clipboard = false
-
-# [shell]
-# program = "/opt/homebrew/bin/fish"
 
 [window]
 decorations = "full"
