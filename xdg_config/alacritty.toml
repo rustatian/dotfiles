@@ -52,7 +52,7 @@ shape = "Underline"
 TERM = "xterm-256color"
 
 [font]
-size = 13.0
+size = 14.0
 
 [font.normal]
 family = "MonaspiceNe Nerd Font"
@@ -80,7 +80,7 @@ save_to_clipboard = false
 [window]
 decorations = "full"
 dynamic_padding = false
-opacity = 1
+opacity = 0.99
 
 [window.dimensions]
 columns = 120
