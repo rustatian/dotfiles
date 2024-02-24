@@ -22,85 +22,96 @@ require("neodev").setup({
 	pathStrict = true,
 })
 
--- local null_ls = require("null-ls")
--- null_ls.setup({
--- 	sources = {
--- 		null_ls.builtins.code_actions.gitsigns,
--- 		null_ls.builtins.formatting.rustfmt,
--- 		null_ls.builtins.diagnostics.fish,
--- 		null_ls.builtins.diagnostics.gitlint,
--- 		null_ls.builtins.diagnostics.golangci_lint,
--- 		null_ls.builtins.completion.spell,
--- 	},
--- })
-
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local on_attach = function(client)
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+local on_attach = function(client, bufnr)
+	if client.server_capabilities.inlayHintProvider then
+		vim.lsp.inlay_hint.enable(bufnr, true)
+	end
 	require("completion").on_attach(client)
 end
 
 -- Rust-Analyzer setup in the init.lua
 
-lspconfig = require("lspconfig")
+local lspconfig = require("lspconfig")
 util = require("lspconfig/util")
 
-require("lspconfig").jsonls.setup({
+lspconfig.jsonls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-require("lspconfig").gopls.setup({
+lspconfig.gopls.setup({
 	cmd = { "gopls", "serve" },
 	filetypes = { "go", "gomod" },
 	root_dir = util.root_pattern("go.work", "go.mod", ".git"),
 	settings = {
 		gopls = {
+			completeUnimported = true,
+			buildFlags = { "-tags=debug" },
 			analyses = {
 				unusedparams = true,
 			},
 			staticcheck = true,
+			experimentalPostfixCompletions = true,
+			hints = {
+				parameterNames = true,
+				assignVariableTypes = true,
+				constantValues = true,
+				rangeVariableTypes = true,
+				compositeLiteralTypes = true,
+				compositeLiteralFields = true,
+				functionTypeParameters = true,
+			},
 		},
 	},
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-require("lspconfig").clangd.setup({
+lspconfig.clangd.setup({
+	capabilities = capabilities,
+	flags = {
+		debounce_text_changes = 200,
+	},
+	on_attach = on_attach,
+	settings = {
+		clangd = {},
+	},
+})
+
+lspconfig.bufls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-require("lspconfig").bufls.setup({
+lspconfig.docker_compose_language_service.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-require("lspconfig").docker_compose_language_service.setup({
+lspconfig.dockerls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-require("lspconfig").dockerls.setup({
+lspconfig.jsonls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-require("lspconfig").jsonls.setup({
+lspconfig.sqlls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-require("lspconfig").sqlls.setup({
+lspconfig.pylsp.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-require("lspconfig").pylsp.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
-require("lspconfig").intelephense.setup({
+lspconfig.intelephense.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	init_options = {
@@ -108,18 +119,23 @@ require("lspconfig").intelephense.setup({
 	},
 })
 
-require("lspconfig").bashls.setup({})
-require("lspconfig").grammarly.setup({})
+lspconfig.bashls.setup({})
+lspconfig.grammarly.setup({})
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-require("lspconfig").jsonls.setup({
+lspconfig.jsonls.setup({
 	capabilities = capabilities,
 })
 
-require("lspconfig").marksman.setup({})
-require("lspconfig").yamlls.setup({
+lspconfig.marksman.setup({
+	capabilities = capabilities,
+	flags = { debounce_text_changes = 200 },
+	on_attach = on_attach,
+})
+
+lspconfig.yamlls.setup({
 	settings = {
 		yaml = {
 			schemas = {
@@ -131,7 +147,7 @@ require("lspconfig").yamlls.setup({
 	},
 })
 
-require("lspconfig").golangci_lint_ls.setup({
+lspconfig.golangci_lint_ls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	command = { "golangci-lint", "run", "--build-tags=race" },

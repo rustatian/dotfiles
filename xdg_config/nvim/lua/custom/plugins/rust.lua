@@ -7,9 +7,13 @@ return {
 		vim.g.rustaceanvim = {
 			server = {
 				on_attach = function(client, bufnr)
+					if client.server_capabilities.inlayHintProvider then
+						vim.lsp.inlay_hint.enable(bufnr, true)
+					end
 					vim.keymap.set("n", "<leader>z", function()
 						vim.cmd.RustLsp("codeAction")
 					end, { silent = true, buffer = bufnr })
+
 					require("lang.on_attach").setup_all(client, bufnr)
 				end,
 				settings = {
@@ -37,6 +41,25 @@ return {
 							},
 						},
 						inlayHints = {
+							bindingModeHints = {
+								enable = true,
+							},
+							closureCaptureHints = {
+								enable = true,
+							},
+							closureReturnTypeHints = {
+								enable = "always",
+							},
+							discriminantHints = {
+								enable = "always",
+							},
+							implicitDrops = {
+								enable = true,
+							},
+							expressionAdjustmentHints = {
+								enable = true,
+							},
+
 							lifetimeElisionHints = {
 								enable = true,
 								useParameterNames = true,
