@@ -16,8 +16,6 @@ return {
 					vim.keymap.set("n", "<leader>z", function()
 						vim.cmd.RustLsp("codeAction")
 					end, { silent = true, buffer = bufnr })
-
-					require("lang.on_attach").setup_all(client, bufnr)
 				end,
 				settings = {
 					["rust-analyzer"] = {
@@ -76,5 +74,8 @@ return {
 			},
 		}
 	end,
+	hint = {
+		enable = true,
+	},
 	ft = { "rust" },
 }

@@ -29,7 +29,6 @@ local on_attach = function(client, bufnr)
 	if client.server_capabilities.inlayHintProvider then
 		vim.lsp.inlay_hint.enable(bufnr, true)
 	end
-	require("completion").on_attach(client)
 end
 
 -- Rust-Analyzer setup in the init.lua
