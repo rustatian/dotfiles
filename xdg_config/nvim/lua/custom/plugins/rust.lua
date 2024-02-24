@@ -1,7 +1,9 @@
 return {
 	"mrcjkb/rustaceanvim",
 	version = "^4",
-	lazy = false,
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+	},
 	init = function()
 		-- Configure rustaceanvim here
 		vim.g.rustaceanvim = {
@@ -10,6 +12,7 @@ return {
 					if client.server_capabilities.inlayHintProvider then
 						vim.lsp.inlay_hint.enable(bufnr, true)
 					end
+
 					vim.keymap.set("n", "<leader>z", function()
 						vim.cmd.RustLsp("codeAction")
 					end, { silent = true, buffer = bufnr })

@@ -3,6 +3,9 @@ local set = vim.opt
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- inlay hints
+vim.g.inlay_hints_visible = true
+
 --vim.g.mapleader = '\\'
 vim.g.mapleader = ';'
 vim.g.loaded_netrw = 1
