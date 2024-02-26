@@ -6,7 +6,7 @@ return {
 		require("bufferline").setup({
 			options = {
 				mode = "buffers", -- set to "tabs" to only show tabpages instead
-				themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
+				themable = false, -- allows highlight groups to be overriden i.e. sets highlights as default
 				numbers = "both",
 				close_command = "bdelete! %d", -- can be a string | function, | false see "Mouse actions"
 				right_mouse_command = "bdelete! %d", -- can be a string | function | false, see "Mouse actions"
@@ -40,15 +40,15 @@ return {
 						require("nvim-web-devicons").get_icon_by_filetype(element.filetype, { default = true })
 					return icon, hl
 				end,
-				offsets = {
-					{
-						filetype = "NvimTree",
-						text = "File Explorer",
-						text_align = "center",
-						highlight = "Directory",
-						separator = true,
-					},
-				},
+				-- offsets = {
+				-- 	{
+				-- 		filetype = "NvimTree",
+				-- 		text = "File Explorer",
+				-- 		text_align = "center",
+				-- 		highlight = "Directory",
+				-- 		separator = true,
+				-- 	},
+				-- },
 				color_icons = true, -- whether or not to add the filetype icon highlights
 				show_buffer_close_icons = true,
 				show_close_icon = true,
