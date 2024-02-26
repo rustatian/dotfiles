@@ -43,10 +43,6 @@ return {
 	{
 		"j-hui/fidget.nvim",
 	},
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-	},
 	"nvim-tree/nvim-web-devicons",
 	"nvim-treesitter/nvim-treesitter-context",
 	"onsails/lspkind.nvim",

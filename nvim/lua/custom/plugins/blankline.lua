@@ -1,7 +1,7 @@
 return {
-	"lukas-reineke/indent-blankline.nvim",
-	main = "ibl",
+	"shellRaining/hlchunk.nvim",
+	event = { "UIEnter" },
 	config = function()
-		require("ibl").setup({})
+		require("hlchunk").setup({})
 	end,
 }

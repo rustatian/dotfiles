@@ -42,10 +42,3 @@ require("barbecue").setup({
 	theme = "tokyonight",
 	attach_navic = false, -- prevent barbecue from automatically attaching nvim-navic
 })
-require("ibl").setup({
-	indent = { char = "" },
-	whitespace = {
-		remove_blankline_trail = false,
-	},
-	scope = { enabled = false },
-})
