@@ -1,9 +1,19 @@
 -- I am helpers.lua and I should live in ~/.config/wezterm/helpers.lua
 
 local wezterm = require("wezterm")
+local mux = wezterm.mux
 
 -- This is the module table that we will export
 local module = {}
+
+wezterm.on("gui-startup", function(cmd) -- set startup Window position
+	local tab, pane, window = mux.spawn_window(cmd or {
+		position = {
+			x = 1000,
+			y = 700,
+		},
+	})
+end)
 
 -- define a function in the module table.
 -- Only functions defined in `module` will be exported to
