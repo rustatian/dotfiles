@@ -36,6 +36,7 @@ require("tokyonight").setup({
 })
 
 vim.cmd([[colorscheme tokyonight]])
+vim.cmd.hi 'Comment gui=none'
 
 require("notify").setup()
 require("barbecue").setup({

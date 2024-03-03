@@ -10,7 +10,10 @@ vim.g.inlay_hints_visible = true
 vim.g.mapleader = ';'
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.o.hlsearch = false
+
+-- Set highlight on search, but clear on pressing <Esc> in normal mode
+vim.opt.hlsearch = true
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- save undo history
 vim.o.undofile = true
@@ -29,18 +32,28 @@ vim.o.fillchars = 'fold: '
 
 -- set termguicolors to enable highlight groups
 set.termguicolors = true
+
+-- Preview substitutions live, as you type!
+vim.opt.inccommand = 'split'
+
 -- theme
 vim.g.moonflyNormalFloat = true
 vim.g.moonflyTerminalColors = true
+
+-- splits
+set.splitright = true
+set.splitbelow = true
+
+-- set how neovim will display the following chars
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 set.encoding = 'UTF-8'
 set.mouse = 'a'
 set.number = true
 set.relativenumber = true
 set.clipboard = 'unnamedplus'
-set.splitright = true
-set.splitbelow = true
-set.termguicolors = true
+
 set.showmatch = true
 set.ignorecase = true
 set.cursorline = true
