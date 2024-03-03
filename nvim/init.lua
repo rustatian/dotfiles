@@ -45,8 +45,8 @@ set.splitright = true
 set.splitbelow = true
 
 -- set how neovim will display the following chars
-vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+-- vim.opt.list = true
+-- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 set.encoding = 'UTF-8'
 set.mouse = 'a'
