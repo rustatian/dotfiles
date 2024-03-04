@@ -41,31 +41,6 @@ return {
 								enable = true,
 							},
 						},
-						inlayHints = {
-							bindingModeHints = {
-								enable = true,
-							},
-							closureCaptureHints = {
-								enable = true,
-							},
-							closureReturnTypeHints = {
-								enable = "always",
-							},
-							discriminantHints = {
-								enable = "always",
-							},
-							implicitDrops = {
-								enable = true,
-							},
-							expressionAdjustmentHints = {
-								enable = true,
-							},
-
-							lifetimeElisionHints = {
-								enable = true,
-								useParameterNames = true,
-							},
-						},
 						procMacro = {
 							enable = true,
 						},
