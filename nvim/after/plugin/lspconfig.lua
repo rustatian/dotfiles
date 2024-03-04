@@ -42,6 +42,11 @@ lspconfig.jsonls.setup({
 	on_attach = on_attach,
 })
 
+lspconfig.lua_ls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 lspconfig.gopls.setup({
 	cmd = { "gopls", "serve" },
 	filetypes = { "go", "gomod" },

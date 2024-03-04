@@ -38,7 +38,6 @@ require("tokyonight").setup({
 vim.cmd([[colorscheme tokyonight]])
 vim.cmd.hi 'Comment gui=none'
 
-require("notify").setup()
 require("barbecue").setup({
 	theme = "tokyonight",
 	attach_navic = false, -- prevent barbecue from automatically attaching nvim-navic
