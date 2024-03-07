@@ -31,14 +31,15 @@ require("tokyonight").setup({
 	--- function will be called with a Highlights and ColorScheme table
 	---@param highlights Highlights
 	---@param colors ColorScheme
-	on_highlights = function(hl, c)
-	end,
+	on_highlights = function(hl, c) end,
 })
 
 vim.cmd([[colorscheme tokyonight]])
-vim.cmd.hi 'Comment gui=none'
+vim.cmd.hi("Comment gui=none")
 
 require("barbecue").setup({
 	theme = "tokyonight",
 	attach_navic = false, -- prevent barbecue from automatically attaching nvim-navic
 })
+
+require("fidget").setup()

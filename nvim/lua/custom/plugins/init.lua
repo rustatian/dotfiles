@@ -89,6 +89,7 @@ return {
 	},
 	"nvim-tree/nvim-web-devicons",
 	"nvim-treesitter/nvim-treesitter-context",
+	"j-hui/fidget.nvim",
 	"onsails/lspkind.nvim",
 	{
 		"stevearc/conform.nvim",
