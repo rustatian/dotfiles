@@ -70,7 +70,8 @@ cmp.setup({
 		documentation = cmp.config.window.bordered(winhighlight),
 	},
 	formatting = {
-		-- Youtube: How to set up nice formatting for your sources.
+		expandable_indicator = true,
+		fields = { cmp.ItemField.Abbr, cmp.ItemField.Kind, cmp.ItemField.Menu },
 		format = lspkind.cmp_format({
 			with_text = true,
 			menu = {

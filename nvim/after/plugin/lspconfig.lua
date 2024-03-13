@@ -35,7 +35,7 @@ end
 -- Rust-Analyzer setup in the init.lua
 
 local lspconfig = require("lspconfig")
-util = require("lspconfig/util")
+local util = require("lspconfig/util")
 
 lspconfig.jsonls.setup({
 	capabilities = capabilities,
@@ -172,7 +172,7 @@ vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd("LspAttach", {
-	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
 	callback = function(ev)
 		-- Enable completion triggered by <c-x><c-o>
 		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
@@ -180,30 +180,71 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- Buffer local mappings.
 		-- See `:help vim.lsp.*` for documentation on any of the below functions
 		local opts = { buffer = ev.buf }
-		local nmap = function(keys, func, desc)
-			if desc then
-				desc = "LSP: " .. desc
-			end
-			vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
+
+		local map = function(keys, func, desc)
+			vim.keymap.set("n", keys, func, { buffer = ev.buf, desc = "LSP: " .. desc })
 		end
 
-		nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-		nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
-		nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+		-- Jump to the definition of the word under your cursor.
+		--  This is where a variable was first declared, or where a function is defined, etc.
+		--  To jump back, press <C-t>.
+		map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-		vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-		vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
-		vim.keymap.set("n", "<space>wl", function()
-			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-		end, opts)
-		vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
-		vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-		vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-		vim.keymap.set("n", "<space>f", function()
-			vim.lsp.buf.format({ async = true })
-		end, opts)
+		-- Find references for the word under your cursor.
+		map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+
+		-- Jump to the implementation of the word under your cursor.
+		--  Useful when your language has ways of declaring types without an actual implementation.
+		map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+
+		-- Jump to the type of the word under your cursor.
+		--  Useful when you're not sure what type a variable is and you want to see
+		--  the definition of its *type*, not where it was *defined*.
+		map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+
+		-- Fuzzy find all the symbols in your current document.
+		--  Symbols are things like variables, functions, types, etc.
+		map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+
+		-- Fuzzy find all the symbols in your current workspace
+		--  Similar to document symbols, except searches over your whole project.
+		map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+
+		-- Rename the variable under your cursor
+		--  Most Language Servers support renaming across files, etc.
+		map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+
+		-- Execute a code action, usually your cursor needs to be on top of an error
+		-- or a suggestion from your LSP for this to activate.
+		map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+
+		-- Opens a popup that displays documentation about the word under your cursor
+		--  See `:help K` for why this keymap
+		map("K", vim.lsp.buf.hover, "Hover Documentation")
+
+		-- WARN: This is not Goto Definition, this is Goto Declaration.
+		--  For example, in C this would take you to the header
+		map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+
+		-- Signature help is the popup that shows the types of function arguments
+		map("<C-k>", vim.lsp.buf.signature_help, "Signature [H]elp")
+
+		-- The following two autocommands are used to highlight references of the
+		-- word under your cursor when your cursor rests there for a little while.
+		--    See `:help CursorHold` for information about when this is executed
+		--
+		-- When you move your cursor, the highlights will be cleared (the second autocommand).
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+		if client and client.server_capabilities.documentHighlightProvider then
+			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+				buffer = ev.buf,
+				callback = vim.lsp.buf.document_highlight,
+			})
+
+			vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+				buffer = ev.buf,
+				callback = vim.lsp.buf.clear_references,
+			})
+		end
 	end,
 })

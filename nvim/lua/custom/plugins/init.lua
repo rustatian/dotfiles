@@ -26,7 +26,10 @@ return {
 		"folke/todo-comments.nvim",
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = { signs = false },
+		opts = { signs = true },
+	},
+	{
+		"nvim-telescope/telescope-ui-select.nvim",
 	},
 
 	{ -- Collection of various small independent plugins/modules
@@ -46,23 +49,20 @@ return {
 			-- - sd'   - [S]urround [D]elete [']quotes
 			-- - sr)'  - [S]urround [R]eplace [)] [']
 			require("mini.surround").setup()
-
 			-- Simple and easy statusline.
 			--  You could remove this setup call if you don't like it,
 			--  and try some other statusline plugin
 			local statusline = require("mini.statusline")
-			statusline.setup()
+			-- set use_icons to true if you have a Nerd Font
+			statusline.setup({ use_icons = vim.g.have_nerd_font })
 
 			-- You can configure sections in the statusline by overriding their
-			-- default behavior. For example, here we disable the section for
-			-- cursor information because line numbers are already enabled
+			-- default behavior. For example, here we set the section for
+			-- cursor location to LINE:COLUMN
 			---@diagnostic disable-next-line: duplicate-set-field
 			statusline.section_location = function()
-				return ""
+				return "%2l:%-2v"
 			end
-
-			-- ... and there is more!
-			--  Check out: https://github.com/echasnovski/mini.nvim
 		end,
 	},
 
@@ -76,10 +76,6 @@ return {
 		},
 	},
 	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = "nvim-tree/nvim-web-devicons",
-	},
-	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
@@ -87,7 +83,12 @@ return {
 	{
 		"j-hui/fidget.nvim",
 	},
-	"nvim-tree/nvim-web-devicons",
+
+	{
+		"nvim-tree/nvim-web-devicons",
+		enabled = true,
+	},
+
 	"nvim-treesitter/nvim-treesitter-context",
 	"j-hui/fidget.nvim",
 	"onsails/lspkind.nvim",
@@ -120,6 +121,23 @@ return {
 	--  Diagnostic   --
 	-------------------
 	"folke/trouble.nvim",
+
+	{ -- Useful plugin to show you pending keybinds.
+		"folke/which-key.nvim",
+		event = "VimEnter", -- Sets the loading event to 'VimEnter'
+		config = function() -- This is the function that runs, AFTER loading
+			require("which-key").setup()
+
+			-- Document existing key chains
+			require("which-key").register({
+				["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
+				["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
+				["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
+				["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
+				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
+			})
+		end,
+	},
 
 	---------------
 	-- Debugging --

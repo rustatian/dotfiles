@@ -1,12 +1,14 @@
 require("telescope").setup({
 	extensions = {
-		dap = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
+		["ui-select"] = {
+			require("telescope.themes").get_dropdown(),
 		},
 	},
 })
+
+-- Enable telescope extensions, if they are installed
+pcall(require("telescope").load_extension, "fzf")
+pcall(require("telescope").load_extension, "ui-select")
 
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>?", builtin.oldfiles, { desc = "[?] Find recently opened files" })
