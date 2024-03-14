@@ -35,6 +35,7 @@ function module.apply_to_config(config)
 
 	config.webgpu_power_preference = "HighPerformance"
 
+	config.window_close_confirmation = "NeverPrompt"
 	config.enable_tab_bar = false
 	config.use_fancy_tab_bar = false
 	config.show_tabs_in_tab_bar = false
