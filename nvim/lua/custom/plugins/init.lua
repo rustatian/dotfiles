@@ -94,7 +94,6 @@ return {
 	"onsails/lspkind.nvim",
 	{
 		"stevearc/conform.nvim",
-		opts = {},
 	},
 	--------------
 	-- Snippers --
