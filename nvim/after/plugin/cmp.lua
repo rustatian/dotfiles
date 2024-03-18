@@ -49,26 +49,25 @@ lspkind.init({
 	},
 })
 
-local winhighlight = {
-	winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
-}
-
 -- Set up nvim-cmp.
 local cmp = require("cmp")
+local luasnip = require("luasnip")
+luasnip.config.setup({
+	history = true,
+	updateevents = "TextChanged,TextChangedI",
+})
+
 cmp.setup({
 	snippet = {
-		-- REQUIRED - you must specify a snippet engine
 		expand = function(args)
-			require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+			luasnip.lsp_expand(args.body)
 		end,
 	},
 	view = {
 		entries = "custom",
 	},
-	window = {
-		completion = cmp.config.window.bordered(winhighlight),
-		documentation = cmp.config.window.bordered(winhighlight),
-	},
+
+	completion = { completeopt = "menu,menuone,noinsert" },
 	formatting = {
 		expandable_indicator = true,
 		fields = { cmp.ItemField.Abbr, cmp.ItemField.Kind, cmp.ItemField.Menu },
