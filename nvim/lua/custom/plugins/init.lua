@@ -6,6 +6,9 @@ return {
 		-- SHOULD BE SETUP BEFORE lspconfig
 		"folke/neodev.nvim",
 	},
+	{
+		"nvim-neotest/nvim-nio",
+	},
 
 	----------
 	-- Rust --
