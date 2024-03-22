@@ -56,7 +56,9 @@ luasnip.config.setup({
 	history = true,
 	updateevents = "TextChanged,TextChangedI",
 })
-
+local winhighlight = {
+	winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+}
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -66,7 +68,10 @@ cmp.setup({
 	view = {
 		entries = "custom",
 	},
-
+	window = {
+		completion = cmp.config.window.bordered(winhighlight),
+		documentation = cmp.config.window.bordered(winhighlight),
+	},
 	completion = { completeopt = "menu,menuone,noinsert" },
 	formatting = {
 		expandable_indicator = true,
