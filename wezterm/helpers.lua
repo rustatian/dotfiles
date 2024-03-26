@@ -24,7 +24,7 @@ end)
 function module.apply_to_config(config)
 	config.font = wezterm.font("Monaspace Neon", { weight = "DemiBold" })
 	config.font_size = 12.0
-	config.color_scheme = "Tokyo Night"
+	config.color_scheme = "catppuccin-mocha"
 
 	config.window_padding = {
 		left = 0,
