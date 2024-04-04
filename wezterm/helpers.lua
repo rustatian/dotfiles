@@ -23,8 +23,8 @@ end)
 -- function that accepts the config object, like this:
 function module.apply_to_config(config)
 	config.font = wezterm.font("Monaspace Neon", { weight = "DemiBold" })
-	config.font_size = 13.0
-	config.color_scheme = "catppuccin-mocha"
+	config.font_size = 14.0
+	config.color_scheme = "Belge"
 
 	config.window_padding = {
 		left = 0,
