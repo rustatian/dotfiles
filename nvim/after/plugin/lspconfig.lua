@@ -156,12 +156,7 @@ lspconfig.yamlls.setup({
 lspconfig.golangci_lint_ls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-	command = { "golangci-lint", "run", "--build-tags=race" },
-	settings = {
-		gopls = {
-			gofumpt = true,
-		},
-	},
+	command = { "golangci-lint", "run", "--build-tags=race", "--out-format", "json" },
 })
 
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
