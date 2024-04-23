@@ -25,6 +25,8 @@ function module.apply_to_config(config)
 	config.font = wezterm.font("Monaspace Neon", { weight = "Medium" })
 	config.font_size = 14.0
 	config.color_scheme = "Kanagawa (Gogh)"
+	-- config.line_height = 0.95
+	-- config.cell_width = 0.85
 
 	config.window_padding = {
 		left = 0,
