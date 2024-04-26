@@ -22,11 +22,11 @@ end)
 -- the config is for them to export an `apply_to_config`
 -- function that accepts the config object, like this:
 function module.apply_to_config(config)
-	config.font = wezterm.font("Monaspace Neon", { weight = "Medium" })
+	config.font = wezterm.font("JetBrains Mono", { weight = "Medium", italic = false })
 	config.font_size = 14.0
 	config.color_scheme = "Kanagawa (Gogh)"
-	-- config.line_height = 0.95
-	-- config.cell_width = 0.85
+	config.line_height = 0.95
+	config.cell_width = 1
 
 	config.window_padding = {
 		left = 0,
