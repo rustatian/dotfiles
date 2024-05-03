@@ -24,7 +24,7 @@ end)
 function module.apply_to_config(config)
 	config.font = wezterm.font("Berkeley Mono", { weight = "Bold", italic = false })
 	config.font_size = 14.0
-	config.color_scheme = "Gruvbox dark, medium (base16)"
+	config.color_scheme = "Gruvbox dark, hard (base16)"
 	config.line_height = 1
 	config.cell_width = 1
 
