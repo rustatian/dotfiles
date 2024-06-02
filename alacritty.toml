@@ -52,11 +52,11 @@ shape = "Underline"
 TERM = "xterm-256color"
 
 [font]
-size = 12.0
+size = 14.0
 
 [font.normal]
-family = "MonaspiceNe Nerd Font"
-style = "Regular"
+family = "GeistMono Nerd Font Propo"
+style = "Medium"
 
 [[hints.enabled]]
 command = "open"
