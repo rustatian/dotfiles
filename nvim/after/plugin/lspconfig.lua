@@ -37,6 +37,32 @@ end
 local lspconfig = require("lspconfig")
 local util = require("lspconfig/util")
 
+require("lspconfig").rust_analyzer.setup({
+	capabilities = capabilities,
+	settings = {
+		["rust-analyzer"] = {
+			checkOnSave = {
+				command = "cargo clippy --all-targets --all-features -- -D warnings",
+			},
+			imports = {
+				granularity = {
+					group = "module",
+				},
+				prefix = "self",
+			},
+			cargo = {
+				buildScripts = {
+					enable = true,
+				},
+			},
+			procMacro = {
+				enable = true,
+			},
+		},
+	},
+	on_attach = on_attach,
+})
+
 lspconfig.jsonls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
