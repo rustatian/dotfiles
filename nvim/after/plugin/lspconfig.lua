@@ -79,8 +79,9 @@ lspconfig.gopls.setup({
 	root_dir = util.root_pattern("go.work", "go.mod", ".git"),
 	settings = {
 		gopls = {
+			usePlaceholders = true,
 			completeUnimported = true,
-			buildFlags = { "-tags=debug" },
+			buildFlags = { "-tags=debug", "-tags=goexperiment.rangefunc" },
 			analyses = {
 				unusedparams = true,
 			},
@@ -154,9 +155,6 @@ lspconfig.intelephense.setup({
 lspconfig.bashls.setup({})
 lspconfig.grammarly.setup({})
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
 lspconfig.jsonls.setup({
 	capabilities = capabilities,
 })
@@ -172,8 +170,10 @@ lspconfig.yamlls.setup({
 		yaml = {
 			schemas = {
 				["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-				["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] = "/*.k8s.yaml",
-				["https://cdn.jsdelivr.net/gh/roadrunner-server/roadrunner@latest/schemas/config/3.0.schema.json"] = ".rr*.yaml",
+				["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] =
+				"/*.k8s.yaml",
+				["https://cdn.jsdelivr.net/gh/roadrunner-server/roadrunner@latest/schemas/config/3.0.schema.json"] =
+				".rr*.yaml",
 			},
 		},
 	},

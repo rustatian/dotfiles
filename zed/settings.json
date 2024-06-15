@@ -1,0 +1,97 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "theme": "Gruvbox Dark Soft",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "line_indicator_format": "long",
+  "tab_bar": {
+    "show_nav_history_buttons": true
+  },
+  // --------- FONT
+  "buffer_font_weight": 500,
+  "buffer_font_family": "GeistMono Nerd Font Propo",
+  "ui_font_weight": 500,
+  "ui_font_features": {
+    "liga": true,
+    "calt": true,
+    "zero": true,
+    "case": true
+  },
+  "buffer_font_features": {
+    "liga": true,
+    "calt": true,
+    "zero": true,
+    "case": true
+  },
+  "terminal": {
+    "font_family": "GeistMono Nerd Font Propo"
+  },
+  "buffer_line_height": "standard",
+  "ui_font_size": 13,
+  "buffer_font_size": 13,
+  // ---------------------
+  "lsp": {
+    "gopls": {
+      "initialization_options": {
+        "usePlaceholders": true,
+        "experimentalPostfixCompletions": true,
+        "completeUnimported": true,
+        "buildFlags": ["-tags", "goexperiment.rangefunc"],
+        "hints": {
+          "assignVariableTypes": true,
+          "compositeLiteralFields": true,
+          "compositeLiteralTypes": true,
+          "constantValues": true,
+          "functionTypeParameters": true,
+          "parameterNames": true,
+          "rangeVariableTypes": true
+        }
+      }
+    },
+    "rust-analyzer": {
+      "initialization_options": {
+        "inlayHints": {
+          "maxLength": null,
+          "lifetimeElisionHints": {
+            "useParameterNames": true,
+            "enable": "skip_trivial"
+          },
+          "closureReturnTypeHints": {
+            "enable": "always"
+          }
+        }
+      }
+    }
+  },
+  "env": {
+    "GOEXPERIMENT": "rangefunc"
+  },
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true
+  },
+  "vim": {
+    "use_system_clipboard": "always",
+    "use_system_mouse": "always",
+    "use_multiline_find": true
+  },
+  "cursor_blink": true,
+  "relative_line_numbers": true,
+  "scrollbar": {
+    "show": "auto"
+  },
+  "auto_update": true,
+  "autosave": "on_focus_change",
+  "vim_mode": true
+}
