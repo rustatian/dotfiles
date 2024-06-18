@@ -8,6 +8,11 @@
 // from the command palette or from `Zed` application menu.
 {
   "theme": "Gruvbox Dark Soft",
+  "current_line_highlight": "gutter",
+  "tabs": {
+    "git_status": true
+  },
+  "use_autoclose": true,
   "telemetry": {
     "diagnostics": false,
     "metrics": false
