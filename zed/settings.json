@@ -19,6 +19,7 @@
   },
   "line_indicator_format": "long",
   "tab_bar": {
+    "show": true,
     "show_nav_history_buttons": true
   },
   // --------- FONT
@@ -50,7 +51,7 @@
         "usePlaceholders": true,
         "experimentalPostfixCompletions": true,
         "completeUnimported": true,
-        "buildFlags": ["-tags", "goexperiment.rangefunc"],
+        "buildFlags": ["-tags=goexperiment.rangefunc"],
         "hints": {
           "assignVariableTypes": true,
           "compositeLiteralFields": true,
