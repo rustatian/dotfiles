@@ -23,27 +23,35 @@
     "show_nav_history_buttons": true
   },
   // --------- FONT
-  "buffer_font_weight": 500,
+  "buffer_font_weight": 600,
   "buffer_font_family": "GeistMono Nerd Font Propo",
-  "ui_font_weight": 500,
-  "ui_font_features": {
-    "liga": true,
+  "buffer_font_size": 13,
+  "buffer_font_features": {
+    "liga": false,
     "calt": true,
     "zero": true,
     "case": true
   },
-  "buffer_font_features": {
-    "liga": true,
+  "ui_font_family": "GeistMono Nerd Font Propo",
+  "ui_font_weight": 600,
+  "ui_font_features": {
+    "liga": false,
     "calt": true,
     "zero": true,
     "case": true
   },
   "terminal": {
-    "font_family": "GeistMono Nerd Font Propo"
+    "font_family": "GeistMono Nerd Font Propo",
+    "font_weight": 600,
+    "font_features": {
+      "liga": false,
+      "calt": true,
+      "zero": true,
+      "case": true
+    }
   },
   "buffer_line_height": "standard",
   "ui_font_size": 13,
-  "buffer_font_size": 13,
   // ---------------------
   "lsp": {
     "gopls": {
