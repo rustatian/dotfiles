@@ -44,8 +44,9 @@ return {
 		},
 	},
 	{
-		"rebelot/kanagawa.nvim",
+		"ellisonleao/gruvbox.nvim",
 		lazy = false,
+		config = true,
 		priority = 1000,
 	},
 	{
@@ -92,7 +93,7 @@ return {
 	-------------------
 	"folke/trouble.nvim",
 
-	{ -- Useful plugin to show you pending keybinds.
+	{             -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
 		config = function() -- This is the function that runs, AFTER loading
