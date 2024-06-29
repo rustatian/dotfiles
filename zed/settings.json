@@ -7,6 +7,12 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "assistant": {
+    "provider": {
+      "name": "openai",
+      "default_model": "gpt-4o"
+    }
+  },
   "theme": "Gruvbox Dark Soft",
   "current_line_highlight": "gutter",
   "tabs": {
@@ -82,6 +88,14 @@
           "closureReturnTypeHints": {
             "enable": "always"
           }
+        }
+      }
+    },
+    "Python": {
+      "format_on_save": {
+        "external": {
+          "command": "black",
+          "arguments": ["-"]
         }
       }
     }

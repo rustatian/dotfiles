@@ -3,6 +3,7 @@
     "context": "Editor || Workspace",
     "bindings": {
       "ctrl-shift-e": "workspace::ToggleLeftDock",
+      "cmd-p": "editor::ShowCompletions",
       "ctrl-x": "pane::CloseActiveItem"
     }
   },
