@@ -40,7 +40,7 @@ shape = "Underline"
 TERM = "xterm-256color"
 
 [font]
-size = 13.0
+size = 15.0
 
 [font.normal]
 family = "GeistMono Nerd Font Propo"
