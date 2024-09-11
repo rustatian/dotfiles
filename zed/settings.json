@@ -7,12 +7,18 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "assistant": {
-    "version": "1",
-    "provider": {
-      "name": "openai",
-      "default_model": "gpt-4o"
+  "language_models": {
+    "openai": {
+      "version": "1"
     }
+  },
+  "assistant": {
+    "default_model": {
+      "provider": "openai",
+      "model": "gpt-4o"
+    },
+    "version": "2",
+    "provider": null
   },
   "theme": "Gruvbox Dark Soft",
   "current_line_highlight": "gutter",
