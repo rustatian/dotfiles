@@ -45,9 +45,8 @@ return {
 		},
 	},
 	{
-		"ellisonleao/gruvbox.nvim",
+		"catppuccin/nvim",
 		lazy = false,
-		config = true,
 		priority = 1000,
 	},
 	{
