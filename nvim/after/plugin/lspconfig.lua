@@ -73,9 +73,40 @@ lspconfig.jsonls.setup({
 	on_attach = on_attach,
 })
 
+lspconfig.helm_ls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig.harper_ls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig.gitlab_ci_ls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig.stylelint_lsp.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 lspconfig.lua_ls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+})
+
+lspconfig.ruff_lsp.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig.golangci_lint_ls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	command = { "golangci-lint", "run", "--build-tags=race", "--out-format", "json" },
 })
 
 lspconfig.gopls.setup({
@@ -107,6 +138,7 @@ lspconfig.gopls.setup({
 	on_attach = on_attach,
 })
 
+-- C/C++ LSP ---------------------
 lspconfig.cmake.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -186,12 +218,6 @@ lspconfig.yamlls.setup({
 			},
 		},
 	},
-})
-
-lspconfig.golangci_lint_ls.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	command = { "golangci-lint", "run", "--build-tags=race", "--out-format", "json" },
 })
 
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
