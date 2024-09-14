@@ -98,11 +98,6 @@ lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 })
 
-lspconfig.ruff_lsp.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
 lspconfig.golangci_lint_ls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -182,9 +177,15 @@ lspconfig.sqlls.setup({
 	on_attach = on_attach,
 })
 
-lspconfig.pylsp.setup({
+lspconfig.pyright.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	python = {
+		analysis = {
+			autoSearchPaths = true,
+			useLibraryCodeForTypes = true,
+		},
+	},
 })
 
 lspconfig.intelephense.setup({

@@ -27,6 +27,10 @@ return {
 	-- GUI enhancements --
 	-----------------------
 	{
+		"stevearc/dressing.nvim",
+		opts = {},
+	},
+	{
 		"folke/todo-comments.nvim",
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
