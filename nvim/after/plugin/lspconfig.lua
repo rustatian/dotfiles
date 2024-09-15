@@ -8,7 +8,7 @@ require("neodev").setup({
 		-- you can also specify the list of plugins to make available as a workspace library
 		-- plugins = { "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
 	},
-	setup_jsonls = true, -- configures jsonls to provide completion for project specific .luarc.json files
+	setup_jsonls = true, -- configures jsonls to provide completion for project specific '.luarc.json' files
 	-- for your Neovim config directory, the config.library settings will be used as is
 	-- for plugin directories (root_dirs having a /lua directory), config.library.plugins will be disabled
 	-- for any other directory, config.library.enabled will be set to false
@@ -81,6 +81,28 @@ lspconfig.helm_ls.setup({
 lspconfig.harper_ls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	settings = {
+		["harper-ls"] = {
+			linters = {
+				spell_check = true,
+				spelled_numbers = false,
+				an_a = true,
+				sentence_capitalization = false,
+				unclosed_quotes = true,
+				wrong_quotes = false,
+				long_sentences = true,
+				repeated_words = true,
+				spaces = true,
+				matcher = true,
+				correct_number_suffix = true,
+				number_suffix_capitalization = true,
+				multiple_sequential_pronouns = true,
+				linking_verbs = false,
+				avoid_curses = true,
+				terminating_conjunctions = true,
+			},
+		},
+	},
 })
 
 lspconfig.gitlab_ci_ls.setup({
@@ -196,8 +218,15 @@ lspconfig.intelephense.setup({
 	},
 })
 
-lspconfig.bashls.setup({})
-lspconfig.grammarly.setup({})
+lspconfig.bashls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig.grammarly.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
 
 lspconfig.jsonls.setup({
 	capabilities = capabilities,
@@ -240,7 +269,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		-- Jump to the definition of the word under your cursor.
 		--  This is where a variable was first declared, or where a function is defined, etc.
-		--  To jump back, press <C-t>.
+		--  To jump back, press '<C-t>'.
 		map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 
 		-- Find references for the word under your cursor.
