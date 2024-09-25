@@ -108,7 +108,7 @@
 	{
 		"context": "Terminal",
 		"bindings": {
-			"ctrl-b z": "workspace::ToggleZoom",
+			"ctrl-a z": "workspace::ToggleZoom",
 			"ctrl-u": "terminal::Clear"
 		}
 	},
