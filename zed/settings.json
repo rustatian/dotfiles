@@ -7,148 +7,150 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "language_models": {
-    "openai": {
-      "version": "1",
-      "available_models": [
-        {
-          "provider": "openai",
-          "name": "gpt-4o-2024-08-06",
-          "max_tokens": 128000
-        },
-        {
-          "name": "o1-mini",
-          "display_name": "o1-mini",
-          "max_tokens": 128000,
-          "max_completion_tokens": 20000
-        }
-      ]
-    }
-  },
-  "assistant": {
-    "default_model": {
-      "provider": "openai",
-      "model": "gpt-4-turbo"
-    },
-    "version": "2",
-    "provider": null
-  },
-  "theme": "Catppuccin Mocha - No Italics",
-  "current_line_highlight": "gutter",
-  "tabs": {
-    "git_status": true
-  },
-  "use_autoclose": true,
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false
-  },
-  "line_indicator_format": "long",
-  "tab_bar": {
-    "show": true,
-    "show_nav_history_buttons": true
-  },
-  // --------- FONT
-  "buffer_font_weight": 600,
-  "buffer_font_family": "GeistMono Nerd Font Propo",
-  "buffer_font_size": 13,
-  "buffer_font_features": {
-    "liga": false,
-    "calt": true,
-    "zero": true,
-    "case": true
-  },
-  "ui_font_family": "GeistMono Nerd Font Propo",
-  "ui_font_weight": 600,
-  "ui_font_features": {
-    "liga": false,
-    "calt": true,
-    "zero": true,
-    "case": true
-  },
-  "terminal": {
-    "font_family": "GeistMono Nerd Font Propo",
-    "font_weight": 600,
-    "line_height": {
-      "custom": 1.2
-    },
-    "font_features": {
-      "liga": true,
-      "calt": true,
-      "zero": true,
-      "case": true
-    }
-  },
-  "buffer_line_height": {
-    "custom": 1.2
-  },
-  "ui_font_size": 13,
-  // ---------------------
-  "lsp": {
-    "clangd": {
-      "binary": {
-        "path": "/opt/homebrew/opt/llvm/bin/clangd",
-        "args": []
-      }
-    },
-    "gopls": {
-      "initialization_options": {
-        "usePlaceholders": true,
-        "experimentalPostfixCompletions": true,
-        "completeUnimported": true,
-        "buildFlags": [],
-        "hints": {
-          "assignVariableTypes": true,
-          "compositeLiteralFields": true,
-          "compositeLiteralTypes": true,
-          "constantValues": true,
-          "functionTypeParameters": true,
-          "parameterNames": true,
-          "rangeVariableTypes": true
-        }
-      }
-    },
-    "rust-analyzer": {
-      "initialization_options": {
-        "inlayHints": {
-          "maxLength": null,
-          "lifetimeElisionHints": {
-            "useParameterNames": true,
-            "enable": "skip_trivial"
-          },
-          "closureReturnTypeHints": {
-            "enable": "always"
-          }
-        }
-      }
-    },
-    "Python": {
-      "format_on_save": {
-        "external": {
-          "command": "black",
-          "arguments": ["."]
-        }
-      }
-    }
-  },
-  "env": {},
-  "inlay_hints": {
-    "enabled": true,
-    "show_type_hints": true,
-    "show_parameter_hints": true,
-    "show_other_hints": true
-  },
-  "vim": {
-    "use_system_clipboard": "always",
-    "use_system_mouse": "always",
-    "use_multiline_find": true
-  },
-  "cursor_blink": true,
-  "relative_line_numbers": true,
-  "scrollbar": {
-    "show": "auto"
-  },
-  "auto_update": true,
-  "autosave": "on_focus_change",
-  "vim_mode": true
+	"language_models": {
+		"openai": {
+			"version": "1",
+			"available_models": [
+				{
+					"provider": "openai",
+					"name": "gpt-4o-2024-08-06",
+					"max_tokens": 128000
+				},
+				{
+					"name": "o1-mini",
+					"display_name": "o1-mini",
+					"max_tokens": 128000,
+					"max_completion_tokens": 20000
+				}
+			]
+		}
+	},
+	"assistant": {
+		"default_model": {
+			"provider": "openai",
+			"model": "gpt-4o"
+		},
+		"version": "2",
+		"provider": null
+	},
+	"theme": "Gruvbox Dark",
+	"current_line_highlight": "gutter",
+	"tabs": {
+		"git_status": true
+	},
+	"use_autoclose": true,
+	"telemetry": {
+		"diagnostics": false,
+		"metrics": false
+	},
+	"line_indicator_format": "long",
+	"tab_bar": {
+		"show": true,
+		"show_nav_history_buttons": true
+	},
+	// --------- FONT
+	"buffer_font_weight": 600,
+	"buffer_font_family": "GeistMono Nerd Font Propo",
+	"buffer_font_size": 13,
+	"buffer_font_features": {
+		"liga": false,
+		"calt": true,
+		"zero": true,
+		"case": true
+	},
+	"ui_font_family": "GeistMono Nerd Font Propo",
+	"ui_font_weight": 600,
+	"ui_font_features": {
+		"liga": false,
+		"calt": true,
+		"zero": true,
+		"case": true
+	},
+	"terminal": {
+		"font_family": "GeistMono Nerd Font Propo",
+		"font_weight": 600,
+		"line_height": {
+			"custom": 1.2
+		},
+		"font_features": {
+			"liga": true,
+			"calt": true,
+			"zero": true,
+			"case": true
+		}
+	},
+	"buffer_line_height": {
+		"custom": 1.2
+	},
+	"ui_font_size": 13,
+	// ---------------------
+	"lsp": {
+		"clangd": {
+			"binary": {
+				"path": "/opt/homebrew/opt/llvm/bin/clangd",
+				"args": []
+			}
+		},
+		"gopls": {
+			"initialization_options": {
+				"usePlaceholders": true,
+				"experimentalPostfixCompletions": true,
+				"completeUnimported": true,
+				"buildFlags": [],
+				"hints": {
+					"assignVariableTypes": true,
+					"compositeLiteralFields": true,
+					"compositeLiteralTypes": true,
+					"constantValues": true,
+					"functionTypeParameters": true,
+					"parameterNames": true,
+					"rangeVariableTypes": true
+				}
+			}
+		},
+		"rust-analyzer": {
+			"initialization_options": {
+				"inlayHints": {
+					"maxLength": null,
+					"lifetimeElisionHints": {
+						"useParameterNames": true,
+						"enable": "skip_trivial"
+					},
+					"closureReturnTypeHints": {
+						"enable": "always"
+					}
+				}
+			}
+		},
+		"Python": {
+			"format_on_save": {
+				"external": {
+					"command": "black",
+					"arguments": [
+						"."
+					]
+				}
+			}
+		}
+	},
+	"env": {},
+	"inlay_hints": {
+		"enabled": true,
+		"show_type_hints": true,
+		"show_parameter_hints": true,
+		"show_other_hints": true
+	},
+	"vim": {
+		"use_system_clipboard": "always",
+		"use_system_mouse": "always",
+		"use_multiline_find": true
+	},
+	"cursor_blink": true,
+	"relative_line_numbers": true,
+	"scrollbar": {
+		"show": "auto"
+	},
+	"auto_update": true,
+	"autosave": "on_focus_change",
+	"vim_mode": true
 }
