@@ -9,6 +9,39 @@ return {
 	{
 		"nvim-neotest/nvim-nio",
 	},
+	---------
+	-- C++ --
+	---------
+	{
+		"p00f/clangd_extensions.nvim",
+		lazy = true,
+		config = function() end,
+		opts = {
+			inlay_hints = {
+				inline = false,
+			},
+			ast = {
+				--These require codicons (https://github.com/microsoft/vscode-codicons)
+				role_icons = {
+					type = "",
+					declaration = "",
+					expression = "",
+					specifier = "",
+					statement = "",
+					["template argument"] = "",
+				},
+				kind_icons = {
+					Compound = "",
+					Recovery = "",
+					TranslationUnit = "",
+					PackExpansion = "",
+					TemplateTypeParm = "",
+					TemplateTemplateParm = "",
+					TemplateParamObject = "",
+				},
+			},
+		},
+	},
 
 	----------
 	-- Rust --
@@ -101,7 +134,7 @@ return {
 	-------------------
 	"folke/trouble.nvim",
 
-	{ -- Useful plugin to show you pending keybinds.
+	{             -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
 		config = function() -- This is the function that runs, AFTER loading
@@ -109,15 +142,15 @@ return {
 
 			-- Document existing key chains
 			require("which-key").add({
-				{ "<leader>c", group = "[C]ode" },
+				{ "<leader>c",  group = "[C]ode" },
 				{ "<leader>c_", hidden = true },
-				{ "<leader>d", group = "[D]ocument" },
+				{ "<leader>d",  group = "[D]ocument" },
 				{ "<leader>d_", hidden = true },
-				{ "<leader>r", group = "[R]ename" },
+				{ "<leader>r",  group = "[R]ename" },
 				{ "<leader>r_", hidden = true },
-				{ "<leader>s", group = "[S]earch" },
+				{ "<leader>s",  group = "[S]earch" },
 				{ "<leader>s_", hidden = true },
-				{ "<leader>w", group = "[W]orkspace" },
+				{ "<leader>w",  group = "[W]orkspace" },
 				{ "<leader>w_", hidden = true },
 			})
 		end,

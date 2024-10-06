@@ -134,15 +134,32 @@ lspconfig.cmake.setup({
 	on_attach = on_attach,
 })
 
+local cap = capabilities
+cap.offsetEncoding = { "utf-16" }
+
 lspconfig.clangd.setup({
-	capabilities = capabilities,
+	capabilities = cap,
 	on_attach = on_attach,
-	cmd = { "clangd" },
+	cmd = {
+		"clangd",
+		"--background-index",
+		"--clang-tidy",
+		"--header-insertion=iwyu",
+		"--completion-style=detailed",
+		"--function-arg-placeholders",
+		"--fallback-style=llvm",
+	},
 	flags = {
 		debounce_text_changes = 200,
 	},
 	settings = {
 		clangd = {},
+	},
+	init_options = {
+		clangdFileStatus = true, -- Provides information about activity on clangd’s per-file worker thread
+		usePlaceholders = true,
+		completeUnimported = true,
+		semanticHighlighting = true,
 	},
 	filetypes = { "c", "cpp", "h", "hpp" },
 })
@@ -216,8 +233,10 @@ lspconfig.yamlls.setup({
 		yaml = {
 			schemas = {
 				["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-				["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] = "/*.k8s.yaml",
-				["https://cdn.jsdelivr.net/gh/roadrunner-server/roadrunner@latest/schemas/config/3.0.schema.json"] = ".rr*.yaml",
+				["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] =
+				"/*.k8s.yaml",
+				["https://cdn.jsdelivr.net/gh/roadrunner-server/roadrunner@latest/schemas/config/3.0.schema.json"] =
+				".rr*.yaml",
 			},
 		},
 	},
