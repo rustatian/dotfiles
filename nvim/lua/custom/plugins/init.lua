@@ -9,6 +9,21 @@ return {
 	{
 		"nvim-neotest/nvim-nio",
 	},
+
+	----------
+	--  AI  --
+	----------
+	{
+		"olimorris/codecompanion.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
+			"nvim-telescope/telescope.nvim", -- Optional: For using slash commands
+			{ "stevearc/dressing.nvim", opts = {} }, -- Optional: Improves `vim.ui.select`
+		},
+		config = true,
+	},
 	---------
 	-- C++ --
 	---------
@@ -134,7 +149,7 @@ return {
 	-------------------
 	"folke/trouble.nvim",
 
-	{             -- Useful plugin to show you pending keybinds.
+	{ -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
 		config = function() -- This is the function that runs, AFTER loading
@@ -142,15 +157,15 @@ return {
 
 			-- Document existing key chains
 			require("which-key").add({
-				{ "<leader>c",  group = "[C]ode" },
+				{ "<leader>c", group = "[C]ode" },
 				{ "<leader>c_", hidden = true },
-				{ "<leader>d",  group = "[D]ocument" },
+				{ "<leader>d", group = "[D]ocument" },
 				{ "<leader>d_", hidden = true },
-				{ "<leader>r",  group = "[R]ename" },
+				{ "<leader>r", group = "[R]ename" },
 				{ "<leader>r_", hidden = true },
-				{ "<leader>s",  group = "[S]earch" },
+				{ "<leader>s", group = "[S]earch" },
 				{ "<leader>s_", hidden = true },
-				{ "<leader>w",  group = "[W]orkspace" },
+				{ "<leader>w", group = "[W]orkspace" },
 				{ "<leader>w_", hidden = true },
 			})
 		end,
