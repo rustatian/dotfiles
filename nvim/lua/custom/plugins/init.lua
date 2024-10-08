@@ -24,6 +24,17 @@ return {
 		},
 		config = true,
 	},
+
+	-------------
+	-- Folding --
+	-------------
+	{
+		"kevinhwang91/nvim-ufo",
+		dependencies = {
+			"kevinhwang91/promise-async",
+		},
+	},
+
 	---------
 	-- C++ --
 	---------
