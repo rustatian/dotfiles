@@ -112,15 +112,9 @@ return {
 		},
 	},
 	{
-		"sainnhe/gruvbox-material",
+		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
-		config = function()
-			vim.g.gruvbox_material_enable_italic = false
-			vim.g.gruvbox_material_better_performance = 1
-			vim.g.gruvbox_material_foreground = "original"
-			vim.cmd.colorscheme("gruvbox-material")
-		end,
 	},
 	{
 		"j-hui/fidget.nvim",
