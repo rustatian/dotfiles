@@ -78,7 +78,7 @@ return {
 		event = { "BufRead Cargo.toml" },
 		dependencies = "nvim-lua/plenary.nvim",
 		config = function()
-			require("crates").setup()
+			require("crates").setup({})
 		end,
 	},
 
@@ -112,9 +112,15 @@ return {
 		},
 	},
 	{
-		"catppuccin/nvim",
+		"sainnhe/gruvbox-material",
 		lazy = false,
 		priority = 1000,
+		config = function()
+			vim.g.gruvbox_material_enable_italic = false
+			vim.g.gruvbox_material_better_performance = 1
+			vim.g.gruvbox_material_foreground = "original"
+			vim.cmd.colorscheme("gruvbox-material")
+		end,
 	},
 	{
 		"j-hui/fidget.nvim",

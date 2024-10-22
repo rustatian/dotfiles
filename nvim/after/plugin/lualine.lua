@@ -17,6 +17,7 @@ require("lualine").setup({
 			winbar = 1000,
 		},
 	},
+	theme = "gruvbox-material",
 	sections = {
 		lualine_a = { "mode" },
 		lualine_b = { "branch", "diff", "diagnostics" },

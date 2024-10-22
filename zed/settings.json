@@ -32,7 +32,7 @@
     },
     "version": "2"
   },
-  "theme": "Catppuccin Mocha - No Italics",
+  "theme": "Gruvbox Dark",
   "current_line_highlight": "gutter",
   "tabs": {
     "git_status": true
@@ -48,18 +48,18 @@
     "show_nav_history_buttons": true
   },
   // --------- FONT
-  "buffer_font_weight": 550,
-  "buffer_font_family": "GeistMono Nerd Font Propo",
-  "buffer_font_size": 12,
-  "ui_font_size": 12,
+  "buffer_font_weight": 500,
+  "ui_font_weight": 500,
+  "buffer_font_family": "BerkeleyMono Nerd Font",
+  "buffer_font_size": 13,
+  "ui_font_size": 14,
   "buffer_font_features": {
     "liga": false,
     "calt": true,
     "zero": true,
     "case": true
   },
-  "ui_font_family": "GeistMono Nerd Font Propo",
-  "ui_font_weight": 550,
+  "ui_font_family": "BerkeleyMono Nerd Font",
   "ui_font_features": {
     "liga": false,
     "calt": true,
@@ -67,10 +67,8 @@
     "case": true
   },
   "terminal": {
-    "env": {
-      "EDITOR": "zed --wait"
-    },
-    "font_family": "GeistMono Nerd Font Propo",
+    "env": {},
+    "font_family": "BerkeleyMono Nerd Font",
     "font_weight": 500,
     "line_height": {
       "custom": 1.2
