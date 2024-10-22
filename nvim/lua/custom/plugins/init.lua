@@ -112,7 +112,7 @@ return {
 		},
 	},
 	{
-		"folke/tokyonight.nvim",
+		"catppuccin/nvim",
 		lazy = false,
 		priority = 1000,
 	},
