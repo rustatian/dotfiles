@@ -1,46 +1,36 @@
 [colors]
 draw_bold_text_with_bright_colors = true
 
-# TokyoNight Alacritty Colors
 # Default colors
 [colors.primary]
-background = '#1a1b26'
-foreground = '#c0caf5'
+background = '#000000'
+foreground = '#ffffff'
 
-#[colors.cursor]
-#cursor = '#c0caf5'
-#text = '#1a1b26'
+[colors.cursor]
+text = '#F81CE5'
+cursor = '#ffffff'
 
 # Normal colors
 [colors.normal]
-black = '#15161e'
-red = '#f7768e'
-green = '#9ece6a'
-yellow = '#e0af68'
-blue = '#7aa2f7'
-magenta = '#bb9af7'
-cyan = '#7dcfff'
-white = '#a9b1d6'
+black   = '#000000'
+red     = '#fe0100'
+green   = '#33ff00'
+yellow  = '#feff00'
+blue    = '#0066ff'
+magenta = '#cc00ff'
+cyan    = '#00ffff'
+white   = '#d0d0d0'
 
 # Bright colors
 [colors.bright]
-black = '#414868'
-red = '#f7768e'
-green = '#9ece6a'
-yellow = '#e0af68'
-blue = '#7aa2f7'
-magenta = '#bb9af7'
-cyan = '#7dcfff'
-white = '#c0caf5'
-
-# Indexed Colors
-[[colors.indexed_colors]]
-index = 16
-color = '#ff9e64'
-
-[[colors.indexed_colors]]
-index = 17
-color = '#db4b4b'
+black   = '#808080'
+red     = '#fe0100'
+green   = '#33ff00'
+yellow  = '#feff00'
+blue    = '#0066ff'
+magenta = '#cc00ff'
+cyan    = '#00ffff'
+white   = '#FFFFFF'
 
 [cursor]
 vi_mode_style = "Underline"
@@ -52,10 +42,10 @@ shape = "Underline"
 TERM = "xterm-256color"
 
 [font]
-size = 15.5
+size = 13.5
 
 [font.normal]
-family = "BerkeleyMono Nerd Font"
+family = "GeistMono Nerd Font Propo"
 style = "Regular"
 
 [[hints.enabled]]
