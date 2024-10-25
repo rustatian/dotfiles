@@ -47,10 +47,16 @@
     "show": true,
     "show_nav_history_buttons": true
   },
+  "project_panel": {
+    "git_status": true,
+    "file_icons": true,
+    "indent_size": 10,
+    "indent_guides": true
+  },
   // --------- FONT
   "buffer_font_weight": 500,
   "ui_font_weight": 500,
-  "buffer_font_family": "GeistMono Nerd Font Propo",
+  "buffer_font_family": "BerkeleyMono Nerd Font",
   "buffer_font_size": 13,
   "ui_font_size": 14,
   "buffer_font_features": {
@@ -59,7 +65,7 @@
     "zero": true,
     "case": true
   },
-  "ui_font_family": "GeistMono Nerd Font Propo",
+  "ui_font_family": "BerkeleyMono Nerd Font",
   "ui_font_features": {
     "liga": false,
     "calt": true,
@@ -68,7 +74,7 @@
   },
   "terminal": {
     "env": {},
-    "font_family": "GeistMono Nerd Font Propo",
+    "font_family": "BerkeleyMono Nerd Font",
     "font_weight": 500,
     "line_height": {
       "custom": 1.2
