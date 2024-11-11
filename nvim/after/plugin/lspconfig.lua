@@ -87,6 +87,11 @@ lspconfig.gitlab_ci_ls.setup({
 	on_attach = on_attach,
 })
 
+lspconfig.bufls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 lspconfig.stylelint_lsp.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -166,11 +171,6 @@ lspconfig.clangd.setup({
 		semanticHighlighting = true,
 	},
 	filetypes = { "c", "cpp", "h", "hpp" },
-})
-
-lspconfig.bufls.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
 })
 
 lspconfig.docker_compose_language_service.setup({

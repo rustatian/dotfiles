@@ -7,7 +7,6 @@ local servers = {
 	"gopls",
 	"rust_analyzer",
 	"yamlls",
-	"bufls",
 	"cmake",
 	"dockerls",
 	"docker_compose_language_service",
