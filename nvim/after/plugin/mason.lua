@@ -7,7 +7,6 @@ local servers = {
 	"gopls",
 	"rust_analyzer",
 	"yamlls",
-	"cmake",
 	"dockerls",
 	"docker_compose_language_service",
 	"golangci_lint_ls",
