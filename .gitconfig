@@ -1,0 +1,52 @@
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = true
+[core]
+	filemode = true
+
+[add.interactive]
+    useBuiltin = false # required for git 2.37.0
+
+[difftool]
+    # Run the difftool immediately, don't ask 'are you sure' each time.
+    prompt = false
+
+[pager]
+    # Use a pager if the difftool output is larger than one screenful,
+    # consistent with the behaviour of `git diff`.
+    difftool = true
+
+[diff]
+    # Set difftastic as the default difftool, so we don't need to specify
+    # `-t difftastic` every time.
+    tool = difftastic
+    external = difft
+
+[difftool "difftastic"]
+    # See `man git-difftool` for a description of MERGED, LOCAL and REMOTE.
+    cmd = difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
+
+[merge]
+    conflictstyle = diff3
+
+[user]
+	signingkey = 85AC22366BAB4FD626A276669480A51C85D357D0
+	email = piashchynski.valery@gmail.com
+	name = Valery Piashchynski
+
+[commit]
+	gpgsign = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com/
+[url "git@bitbucket.org:"]
+	insteadOf = https://bitbucket.org/
+[url "git@git.spiralscout.com:"]
+	insteadOf = https://git.spiralscout.com/
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[credential]
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager

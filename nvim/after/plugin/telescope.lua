@@ -11,6 +11,7 @@ pcall(require("telescope").load_extension, "fzf")
 pcall(require("telescope").load_extension, "ui-select")
 
 local builtin = require("telescope.builtin")
+
 vim.keymap.set("n", "<leader>?", builtin.oldfiles, { desc = "[?] Find recently opened files" })
 vim.keymap.set("n", "<leader>/", function()
 	builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
