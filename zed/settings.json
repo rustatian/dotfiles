@@ -32,7 +32,7 @@
     },
     "version": "2"
   },
-  "theme": "Rosé Pine",
+  "theme": "Rosé Pine Moon",
   "current_line_highlight": "gutter",
   "tabs": {
     "git_status": true
@@ -55,20 +55,20 @@
     }
   },
   // --------- FONT
-  "buffer_font_weight": 600,
+  "buffer_font_weight": 500,
   "ui_font_weight": 500,
-  "buffer_font_family": "Berkeley Mono",
-  "buffer_font_size": 13,
   "ui_font_size": 14,
+  "buffer_font_family": "Berkeley Mono",
+  "buffer_font_size": 14,
   "buffer_font_features": {
-    "liga": false,
+    "liga": true,
     "calt": true,
     "zero": true,
     "case": true
   },
   "ui_font_family": "Berkeley Mono",
   "ui_font_features": {
-    "liga": false,
+    "liga": true,
     "calt": true,
     "zero": true,
     "case": true
@@ -88,7 +88,7 @@
     }
   },
   "buffer_line_height": {
-    "custom": 1.3
+    "custom": 1.2
   },
   // ---------------------
   "lsp": {

@@ -3,8 +3,22 @@ return {
 	-- Sys  --
 	----------
 	{
-		-- SHOULD BE SETUP BEFORE lspconfig
-		"folke/neodev.nvim",
+		"saghen/blink.cmp",
+	},
+	{
+
+		"folke/lazydev.nvim",
+	},
+	{
+		"saghen/blink.cmp",
+		version = 'v0.*',
+		lazy = false, -- lazy loading handled internally
+		-- optional: provides snippets for the snippet source
+		dependencies = 'rafamadriz/friendly-snippets',
+
+		-- use a release tag to download pre-built binaries
+		opts = {
+		},
 	},
 	{
 		"nvim-neotest/nvim-nio",
@@ -18,7 +32,6 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
-			"hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
 			"nvim-telescope/telescope.nvim", -- Optional: For using slash commands
 			{ "stevearc/dressing.nvim", opts = {} }, -- Optional: Improves `vim.ui.select`
 		},
@@ -149,12 +162,20 @@ return {
 	-------------------
 	{
 		"hrsh7th/nvim-cmp",
+		-- enabled = false,
+		opts = function(_, opts)
+			opts.sources = opts.sources or {}
+			table.insert(opts.sources, {
+				name = "lazydev",
+				group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+			})
+		end,
 		event = { "InsertEnter", "CmdlineEnter" },
 	},
-	"hrsh7th/cmp-buffer",
-	"hrsh7th/cmp-path",
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/cmp-nvim-lua",
+	-- "hrsh7th/cmp-buffer",
+	-- "hrsh7th/cmp-path",
+	-- "hrsh7th/cmp-nvim-lsp",
+	-- "hrsh7th/cmp-nvim-lua",
 
 	-------------------
 	--  Diagnostic   --

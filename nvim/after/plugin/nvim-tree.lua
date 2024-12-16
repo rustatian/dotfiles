@@ -1,5 +1,3 @@
-vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
-
 require("nvim-tree").setup({
 	sort_by = "case_sensitive",
 	diagnostics = {
@@ -27,3 +25,5 @@ require("nvim-tree").setup({
 		exclude = { ".git", "target" },
 	},
 })
+
+vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })

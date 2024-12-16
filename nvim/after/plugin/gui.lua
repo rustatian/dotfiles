@@ -6,7 +6,7 @@ require("rose-pine").setup({
 
 	enable = {
 		terminal = true,
-		legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+		legacy_highlights = false, -- Improve compatibility for previous versions of Neovim
 		migrations = true, -- Handle deprecated options automatically
 	},
 
@@ -56,8 +56,8 @@ require("rose-pine").setup({
 	},
 
 	highlight_groups = {
-		-- Comment = { fg = "foam" },
-		-- VertSplit = { fg = "muted", bg = "muted" },
+		Comment = { fg = "foam" },
+		VertSplit = { fg = "muted", bg = "muted" },
 	},
 
 	before_highlight = function(group, highlight, palette)

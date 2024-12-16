@@ -1,27 +1,9 @@
-require("neodev").setup({
-	library = {
-		enabled = true, -- when not enabled, neodev will not change any settings to the LSP server
-		-- these settings will be used for your Neovim config directory
-		runtime = true, -- runtime path
-		types = true, -- full signature, docs and completion of vim.api, vim.treesitter, vim.lsp and others
-		plugins = true, -- installed opt or start plugins in packpath
-	},
-	setup_jsonls = true, -- configures jsonls to provide completion for project specific '.luarc.json' files
-	-- for your Neovim config directory, the config.library settings will be used as is
-	-- for plugin directories (root_dirs having a /lua directory), config.library.plugins will be disabled
-	-- for any other directory, config.library.enabled will be set to false
-	override = function(_, _) end,
-	-- With lspconfig, Neodev will automatically setup your lua-language-server
-	-- If you disable this, then you have to set {before_init=require("neodev.lsp").before_init}
-	-- in your lsp start options
-	lspconfig = true,
-	-- much faster, but needs a recent built of lua-language-server
-	-- needs lua-language-server >= 3.6.0
-	pathStrict = true,
-})
+require("lazydev").setup()
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+local lspconfig = require('lspconfig')
+
+capabilities = vim.tbl_deep_extend("force", capabilities, capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.foldingRange = {
 	dynamicRegistration = false,
@@ -36,15 +18,18 @@ end
 
 -- Rust-Analyzer setup in the init.lua
 
-local lspconfig = require("lspconfig")
+-- local lspconfig = require("lspconfig")
 local util = require("lspconfig/util")
 
 require("lspconfig").rust_analyzer.setup({
 	capabilities = capabilities,
 	settings = {
 		["rust-analyzer"] = {
+			diagnostics = {
+				enable = true,
+			},
 			checkOnSave = {
-				command = "cargo clippy --all-targets --all-features -- -D warnings",
+				allTargets = true,
 			},
 			imports = {
 				granularity = {
@@ -59,6 +44,9 @@ require("lspconfig").rust_analyzer.setup({
 			},
 			procMacro = {
 				enable = true,
+			},
+			experimental = {
+				serverStatusNotification = true,
 			},
 		},
 	},
@@ -141,11 +129,8 @@ lspconfig.cmake.setup({
 	on_attach = on_attach,
 })
 
-local cap = capabilities
-cap.offsetEncoding = { "utf-16" }
-
 lspconfig.clangd.setup({
-	capabilities = cap,
+	capabilities = capabilities,
 	on_attach = on_attach,
 	cmd = {
 		"clangd",
