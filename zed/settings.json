@@ -27,8 +27,8 @@
   },
   "assistant": {
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-latest"
+      "provider": "copilot_chat",
+      "model": "o1-mini"
     },
     "version": "2"
   },
@@ -58,7 +58,7 @@
   "buffer_font_weight": 500,
   "ui_font_weight": 500,
   "ui_font_size": 14,
-  "buffer_font_family": "Berkeley Mono",
+  "buffer_font_family": "BerkeleyMono Nerd Font",
   "buffer_font_size": 14,
   "buffer_font_features": {
     "liga": true,
@@ -66,7 +66,7 @@
     "zero": true,
     "case": true
   },
-  "ui_font_family": "Berkeley Mono",
+  "ui_font_family": "BerkeleyMono Nerd Font",
   "ui_font_features": {
     "liga": true,
     "calt": true,
@@ -75,7 +75,7 @@
   },
   "terminal": {
     "env": {},
-    "font_family": "Berkeley Mono",
+    "font_family": "BerkeleyMono Nerd Font",
     "font_weight": 500,
     "line_height": {
       "custom": 1.2
