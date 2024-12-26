@@ -56,7 +56,6 @@ luasnip.config.setup({
 })
 
 require("blink-cmp").setup({
-
 	appearance = {
 		-- Sets the fallback highlight groups to nvim-cmp's highlight groups
 		-- Useful for when your theme doesn't support blink.cmp
@@ -68,6 +67,8 @@ require("blink-cmp").setup({
 	},
 	sources = {
 		completion = {
+			menu = { border = 'single' },
+			documentation = { window = { border = 'single' } },
 			enabled_providers = { "lsp", "path", "snippets", "buffer", "lazydev" },
 		},
 		providers = {

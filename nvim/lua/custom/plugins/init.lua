@@ -3,22 +3,7 @@ return {
 	-- Sys  --
 	----------
 	{
-		"saghen/blink.cmp",
-	},
-	{
-
 		"folke/lazydev.nvim",
-	},
-	{
-		"saghen/blink.cmp",
-		version = 'v0.*',
-		lazy = false, -- lazy loading handled internally
-		-- optional: provides snippets for the snippet source
-		dependencies = 'rafamadriz/friendly-snippets',
-
-		-- use a release tag to download pre-built binaries
-		opts = {
-		},
 	},
 	{
 		"nvim-neotest/nvim-nio",
@@ -28,14 +13,6 @@ return {
 	--  AI  --
 	----------
 	{
-		"olimorris/codecompanion.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-telescope/telescope.nvim", -- Optional: For using slash commands
-			{ "stevearc/dressing.nvim", opts = {} }, -- Optional: Improves `vim.ui.select`
-		},
-		config = true,
 	},
 
 	-------------
@@ -155,33 +132,26 @@ return {
 	},
 	"rafamadriz/friendly-snippets",
 	"github/copilot.vim",
-	"saadparwaiz1/cmp_luasnip",
 
 	-------------------
 	-- Autocopletion --
 	-------------------
 	{
-		"hrsh7th/nvim-cmp",
-		-- enabled = false,
-		opts = function(_, opts)
-			opts.sources = opts.sources or {}
-			table.insert(opts.sources, {
-				name = "lazydev",
-				group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-			})
-		end,
-		event = { "InsertEnter", "CmdlineEnter" },
+		"saghen/blink.cmp",
+		version = 'v0.*',
+		lazy = false, -- lazy loading handled internally
+		-- optional: provides snippets for the snippet source
+		dependencies = 'rafamadriz/friendly-snippets',
+
+		-- use a release tag to download pre-built binaries
+		opts = {
+		},
 	},
-	-- "hrsh7th/cmp-buffer",
-	-- "hrsh7th/cmp-path",
-	-- "hrsh7th/cmp-nvim-lsp",
-	-- "hrsh7th/cmp-nvim-lua",
 
 	-------------------
 	--  Diagnostic   --
 	-------------------
 	"folke/trouble.nvim",
-
 	{             -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
