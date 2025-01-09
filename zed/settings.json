@@ -7,32 +7,14 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "language_models": {
-    "openai": {
-      "version": "1",
-      "available_models": [
-        {
-          "provider": "openai",
-          "name": "gpt-4o-2024-08-06",
-          "max_tokens": 128000
-        },
-        {
-          "name": "o1-mini",
-          "display_name": "o1-mini",
-          "max_tokens": 128000,
-          "max_completion_tokens": 20000
-        }
-      ]
-    }
-  },
   "assistant": {
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "o1-mini"
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-latest"
     },
     "version": "2"
   },
-  "theme": "Rosé Pine Moon",
+  "theme": "Gruvbox Dark",
   "current_line_highlight": "gutter",
   "tabs": {
     "git_status": true
@@ -57,9 +39,9 @@
   // --------- FONT
   "buffer_font_weight": 500,
   "ui_font_weight": 500,
-  "ui_font_size": 14,
+  "ui_font_size": 13,
   "buffer_font_family": "BerkeleyMono Nerd Font",
-  "buffer_font_size": 14,
+  "buffer_font_size": 13,
   "buffer_font_features": {
     "liga": true,
     "calt": true,
