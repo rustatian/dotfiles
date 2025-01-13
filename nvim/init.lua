@@ -44,6 +44,9 @@ vim.opt.inccommand = "split"
 vim.g.moonflyNormalFloat = true
 vim.g.moonflyTerminalColors = true
 
+-- zig
+vim.g.zig_fmt_autosave = true
+
 -- splits
 set.splitright = true
 set.splitbelow = true

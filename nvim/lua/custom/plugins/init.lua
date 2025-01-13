@@ -59,17 +59,11 @@ return {
 		},
 	},
 
-	----------
-	-- Rust --
-	----------
+	---------
+	-- Zig --
+	---------
 	{
-		"saecki/crates.nvim",
-		tag = "stable",
-		event = { "BufRead Cargo.toml" },
-		dependencies = "nvim-lua/plenary.nvim",
-		config = function()
-			require("crates").setup({})
-		end,
+		"ziglang/zig.vim",
 	},
 
 	-----------------------
@@ -78,10 +72,6 @@ return {
 	{
 		"stevearc/dressing.nvim",
 		opts = {},
-	},
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 	{
 		"folke/todo-comments.nvim",
@@ -102,9 +92,8 @@ return {
 		},
 	},
 	{
-		"rose-pine/neovim",
-		name = "rose-pine",
-		lazy = false,
+		"catppuccin/nvim",
+		name = "catppuccin",
 		priority = 1000,
 	},
 	{
@@ -228,6 +217,9 @@ return {
 			-- - sd'   - [S]urround [D]elete [']quotes
 			-- - sr)'  - [S]urround [R]eplace [)] [']
 			require("mini.surround").setup()
+
+			-- mini statusline: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-statusline.md
+			require("mini.statusline").setup()
 		end,
 	},
 	-- WakaTime
