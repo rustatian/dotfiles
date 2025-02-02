@@ -45,8 +45,8 @@
 	insteadOf = https://bitbucket.org/
 [url "git@git.spiralscout.com:"]
 	insteadOf = https://git.spiralscout.com/
-[credential "https://dev.azure.com"]
-	useHttpPath = true
 [credential]
 	helper = 
 	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
