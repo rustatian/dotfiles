@@ -14,7 +14,7 @@
     },
     "version": "2"
   },
-  "theme": "One Dark",
+  "theme": "Catppuccin Mocha - No Italics",
   "current_line_highlight": "gutter",
   "tabs": {
     "git_status": true
@@ -40,7 +40,7 @@
   "buffer_font_weight": 500,
   "ui_font_weight": 500,
   "ui_font_size": 13,
-  "buffer_font_family": "GeistMono Nerd Font Propo",
+  "buffer_font_family": "Berkeley Mono SemiCondensed",
   "buffer_font_size": 13,
   "buffer_font_features": {
     "liga": true,
@@ -48,7 +48,7 @@
     "zero": true,
     "case": true
   },
-  "ui_font_family": "GeistMono Nerd Font Propo",
+  "ui_font_family": "Berkeley Mono SemiCondensed",
   "ui_font_features": {
     "liga": true,
     "calt": true,
@@ -57,7 +57,7 @@
   },
   "terminal": {
     "env": {},
-    "font_family": "GeistMono Nerd Font Propo",
+    "font_family": "Berkeley Mono SemiCondensed",
     "font_weight": 500,
     "line_height": {
       "custom": 1.2

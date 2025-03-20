@@ -1,8 +1,6 @@
 theme = catppuccin-mocha
 
-font-family = BerkeleyMono Nerd Font
-font-style = bold
-font-synthetic-style = bold
+font-family = Berkeley Mono Medium SemiCondensed
 font-feature = +aalt +calt +ccmp +locl +ordn +ss01 +ss02 +ss03 +ss04 +ss05 +ss06 +ss07 +ss08 +mark +mkmk
 
 cursor-style = underline
