@@ -1,6 +1,8 @@
 theme = catppuccin-mocha
 
-font-family = Berkeley Mono Medium SemiCondensed
+font-family = Berkeley Mono SemiBold
+font-family-bold = Berkeley Mono Black
+
 font-feature = +aalt +calt +ccmp +locl +ordn +ss01 +ss02 +ss03 +ss04 +ss05 +ss06 +ss07 +ss08 +mark +mkmk
 
 cursor-style = underline
