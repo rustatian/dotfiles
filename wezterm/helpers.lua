@@ -24,7 +24,6 @@ end)
 function module.apply_to_config(config)
 	config.font = wezterm.font("GeistMono Nerd Font Propo", { weight = "Medium", italic = false })
 	config.font_size = 14.0
-	config.color_scheme = "Catppuccin Mocha"
 	config.line_height = 1
 	config.cell_width = 1
 	config.freetype_load_target = "Normal"
