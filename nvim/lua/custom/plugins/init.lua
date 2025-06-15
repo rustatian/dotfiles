@@ -92,12 +92,6 @@ return {
 		},
 	},
 	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
-	},
-	{
 		"j-hui/fidget.nvim",
 	},
 
