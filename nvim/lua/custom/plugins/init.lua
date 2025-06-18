@@ -217,6 +217,4 @@ return {
 			require("mini.statusline").setup()
 		end,
 	},
-	-- WakaTime
-	{ "wakatime/vim-wakatime", lazy = false },
 }
