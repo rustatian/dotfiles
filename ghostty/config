@@ -1,4 +1,4 @@
-theme = Dark Modern
+theme = GruvboxDark
 
 font-family = Berkeley Mono SemiBold
 font-family-bold = Berkeley Mono Black
@@ -13,3 +13,4 @@ window-height = 45
 window-width = 135
 
 term = xterm-256color
+keybind = shift+enter=text:\n

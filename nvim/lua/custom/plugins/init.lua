@@ -70,6 +70,11 @@ return {
 	-- GUI enhancements --
 	-----------------------
 	{
+		"ellisonleao/gruvbox.nvim",
+		priority = 1000,
+		config = true,
+	},
+	{
 		"stevearc/dressing.nvim",
 		opts = {},
 	},
