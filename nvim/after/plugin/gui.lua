@@ -1,4 +1,3 @@
--- Default options:
 require("gruvbox").setup({
 	terminal_colors = true, -- add neovim terminal colors
 	undercurl = true,
@@ -27,6 +26,6 @@ vim.cmd("colorscheme gruvbox")
 vim.cmd.hi("Comment gui=none")
 
 require("barbecue").setup({
-	theme = "auto", -- theme
+	theme = "gruvbox", -- theme
 	attach_navic = false, -- prevent barbecue from automatically attaching nvim-navic
 })

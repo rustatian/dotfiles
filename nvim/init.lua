@@ -27,7 +27,7 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = "yes"
 
 -- fold text
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:,vert: ]]
 vim.o.foldenable = true
 vim.o.foldtext = ""
 vim.o.foldcolumn = "0" -- '0' is not bad

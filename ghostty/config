@@ -1,10 +1,10 @@
 theme = GruvboxDark
 
-font-family = Berkeley Mono SemiBold
+font-family = Berkeley Mono Medium
 font-family-bold = Berkeley Mono Black
-font-size = 15
+font-size = 13
 
-font-feature = +aalt +calt +ccmp +locl +ordn +ss01 +ss02 +ss03 +ss04 +ss05 +ss06 +ss07 +ss08 +mark +mkmk
+font-feature = -calt
 
 cursor-style = underline
 shell-integration = fish
