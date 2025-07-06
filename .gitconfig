@@ -31,7 +31,7 @@
     conflictstyle = diff3
 
 [user]
-	signingkey = 85AC22366BAB4FD626A276669480A51C85D357D0
+	signingkey = 6D1F6B32E019C995DD7D06ECE90A2114ADA13E2F
 	email = piashchynski.valery@gmail.com
 	name = Valery Piashchynski
 

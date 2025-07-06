@@ -18,7 +18,7 @@
     },
     "version": "2"
   },
-  "theme": "One Dark Pro",
+  "theme": "Gruvbox Dark",
   "current_line_highlight": "gutter",
   "tabs": {
     "git_status": true

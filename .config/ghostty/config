@@ -2,7 +2,7 @@ theme = GruvboxDark
 
 font-family = Berkeley Mono Medium
 font-family-bold = Berkeley Mono Black
-font-size = 13
+font-size = 11
 
 font-feature = -calt
 
