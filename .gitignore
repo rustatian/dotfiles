@@ -3,3 +3,4 @@
 nvim/treesitter/parser/**
 nvim/treesitter/parser-info/**
 **/lazy-lock.json
+**/*.so
