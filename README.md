@@ -6,6 +6,12 @@
 2. Timeshift Wayland: https://www.reddit.com/r/archlinux/comments/1jhwogj/solution_for_timeshift_gui_not_launching_in/, TLDR: sudo -E timeshift-launcher for the .desktop file.
 3. `split_lock_detect=off` for amd gpu
 
+# Useful apps:
+1. Mission Center
+2. LACT
+3. devtoolbox
+4. Planify
+
 # Notes
 1. Sway: do not forget to install dbus and activate it: `sudo systemctl enable --global dbus-broker.service and sudo systemctl enable dbus-broker.service`
 2. Net auto-optimizer: https://github.com/oracle-samples/bpftune
