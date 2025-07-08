@@ -11,6 +11,7 @@
 2. LACT
 3. devtoolbox
 4. Planify
+5. https://github.com/Vladimir-csp/uwsm (uwsm start Hyprland)
 
 # Notes
 1. Sway: do not forget to install dbus and activate it: `sudo systemctl enable --global dbus-broker.service and sudo systemctl enable dbus-broker.service`
