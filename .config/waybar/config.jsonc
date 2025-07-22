@@ -1,136 +1,133 @@
 {
-	// "layer": "top", // Waybar at top layer
-	// "position": "bottom", // Waybar position (top|bottom|left|right)
-	// "height": 14, // Waybar height (to be removed for auto height)
-	// "width": 1280, // Waybar width
-
-	// Choose the order of the modules
-	"modules-left": ["hyprland/workspaces", "hyprland/mode"],
-	// "modules-center": ["hy/window"],
-	"modules-right": ["custom/disk_home", "custom/disk_root","temperature", "cpu", "memory", "network", "pulseaudio", "clock", "idle_inhibitor", "tray"],
-
-	// Modules configuration
-	// "sway/workspaces": {
-	// 	"disable-scroll": true,
-	// 	"all-outputs": true,
-	// 	"format": "{name}: {icon}",
-	// 	"format-icons": {
-	// 		"1": "",
-	// 		"2": "",
-	// 		"3": "",
-	// 		"4": "",
-	// 		"5": "",
-	// 		"urgent": "",
-	// 		"focused": "",
-	// 		"default": ""
-	// 	}
-	// },
-	"hyprland/mode": {
-		"format": "{}"
+"layer": "top",
+"position": "top",
+"height": 0,
+"spacing": 5,
+"modules-left": [
+	"hyprland/workspaces",
+	"hyprland/window"
+],
+"modules-center": [
+	"clock"
+],
+"modules-right": [
+	"custom/disk_home",
+	"custom/disk_root",
+	"cpu",
+	"wireplumber",
+	"temperature",
+	"memory",
+	"hyprland/language",
+	"idle_inhibitor",
+	"network",
+	"bluetooth",
+	"tray"
+],
+"hyprland/workspaces": {
+	"on-click": "activate",
+	"sort-by-number": true,
+	"persistent-workspaces": {
+		"DP-2": [
+			1,
+			2,
+			3,
+			4,
+			5
+		],
+		"DP-1": [
+			6,
+			7,
+			8,
+			9,
+			10
+		]
+	}
+},
+"hyprland/window": {
+	"format": " 👉 {}",
+	"rewrite": {
+		"(.*) - fish": "> [$1]"
 	},
-	"custom/disk_home": {
-		"format": "🏠 {} ",
-		"interval": 30,
-		"exec": "df -h --output=avail $HOME | tail -1 | tr -d ' '"
-	},
-	"custom/disk_root": {
-		"format": "💽 {} ",
-		"interval": 30,
-		"exec": "df -h --output=avail /mnt/backups | tail -1 | tr -d ' '"
-	},
-	"temperature": {
-		"thermal-zone": 2,
-		"hwmon-path": "/sys/class/hwmon/hwmon9/temp1_input",
-		"critical-threshold": 100,
-		"format-critical": "{temperatureC}°C {icon}",
-		"format": "<span color='#e88939'>{icon}</span> {temperatureC}°C",
-		"format-icons": ["", "", ""]
-	},
-	"cpu": {
-		"format": "🏭 {usage}%",
-		"tooltip": false
-	},
-	"memory": {
-		"format": "💾 {used:0.1f}G"
-	},
-	"network": {
-		"family": "ipv4",
-		// "interface": "wlp2*", // (Optional) To force the use of this interface
-		"format-wifi": "<span color='#589df6'></span> <span color='gray'>{essid}</span> {frequency} <span color='#589df6'>{signaldBm} dB</span> <span color='#589df6'>⇵</span> {bandwidthUpBits}/{bandwidthDownBits}",
-		"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-		"format-linked": "{ifname} (No IP) ",
-		"format-disconnected": "Disconnected ⚠",
-		"format-alt": "{ifname}: {ipaddr}/{cidr}",
-		"interval": 5
-	},
-	"pulseaudio": {
-		// "scroll-step": 1, // %, can be a float
-		"format": "{icon} {volume}% {format_source}",
-		"format-muted": "🔇 {format_source}",
-		"format-bluetooth": "{icon} {volume}% {format_source}",
-		"format-bluetooth-muted": "🔇 {format_source}",
-
-		"format-source": " {volume}%",
-		"format-source-muted": "",
-
-		"format-icons": {
-			"headphones": "",
-			"handsfree": "",
-			"headset": "",
-			"phone": "",
-			"portable": "",
-			"car": "",
-			"default": ["🔈", "🔉", "🔊"]
-		},
-		"on-click": "ponymix -N -t sink toggle",
-		"on-click-right": "ponymix -N -t source toggle"
-	},
-	"clock": {
-		"interval": 1,
-		"format": "⏰ {:%H:%M:%S}",
-		"tooltip-format": "{:%Y-%m-%d | %H:%M:%S}"
-		// "format-alt": "{:%Y-%m-%d}"
-	},
-	"tray": {
-		"icon-size": 13,
-		"spacing": 3
-	},
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 2,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
-    }
+	"separate-outputs": true
+},
+"clock": {
+	"format": "{:%d.%m.%Y | %H:%M}"
+},
+"wireplumber": {
+	"format": "{volume}% {icon}",
+	"max-volume": 100,
+	"on-click": "pavucontrol",
+	"format-muted": "",
+	"format-icons": [
+		"",
+		"",
+		""
+	],
+	"scroll-step": 5
+},
+"memory": {
+	"interval": 1,
+	"format": "\uf4bc  {used:0.1f}G"
+},
+"temperature": {
+	"interval": 1,
+	"thermal-zone": 2,
+	"hwmon-path": "/sys/class/hwmon/hwmon9/temp1_input",
+	"critical-threshold": 100,
+	"format-critical": "{temperatureC}°C ",
+	"format": "{temperatureC}°C"
+},
+"network": {
+	"format": "{ifname}",
+	"format-ethernet": "{ipaddr}/{cidr} \udb83\udc9d",
+	"format-wifi": "{icon}",
+	"format-disconnected": "\udb83\udc9c",
+	"format-icons": [
+		"\udb82\udd2f",
+		"\udb82\udd1f",
+		"\udb82\udd22",
+		"\udb82\udd25",
+		"\udb82\udd28"
+	],
+	"tooltip-format-wifi": "{essid} ({signalStrength}%)",
+	"tooltip-format-ethernet": "{ifname}",
+	"tooltip-format-disconnected": "Disconnected"
+},
+"bluetooth": {
+	"format": "\udb80\udcaf",
+	"format-disabled": "\udb80\udcb2",
+	"format-connected": "\udb80\udcb1",
+	"tooltip-format": "{controller_alias}\t{controller_address}",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+},
+"hyprland/language": {
+	"format": "{short}"
+},
+"cpu": {
+	"interval": 1,
+	"format": " {}%",
+	"tooltip": true
+},
+"tray": {
+	"icon-size": 15,
+	"spacing": 5
+},
+"custom/disk_home": {
+	"format": "H {} ",
+	"interval": 30,
+	"exec": "df -h --output=avail $HOME | tail -1 | tr -d ' '"
+},
+"custom/disk_root": {
+	"format": "B {} ",
+	"interval": 30,
+	"exec": "df -h --output=avail /mnt/backups | tail -1 | tr -d ' '"
+},
+"idle_inhibitor": {
+	"format": "{icon}",
+	"format-icons": {
+		"activated": "\udb80\udd76",
+		"deactivated": "\udb83\udfaa"
+	}
+}
 }
