@@ -31,7 +31,7 @@
     conflictstyle = diff3
 
 [user]
-	signingkey = 6D1F6B32E019C995DD7D06ECE90A2114ADA13E2F
+	signingkey = 0090AFE67BB8349DA5FEE47D4C79FAB5E41D2143
 	email = piashchynski.valery@gmail.com
 	name = Valery Piashchynski
 
@@ -47,6 +47,6 @@
 	insteadOf = https://git.spiralscout.com/
 [credential]
 	helper = 
-	helper = /usr/local/share/gcm-core/git-credential-manager
+	helper = /usr/bin/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
