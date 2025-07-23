@@ -1,6 +1,5 @@
 **/.DS_Store
 .DS_Store
-nvim/treesitter/parser/**
-nvim/treesitter/parser-info/**
+.config/nvim/treesitter
 **/lazy-lock.json
 **/*.so
