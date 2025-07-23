@@ -73,9 +73,13 @@ window#waybar {
   padding-left: 1em;
 }
 
+#language {
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
 #wireplumber,
 #idle_inhibitor,
-#language,
 #network,
 #bluetooth,
 #tray {
