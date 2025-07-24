@@ -1,15 +1,15 @@
-@define-color foreground	#f8f8f2;
-@define-color background	rgba(40, 42, 54, 0.5);
-@define-color orange	#ffb86c;
-@define-color gray	#44475a;
+@define-color foreground #f8f8f2;
+@define-color background rgba(40, 42, 54, 0.5);
+@define-color orange #ffb86c;
+@define-color gray #44475a;
 @define-color black #21222c;
-@define-color red	#ff5555;
-@define-color green	#50fa7b;
-@define-color yellow	#f1fa8c;
-@define-color cyan	#8be9fd;
-@define-color blue	#6272a4;
-@define-color purple	#bd93f9;
-@define-color pink	#ff79c6;
+@define-color red #ff5555;
+@define-color green #50fa7b;
+@define-color yellow #f1fa8c;
+@define-color cyan #8be9fd;
+@define-color blue #6272a4;
+@define-color purple #bd93f9;
+@define-color pink #ff79c6;
 @define-color white #ffffff;
 @define-color brred #ff6e6e;
 @define-color brgreen #69ff94;
@@ -42,7 +42,7 @@
 }
 
 window#waybar {
-  background: transparent;
+  background: @black;
   color: @foreground;
 }
 
@@ -65,25 +65,26 @@ window#waybar {
 }
 
 #cpu {
-  padding-left: 1em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 
 #memory {
-  padding-left: 1em;
+  padding-left: 0.5em;
 }
 
 #idle_inhibitor {
-  padding-right: 1em;
+  padding-right: 0.5em;
 }
 
 #language {
-  padding-right: 1em;
-  padding-left: 1em;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
 }
 
 #wireplumber,
 #network,
 #bluetooth,
 #tray {
-  padding-right: 1em;
+  padding-right: 0.5em;
 }
