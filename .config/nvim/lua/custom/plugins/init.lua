@@ -70,9 +70,9 @@ return {
 	-- GUI enhancements --
 	-----------------------
 	{
-		"catppuccin/nvim",
-		name = "catppuccin",
+		"ellisonleao/gruvbox.nvim",
 		priority = 1000,
+		config = true
 	},
 	{
 		"stevearc/dressing.nvim",
