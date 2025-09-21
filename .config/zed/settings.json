@@ -9,16 +9,15 @@
 {
   "icon_theme": "Material Icon Theme",
   "features": {
-    "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "copilot"
   },
   "agent": {
     "default_model": {
-      "provider": "zed.dev",
+      "provider": "copilot_chat",
       "model": "claude-sonnet-4"
-    },
-    "version": "2"
+    }
   },
-  "theme": "Gruvbox Dark",
+  "theme": "One Dark",
   "current_line_highlight": "gutter",
   "tabs": {
     "git_status": true
@@ -41,10 +40,10 @@
     }
   },
   // --------- FONT
-  "buffer_font_weight": 500,
-  "ui_font_weight": 500,
+  "buffer_font_weight": 400,
+  "ui_font_weight": 400,
   "ui_font_size": 13,
-  "buffer_font_family": "Berkeley Mono Medium",
+  "buffer_font_family": "GeistMono Nerd Font Propo",
   "buffer_font_size": 13,
   "buffer_font_features": {
     "liga": true,
@@ -52,7 +51,7 @@
     "zero": true,
     "case": true
   },
-  "ui_font_family": "Berkeley Mono Medium",
+  "ui_font_family": "GeistMono Nerd Font Propo",
   "ui_font_features": {
     "liga": true,
     "calt": true,
@@ -61,8 +60,8 @@
   },
   "terminal": {
     "env": {},
-    "font_family": "Berkeley Mono Medium",
-    "font_weight": 500,
+    "font_family": "GeistMono Nerd Font Propo",
+    "font_weight": 400,
     "line_height": {
       "custom": 1.2
     },

@@ -1,12 +1,10 @@
-theme = GruvboxDark
+theme = Dark Modern
 
-font-family = Google Sans Code Medium
-font-family-bold = Berkeley Mono Black
-font-size = 14
+font-family = GeistMono NFP Medium
+font-family-bold = GeistMono NFP Bold
+font-size = 11
 font-thicken = true
 font-thicken-strength = 150
-
-font-feature = -calt
 
 cursor-style = underline
 shell-integration = fish
