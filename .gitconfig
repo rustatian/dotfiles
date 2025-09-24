@@ -46,6 +46,6 @@
 [url "git@git.spiralscout.com:"]
 	insteadOf = https://git.spiralscout.com/
 [credential]
-	helper = /usr/lib/git-core/git-credential-libsecret
+	helper = /usr/bin/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
