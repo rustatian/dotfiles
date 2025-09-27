@@ -2,7 +2,7 @@ theme = Dark Modern
 
 font-family = GeistMono NFP Medium
 font-family-bold = GeistMono NFP Bold
-font-size = 11
+font-size = 13
 font-thicken = true
 font-thicken-strength = 150
 
