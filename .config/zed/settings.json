@@ -14,10 +14,10 @@
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4"
+      "model": "claude-sonnet-4.5"
     }
   },
-  "theme": "One Dark",
+  "theme": "Gruvbox Dark",
   "current_line_highlight": "gutter",
   "tabs": {
     "git_status": true
@@ -135,17 +135,21 @@
     "Python": {
       "language_servers": ["pyright", "ruff"],
       "format_on_save": "on",
-      "code_actions_on_format": {
-        "source.organizeImports.ruff": true,
-        "source.fixAll.ruff": true
-      },
       "formatter": [
         {
-          "code_actions": {
-            "source.fixAll.ruff": true,
-            "source.organizeImports.ruff": true,
-            "source.organizeImports": true
-          }
+          "code_action": "source.organizeImports.ruff"
+        },
+        {
+          "code_action": "source.fixAll.ruff"
+        },
+        {
+          "code_action": "source.fixAll.ruff"
+        },
+        {
+          "code_action": "source.organizeImports.ruff"
+        },
+        {
+          "code_action": "source.organizeImports"
         }
       ],
       "inlay_hints": {
