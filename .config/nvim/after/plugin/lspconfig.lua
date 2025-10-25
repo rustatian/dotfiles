@@ -129,12 +129,12 @@ vim.lsp.enable('lua_ls')
 vim.lsp.config('golangci_lint_ls', {
 	capabilities = capabilities,
 	on_attach = on_attach,
-	cmd = { "golangci-lint", "run", "--build-tags=race", "--out-format", "json" },
+	cmd = { "golangci-lint", "run", "--build-tags=race", "--output.json.path=stdout" },
 })
 vim.lsp.enable('golangci_lint_ls')
 
 vim.lsp.config('gopls', {
-	cmd = { "gopls", "serve" },
+	cmd = { "gopls" },
 	filetypes = { "go", "gomod", "gowork", "gotmpl" },
 	settings = {
 		gopls = {
@@ -157,8 +157,6 @@ vim.lsp.config('gopls', {
 			},
 		},
 	},
-	capabilities = capabilities,
-	on_attach = on_attach,
 })
 vim.lsp.enable('gopls')
 
