@@ -1,7 +1,6 @@
 require("lazydev").setup()
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()
-local lspconfig = require('lspconfig')
 
 capabilities = vim.tbl_deep_extend("force", capabilities, capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -21,7 +20,7 @@ end
 -- local lspconfig = require("lspconfig")
 local util = require("lspconfig/util")
 
-require("lspconfig").rust_analyzer.setup({
+vim.lsp.config('rust_analyzer', {
 	capabilities = capabilities,
 	settings = {
 		["rust-analyzer"] = {
@@ -52,57 +51,96 @@ require("lspconfig").rust_analyzer.setup({
 	},
 	on_attach = on_attach,
 })
+vim.lsp.enable('rust_analyzer')
 
-lspconfig.zls.setup({
+vim.lsp.config('zls', {
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+vim.lsp.enable('zls')
 
-lspconfig.jsonls.setup({
+vim.lsp.config('jsonls', {
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+vim.lsp.enable('jsonls')
+vim.lsp.enable('helm_ls')
+vim.lsp.enable('gitlab_ci_ls')
 
-lspconfig.helm_ls.setup({
+
+vim.lsp.config('buf_ls', {
+	cmd          = { "buf", "lsp", "serve", "--timeout=0", "--log-format=text" },
+	capabilities = capabilities,
+	on_attach    = on_attach,
+})
+vim.lsp.enable('buf_ls')
+vim.lsp.enable('stylelint_lsp')
+
+vim.lsp.config('lua_ls', {
+	on_init = function(client)
+		if client.workspace_folders then
+			local path = client.workspace_folders[1].name
+			if
+			    path ~= vim.fn.stdpath('config')
+			    and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
+			then
+				return
+			end
+		end
+
+		client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+			runtime = {
+				-- Tell the language server which version of Lua you're using (most
+				-- likely LuaJIT in the case of Neovim)
+				version = 'LuaJIT',
+				-- Tell the language server how to find Lua modules same way as Neovim
+				-- (see `:h lua-module-load`)
+				path = {
+					'lua/?.lua',
+					'lua/?/init.lua',
+				},
+			},
+			-- Make the server aware of Neovim runtime files
+			workspace = {
+				checkThirdParty = false,
+				library = {
+					vim.env.VIMRUNTIME
+					-- Depending on the usage, you might want to add additional paths
+					-- here.
+					-- '${3rd}/luv/library'
+					-- '${3rd}/busted/library'
+				}
+				-- Or pull in all of 'runtimepath'.
+				-- NOTE: this is a lot slower and will cause issues when working on
+				-- your own configuration.
+				-- See https://github.com/neovim/nvim-lspconfig/issues/3189
+				-- library = {
+				--   vim.api.nvim_get_runtime_file('', true),
+				-- }
+			}
+		})
+	end,
+	settings = {
+		Lua = {}
+	}
+})
+vim.lsp.enable('lua_ls')
+
+vim.lsp.config('golangci_lint_ls', {
 	capabilities = capabilities,
 	on_attach = on_attach,
+	cmd = { "golangci-lint", "run", "--build-tags=race", "--out-format", "json" },
 })
+vim.lsp.enable('golangci_lint_ls')
 
-lspconfig.gitlab_ci_ls.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
-lspconfig.buf_ls.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
-lspconfig.stylelint_lsp.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
-lspconfig.lua_ls.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
-lspconfig.golangci_lint_ls.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	command = { "golangci-lint", "run", "--build-tags=race", "--out-format", "json" },
-})
-
-lspconfig.gopls.setup({
+vim.lsp.config('gopls', {
 	cmd = { "gopls", "serve" },
-	filetypes = { "go", "gomod" },
-	root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+	filetypes = { "go", "gomod", "gowork", "gotmpl" },
 	settings = {
 		gopls = {
 			usePlaceholders = true,
 			completeUnimported = true,
-			buildFlags = { "-tags=debug", "-tags=goexperiment.rangefunc" },
+			buildFlags = { "-tags=debug" },
 			analyses = {
 				unusedparams = true,
 			},
@@ -122,14 +160,16 @@ lspconfig.gopls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+vim.lsp.enable('gopls')
 
 -- C/C++ LSP ---------------------
-lspconfig.cmake.setup({
+vim.lsp.config('cmake', {
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+vim.lsp.enable('cmake')
 
-lspconfig.clangd.setup({
+vim.lsp.config('clangd', {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	cmd = {
@@ -155,67 +195,73 @@ lspconfig.clangd.setup({
 	},
 	filetypes = { "c", "cpp", "h", "hpp" },
 })
+vim.lsp.enable('clangd')
 
-lspconfig.docker_compose_language_service.setup({
+vim.lsp.config('docker_compose_language_service', {
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+vim.lsp.enable('docker_compose_language_service')
 
-lspconfig.dockerls.setup({
+vim.lsp.config('dockerls', {
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+vim.lsp.enable('dockerls')
 
-lspconfig.jsonls.setup({
+vim.lsp.config('jsonls', {
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+vim.lsp.enable('jsonls')
 
-lspconfig.sqlls.setup({
+vim.lsp.config('sqlls', {
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+vim.lsp.enable('sqlls')
 
-lspconfig.pyright.setup({
+vim.lsp.config('pyright', {
 	capabilities = capabilities,
-	on_attach = on_attach,
 	python = {
 		analysis = {
 			autoSearchPaths = true,
+			diagnosticMode = "openFilesOnly",
 			useLibraryCodeForTypes = true,
 		},
 	},
 })
+vim.lsp.enable('pyright')
 
-lspconfig.intelephense.setup({
+vim.lsp.config('intelephense', {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	init_options = {
 		globalStoragePath = os.getenv("HOME") .. "/.local/share/intelephense",
 	},
 })
+vim.lsp.enable('intelephense')
 
-lspconfig.bashls.setup({
+vim.lsp.config('bashls', {
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+vim.lsp.enable('bashls')
 
-lspconfig.grammarly.setup({
+vim.lsp.config('grammarly', {
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+vim.lsp.enable('grammarly')
 
-lspconfig.jsonls.setup({
-	capabilities = capabilities,
-})
-
-lspconfig.marksman.setup({
+vim.lsp.config('marksman', {
 	capabilities = capabilities,
 	flags = { debounce_text_changes = 200 },
 	on_attach = on_attach,
 })
+vim.lsp.enable('marksman')
 
-lspconfig.yamlls.setup({
+vim.lsp.config('yamlls', {
 	settings = {
 		yaml = {
 			schemas = {
@@ -228,6 +274,7 @@ lspconfig.yamlls.setup({
 		},
 	},
 })
+vim.lsp.enable('yamlls')
 
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
