@@ -12,8 +12,7 @@ return {
 	----------
 	--  AI  --
 	----------
-	{
-	},
+	{},
 
 	-------------
 	-- Folding --
@@ -72,7 +71,7 @@ return {
 	{
 		"ellisonleao/gruvbox.nvim",
 		priority = 1000,
-		config = true
+		config = true,
 	},
 	{
 		"stevearc/dressing.nvim",
@@ -117,7 +116,6 @@ return {
 	{
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
-		build = "make install_jsregexp",
 	},
 	"rafamadriz/friendly-snippets",
 	"github/copilot.vim",
@@ -127,21 +125,20 @@ return {
 	-------------------
 	{
 		"saghen/blink.cmp",
-		version = 'v0.*',
+		version = "v0.*",
 		lazy = false, -- lazy loading handled internally
 		-- optional: provides snippets for the snippet source
-		dependencies = 'rafamadriz/friendly-snippets',
+		dependencies = "rafamadriz/friendly-snippets",
 
 		-- use a release tag to download pre-built binaries
-		opts = {
-		},
+		opts = {},
 	},
 
 	-------------------
 	--  Diagnostic   --
 	-------------------
 	"folke/trouble.nvim",
-	{             -- Useful plugin to show you pending keybinds.
+	{ -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
 		config = function() -- This is the function that runs, AFTER loading
@@ -149,15 +146,15 @@ return {
 
 			-- Document existing key chains
 			require("which-key").add({
-				{ "<leader>c",  group = "[C]ode" },
+				{ "<leader>c", group = "[C]ode" },
 				{ "<leader>c_", hidden = true },
-				{ "<leader>d",  group = "[D]ocument" },
+				{ "<leader>d", group = "[D]ocument" },
 				{ "<leader>d_", hidden = true },
-				{ "<leader>r",  group = "[R]ename" },
+				{ "<leader>r", group = "[R]ename" },
 				{ "<leader>r_", hidden = true },
-				{ "<leader>s",  group = "[S]earch" },
+				{ "<leader>s", group = "[S]earch" },
 				{ "<leader>s_", hidden = true },
-				{ "<leader>w",  group = "[W]orkspace" },
+				{ "<leader>w", group = "[W]orkspace" },
 				{ "<leader>w_", hidden = true },
 			})
 		end,
