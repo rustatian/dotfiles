@@ -1,8 +1,4 @@
-export XCURSOR_SIZE=18
-export ELECTRON_OZONE_PLATFORM_HINT=auto
-export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
-export QT_QPA_PLATFORM=wayland
-export GPG_TTY=$(tty)
-export SDL_VIDEODRIVER=wayland
-export GDK_BACKEND=wayland
-export CLUTTER_BACKEND=wayland
+# Changes require a restart to take effect.
+
+# Set default terminal and editor
+source ~/.config/uwsm/default

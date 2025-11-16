@@ -1,7 +1,0 @@
-[wsl2]
-memory=64G
-kernel=D:\\wsl\\archlinux\\bzImage
-swap=64G
-swapfile=D:\\wsl\\archlinux\\arch-swap.vhdx
-[experimental]
-autoMemoryReclaim=gradual

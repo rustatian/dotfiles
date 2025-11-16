@@ -160,7 +160,7 @@
     "use_multiline_find": true
   },
   "cursor_blink": true,
-  "relative_line_numbers": "enabled",
+  "relative_line_numbers": true,
   "scrollbar": {
     "show": "auto"
   },

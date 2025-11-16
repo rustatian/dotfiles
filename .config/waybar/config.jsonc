@@ -26,14 +26,12 @@
 	"on-click": "activate",
 	"sort-by-number": true,
 	"persistent-workspaces": {
-		"DP-2": [
+		"DP-1": [
 			1,
 			2,
 			3,
 			4,
-			5
-		],
-		"DP-1": [
+			5,
 			6,
 			7,
 			8,

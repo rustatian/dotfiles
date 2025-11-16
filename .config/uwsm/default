@@ -1,0 +1,15 @@
+# Changes require a restart to take effect.
+
+# Install other terminals via Install > Terminal
+export TERMINAL=xdg-terminal-exec
+
+# Use code for VSCode
+export EDITOR=nvim
+export XCURSOR_SIZE=18
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
+export QT_QPA_PLATFORM=wayland
+export GPG_TTY=$(tty)
+export SDL_VIDEODRIVER=wayland
+export GDK_BACKEND=wayland
+export CLUTTER_BACKEND=wayland
