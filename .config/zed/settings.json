@@ -7,7 +7,17 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "icon_theme": "Material Icon Theme",
+  "agent_buffer_font_size": 14.0,
+  "redact_private_values": true,
+  "when_closing_with_no_tabs": "platform_default",
+  "prettier": {
+    "allowed": true
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme"
+  },
   "features": {
     "edit_prediction_provider": "copilot"
   },
@@ -17,7 +27,7 @@
       "model": "claude-sonnet-4.5"
     }
   },
-  "theme": "Gruvbox Dark",
+  "theme": "Gruvbox Dark Soft",
   "current_line_highlight": "gutter",
   "tabs": {
     "git_status": true
@@ -42,7 +52,7 @@
   // --------- FONT
   "buffer_font_weight": 500,
   "ui_font_weight": 500,
-  "ui_font_size": 13,
+  "ui_font_size": 14.0,
   "buffer_font_family": "Berkeley Mono",
   "buffer_font_size": 13,
   "buffer_font_features": {
