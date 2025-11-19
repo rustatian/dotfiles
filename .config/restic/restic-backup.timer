@@ -1,0 +1,10 @@
+[Unit]
+Description=Local Restic backup service
+
+[Timer]
+OnCalendar=hourly
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

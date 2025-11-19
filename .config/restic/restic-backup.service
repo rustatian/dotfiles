@@ -1,0 +1,9 @@
+[Unit]
+Description=Local Restic backup service
+ConditionPathIsMountPoint=/mnt/synology
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=30
+ExecStart=/home/valery/config/restic/backup.sh

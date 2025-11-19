@@ -8,15 +8,15 @@ require("conform").setup({
 		lua = { "stylua" },
 		python = { "ruff", "isort" },
 		javascript = { "prettierd", "prettier", stop_after_first = true },
-		rust = { "clippy" },
+		rust = { "rustfmt" },
 		go = { "gofmt", "gofumpt", stop_after_first = true },
 	},
 	keys = {
-		"<leader>cF",
+		"<leader>f",
 		function()
 			require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
 		end,
 		mode = { "n", "v" },
 		desc = "Format Injected Langs",
-	}
+	},
 })
