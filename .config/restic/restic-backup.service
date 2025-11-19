@@ -6,4 +6,4 @@ ConditionPathIsMountPoint=/mnt/synology
 Type=simple
 Restart=on-failure
 RestartSec=30
-ExecStart=/home/valery/config/restic/backup.sh
+ExecStart=/home/valery/.config/restic/backup.sh
