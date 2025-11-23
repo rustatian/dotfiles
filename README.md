@@ -1,20 +1,13 @@
-# dotfiles
-1. Nvim: for the files in the nested folders: https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#go
-
-## Waaayland:
-1. 1Password, install the beta version, they fixed Wayland clipboard (>=8.11)
-2. Timeshift Wayland: https://www.reddit.com/r/archlinux/comments/1jhwogj/solution_for_timeshift_gui_not_launching_in/, TLDR: sudo -E timeshift-launcher for the .desktop file.
-3. `split_lock_detect=off` for amd gpu
+<img width="3840" height="2160" alt="image" src="https://github.com/user-attachments/assets/eaab0f6b-716f-460e-be84-8cc9829e0a33" />
 
 # Useful apps:
 1. Mission Center
 2. LACT
 3. devtoolbox
-4. Planify
+4. Planify (with ToDoist)
 5. https://github.com/Vladimir-csp/uwsm (uwsm start Hyprland)
+6. Net auto-optimizer: https://github.com/oracle-samples/bpftune
+7. Arch Linux installation steps can be found in my other repository (general steps, not a full tutorial): [link](https://github.com/rustatian/archlinux_modern_luks_install)
 
-# Notes
-1. Sway: do not forget to install dbus and activate it: `sudo systemctl enable --global dbus-broker.service and sudo systemctl enable dbus-broker.service`
-2. Net auto-optimizer: https://github.com/oracle-samples/bpftune
 
-![image](https://user-images.githubusercontent.com/8040338/118793520-5cbbf780-b8a1-11eb-94e7-6f124a906bea.png)
+
