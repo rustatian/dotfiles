@@ -128,7 +128,9 @@ vim.lsp.enable("lua_ls")
 vim.lsp.config("golangci_lint_ls", {
 	capabilities = capabilities,
 	on_attach = on_attach,
-	cmd = { "golangci-lint", "run", "--build-tags=race", "--output.json.path=stdout" },
+	init_options = {
+		command = { "golangci-lint", "run", "--output.json.path=stdout", "--show-stats=false" },
+	},
 })
 vim.lsp.enable("golangci_lint_ls")
 
