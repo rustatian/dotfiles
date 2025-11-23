@@ -70,10 +70,7 @@ display-module() {
 }
 
 main() {
-	local helpers=(aura paru pikaur trizen yay)
-	local bin
-	bin=$(command -v "${helpers[@]}" | head -n 1)
-	helper=${bin##*/}
+	helper='yay'
 
 	case $1 in
 		'module')
