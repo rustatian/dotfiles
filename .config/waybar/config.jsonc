@@ -1,122 +1,98 @@
 {
-"layer": "top",
-"position": "top",
-"height": 0,
-"spacing": 5,
-"modules-left": [
-	"hyprland/workspaces",
-	"hyprland/window"
-],
-"modules-center": [
-	"clock"
-],
-"modules-right": [
-	"custom/disk_home",
-	"custom/disk_root",
-	"cpu",
-	"wireplumber",
-	"temperature",
-	"memory",
-	"hyprland/language",
-	"idle_inhibitor",
-	"network",
-	"tray"
-],
-"hyprland/workspaces": {
-	"on-click": "activate",
-	"sort-by-number": true,
-	"persistent-workspaces": {
-		"DP-1": [
-			1,
-			2,
-			3,
-			4,
-			5,
-			6,
-			7,
-			8,
-			9,
-			10
-		]
-	}
-},
-"hyprland/window": {
-	"format": " 👉 {}",
-	"rewrite": {
-		"(.*) - fish": "> [$1]"
-	},
-	"separate-outputs": true
-},
-"clock": {
-	"format": "{:%d.%m.%Y | %H:%M}"
-},
-"wireplumber": {
-	"format": "{volume}% {icon}",
-	"max-volume": 100,
-	"on-click": "pavucontrol",
-	"format-muted": "",
-	"format-icons": [
-		"",
-		"",
-		""
+	/*------------------------------------------------------------
+	    regression: wildcard includes are broken after v0.14.0
+	      - https://github.com/Alexays/Waybar/issues/4354
+	------------------------------------------------------------*/
+	"include": [
+		// modules-left
+		"~/.config/waybar/modules/custom/user.jsonc",
+		"~/.config/waybar/modules/hyprland/workspaces.jsonc",
+		"~/.config/waybar/modules/hyprland/window.jsonc",
+		// modules-center
+		"~/.config/waybar/modules/hyprland/windowcount.jsonc",
+		"~/.config/waybar/modules/temperature.jsonc",
+		"~/.config/waybar/modules/memory.jsonc",
+		"~/.config/waybar/modules/cpu.jsonc",
+		"~/.config/waybar/modules/custom/distro.jsonc",
+		"~/.config/waybar/modules/idle_inhibitor.jsonc",
+		"~/.config/waybar/modules/clock.jsonc",
+		"~/.config/waybar/modules/network.jsonc",
+		"~/.config/waybar/modules/bluetooth.jsonc",
+		"~/.config/waybar/modules/custom/system_update.jsonc",
+		// modules-right
+		"~/.config/waybar/modules/mpris.jsonc",
+		"~/.config/waybar/modules/pulseaudio.jsonc",
+		"~/.config/waybar/modules/custom/power_menu.jsonc",
+		"~/.config/waybar/modules/custom/dividers.jsonc",
+		// "~/.config/waybar/modules/extras/taskbar.jsonc",
+		"~/.config/waybar/modules/extras/tray.jsonc",
+		"~/.config/waybar/modules/extras/wireplumber.jsonc"
 	],
-	"scroll-step": 5
-},
-"memory": {
-	"interval": 1,
-	"format": "\uf4bc  {used:0.1f}G"
-},
-"temperature": {
-	"interval": 1,
-	"thermal-zone": 2,
-	"hwmon-path": "/sys/class/hwmon/hwmon9/temp1_input",
-	"critical-threshold": 100,
-	"format-critical": "{temperatureC}°C ",
-	"format": "{temperatureC}°C"
-},
-"network": {
-	"format": "{ifname}",
-	"format-ethernet": "{ipaddr}/{cidr} \udb83\udc9d",
-	"format-wifi": "{icon}",
-	"format-disconnected": "\udb83\udc9c",
-	"format-icons": [
-		"\udb82\udd2f",
-		"\udb82\udd1f",
-		"\udb82\udd22",
-		"\udb82\udd25",
-		"\udb82\udd28"
+	/*------------
+	    layout
+	------------*/
+	"modules-left": [
+		"group/user",
+		"custom/left_div#1",
+		"hyprland/workspaces",
+		"custom/right_div#1",
+		"hyprland/window"
 	],
-	"tooltip-format-wifi": "{essid} ({signalStrength}%)",
-	"tooltip-format-ethernet": "{ifname}",
-	"tooltip-format-disconnected": "Disconnected"
-},
-"hyprland/language": {
-	"format": "{short}"
-},
-"cpu": {
-	"interval": 1,
-	"format": " {}%",
-	"tooltip": true
-},
-"tray": {
-	"icon-size": 13,
-	"spacing": 5
-},
-"custom/disk_home": {
-	"format": "H {} ",
-	"interval": 30,
-	"exec": "df -h --output=avail $HOME | tail -1 | tr -d ' '"
-},
-"custom/disk_root": {
-	"format": "B {} ",
-	"interval": 30,
-	"exec": "df -h --output=avail /mnt/backups | tail -1 | tr -d ' '"
-},
-"idle_inhibitor": {
-	"format": "{icon}",
-	"format-icons": {
-		"activated": "\udb80\udd76",
-		"deactivated": "\udb83\udfaa"
-	}
-}
+	"modules-center": [
+		"hyprland/windowcount",
+		"custom/left_div#2",
+		"temperature",
+		"custom/left_div#3",
+		"memory",
+		"custom/left_div#4",
+		"cpu",
+		"idle_inhibitor",
+		"clock#time",
+		"custom/right_div#3",
+		"clock#date",
+		"custom/right_div#4",
+		"custom/system_update",
+		"custom/right_div#5",
+		"tray"
+		// "wlr/taskbar"
+	],
+	"modules-right": [
+		"mpris",
+		"custom/left_div#6",
+		"group/pulseaudio",
+		"custom/left_div#7",
+		"custom/left_div#8",
+		"custom/left_inv#2",
+		"custom/power_menu"
+	],
+	/*-------------
+	    options
+	-------------*/
+	// "expand-center":
+	// "expand-left":
+	// "expand-right":
+	"layer": "top",
+	// "output":
+	// "position":
+	"height": 20,
+	"width": 0,
+	"margin": 0,
+	// "margin-top":
+	// "margin-left":
+	// "margin-bottom":
+	// "margin-right":
+	// "no-center":
+	"spacing": 0,
+	// "name":
+	"mode": "dock",
+	// "start_hidden":
+	// "modifier-reset":
+	// "exclusive":
+	// "fixed-center":
+	// "passthrough":
+	// "ipc":
+	// "id":
+	"reload_style_on_change": true
+	// "on-sigusr1":
+	// "on-sigusr2":
 }

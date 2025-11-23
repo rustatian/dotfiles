@@ -1,0 +1,29 @@
+* {
+	font-family: "Commit Mono Nerd Font";
+	font-weight: bold;
+	font-size: 12px;
+}
+
+#custom-user,
+#window label,
+#mpris,
+tooltip label {
+	font-weight: normal;
+}
+
+#workspaces button.active label,
+#workspaces button.focused label,
+#custom-distro {
+	font-size: 14px;
+}
+
+#custom-power_menu {
+	font-size: 16px;
+}
+
+#custom-left_div,
+#custom-left_inv,
+#custom-right_div,
+#custom-right_inv {
+	font-size: 16px;
+}

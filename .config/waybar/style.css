@@ -1,90 +1,12 @@
-@define-color foreground #f8f8f2;
-@define-color background rgba(40, 42, 54, 0.5);
-@define-color orange #ffb86c;
-@define-color gray #44475a;
-@define-color black #21222c;
-@define-color red #ff5555;
-@define-color green #50fa7b;
-@define-color yellow #f1fa8c;
-@define-color cyan #8be9fd;
-@define-color blue #6272a4;
-@define-color purple #bd93f9;
-@define-color pink #ff79c6;
-@define-color white #ffffff;
-@define-color brred #ff6e6e;
-@define-color brgreen #69ff94;
-@define-color bryellow #ffffa5;
-@define-color brcyan #a4ffff;
-@define-color brblue #6272a4;
-@define-color brpurple #d6acff;
-@define-color brpink #ff92df;
-
-@define-color arch_blue #89b4fa;
-
-@define-color workspace_background @background;
-@define-color workspace_button @foreground;
-@define-color workspace_active @black;
-@define-color workspace_active_background @green;
-@define-color workspace_urgent @white;
-@define-color workspace_urgent_background @brred;
-@define-color workspace_hover @black;
-@define-color workspace_hover_background @pink;
-@define-color critical @red;
-@define-color warning @yellow;
+/* ignore GTK theme */
 * {
-  font-family: Berkeley Mono Medium, Roboto, Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  border-radius: 0;
-  border: none;
-  padding: 0;
-  margin: 0;
-  min-height: 0;
+	min-height: initial;
 }
 
-window#waybar {
-  background: @black;
-  color: @foreground;
-}
-
-#workspaces button.active {
-  background: @workspace_active_background;
-  color: @workspace_active;
-  border-radius: 5px;
-}
-
-#workspaces button.urgent {
-  background: @workspace_urgent_background;
-  color: @workspace_urgent;
-  border-radius: 5px;
-}
-
-#workspaces button:hover {
-  background: @workspace_hover_background;
-  color: @workspace_hover;
-  border-radius: 5px;
-}
-
-#cpu {
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-}
-
-#memory {
-  padding-left: 0.5em;
-}
-
-#idle_inhibitor {
-  padding-right: 0.5em;
-}
-
-#language {
-  padding-right: 0.5em;
-  padding-left: 0.5em;
-}
-
-#wireplumber,
-#network,
-#bluetooth,
-#tray {
-  padding-right: 0.5em;
-}
+@import "theme.css";
+@import "styles/fonts.css";
+@import "styles/global.css";
+@import "styles/modules-center.css";
+@import "styles/modules-left.css";
+@import "styles/modules-right.css";
+@import "styles/states.css";
