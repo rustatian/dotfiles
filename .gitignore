@@ -3,3 +3,4 @@
 .config/nvim/treesitter
 **/lazy-lock.json
 **/*.so
+**/.venv/
