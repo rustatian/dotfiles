@@ -3,7 +3,7 @@ theme = Gruvbox Dark
 font-family = "Berkeley Mono"
 font-feature = +calt
 font-feature = +ss02
-font-size = 13
+font-size = 11
 font-thicken = true
 font-thicken-strength = 250
 
