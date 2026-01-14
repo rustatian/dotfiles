@@ -1,6 +1,6 @@
 require("lazydev").setup()
 
-local capabilities = require("blink.cmp").get_lsp_capabilities()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 capabilities = vim.tbl_deep_extend("force", capabilities, capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -22,6 +22,7 @@ local util = require("lspconfig/util")
 
 vim.lsp.config("rust_analyzer", {
 	capabilities = capabilities,
+	on_attach = on_attach,
 	settings = {
 		["rust-analyzer"] = {
 			diagnostics = {
@@ -49,7 +50,6 @@ vim.lsp.config("rust_analyzer", {
 			},
 		},
 	},
-	on_attach = on_attach,
 })
 vim.lsp.enable("rust_analyzer")
 
@@ -68,20 +68,22 @@ vim.lsp.enable("helm_ls")
 vim.lsp.enable("gitlab_ci_ls")
 
 vim.lsp.config("buf_ls", {
-	cmd = { "buf", "lsp", "serve", "--timeout=0", "--log-format=text" },
 	capabilities = capabilities,
 	on_attach = on_attach,
+	cmd = { "buf", "lsp", "serve", "--timeout=0", "--log-format=text" },
 })
 vim.lsp.enable("buf_ls")
 vim.lsp.enable("stylelint_lsp")
 
 vim.lsp.config("lua_ls", {
+	capabilities = capabilities,
+	on_attach = on_attach,
 	on_init = function(client)
 		if client.workspace_folders then
 			local path = client.workspace_folders[1].name
 			if
-				path ~= vim.fn.stdpath("config")
-				and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
+			    path ~= vim.fn.stdpath("config")
+			    and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
 			then
 				return
 			end
@@ -135,6 +137,8 @@ vim.lsp.config("golangci_lint_ls", {
 vim.lsp.enable("golangci_lint_ls")
 
 vim.lsp.config("gopls", {
+	capabilities = capabilities,
+	on_attach = on_attach,
 	cmd = { "gopls" },
 	filetypes = { "go", "gomod", "gowork", "gotmpl" },
 	settings = {
@@ -220,7 +224,7 @@ vim.lsp.config("sqlls", {
 })
 vim.lsp.enable("sqlls")
 
-vim.lsp.config("pyright", {
+vim.lsp.config("basedpyright", {
 	capabilities = capabilities,
 	python = {
 		analysis = {
@@ -230,7 +234,47 @@ vim.lsp.config("pyright", {
 		},
 	},
 })
-vim.lsp.enable("pyright")
+vim.lsp.enable("basedpyright")
+
+vim.lsp.config('ruff', {
+	capabilities = capabilities,
+	on_attach = on_attach,
+	init_options = {
+		settings = {
+			lineLength = 120,
+			fixAll = true,
+			organizeImports = true,
+			showSyntaxErrors = true,
+		}
+	}
+})
+vim.lsp.enable('ruff')
+
+vim.lsp.config('ty', {
+	capabilities = capabilities,
+	on_attach = on_attach,
+	settings = {
+		ty = {
+			disableLanguageServices = false,
+			showSyntaxErrors = true,
+			completions = {
+				autoImport = true,
+			},
+			inlayHints = {
+				variableTypes = true,
+				callArgumentNames = true,
+			},
+			diagnosticMode = "workspace",
+			configuration = {
+				rules = {
+					["unresolved-reference"] = "warn"
+				}
+			}
+		},
+	},
+})
+
+vim.lsp.enable('ty')
 
 vim.lsp.config("intelephense", {
 	capabilities = capabilities,
@@ -247,12 +291,6 @@ vim.lsp.config("bashls", {
 })
 vim.lsp.enable("bashls")
 
-vim.lsp.config("grammarly", {
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-vim.lsp.enable("grammarly")
-
 vim.lsp.config("marksman", {
 	capabilities = capabilities,
 	flags = { debounce_text_changes = 200 },
@@ -265,13 +303,16 @@ vim.lsp.config("yamlls", {
 		yaml = {
 			schemas = {
 				["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-				["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] = "/*.k8s.yaml",
-				["https://cdn.jsdelivr.net/gh/roadrunner-server/roadrunner@latest/schemas/config/3.0.schema.json"] = ".rr*.yaml",
+				["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] =
+				"/*.k8s.yaml",
+				["https://cdn.jsdelivr.net/gh/roadrunner-server/roadrunner@latest/schemas/config/3.0.schema.json"] =
+				".rr*.yaml",
 			},
 		},
 	},
 })
 vim.lsp.enable("yamlls")
+
 
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)

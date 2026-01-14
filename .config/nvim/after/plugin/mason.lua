@@ -6,6 +6,7 @@ end
 -- LSP servers (for mason-lspconfig)
 local servers = {
 	"bashls",
+	-- "basedpyright",
 	"buf_ls",
 	"clangd",
 	"codeqlls",
@@ -18,15 +19,12 @@ local servers = {
 	"gitlab_ci_ls",
 	"golangci_lint_ls",
 	"gopls",
-	"grammarly",
 	"helm_ls",
 	"html",
 	"hyprls",
 	"jqls",
 	"jsonls",
 	"lua_ls",
-	"pylsp",
-	"pyright",
 	"rust_analyzer",
 	"sqlls",
 	"sqls",
@@ -48,7 +46,6 @@ local packages = {
 	"docformatter",
 	"gofumpt",
 	"goimports",
-	"isort",
 	"luaformatter",
 	"mdformat",
 	"nginx-config-formatter",
@@ -99,6 +96,7 @@ local packages = {
 	"delve",
 
 	-- Other Tools
+	"ruff",
 	"gh",
 	"gitui",
 	"iferr",

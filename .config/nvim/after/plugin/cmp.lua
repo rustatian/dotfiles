@@ -57,7 +57,6 @@ luasnip.config.setup({
 
 require("blink-cmp").setup({
 	appearance = {
-		use_nvim_cmp_as_default = false,
 		nerd_font_variant = 'mono'
 	},
 	keymap = {
@@ -65,9 +64,54 @@ require("blink-cmp").setup({
 	},
 	sources = {
 		completion = {
-			menu = { border = 'single' },
-			documentation = { window = { border = 'single' } },
-			enabled_providers = { "lsp", "path", "snippets", "buffer", "lazydev" },
+			keyword = { range = 'full' },
+			menu = {
+				-- Don't automatically show the completion menu
+				auto_show = false,
+
+				draw = {
+					components = {
+						kind_icon = {
+							text = function(ctx)
+								local icon = ctx.kind_icon
+								if vim.tbl_contains({ "Path" }, ctx.source_name) then
+									local dev_icon, _ = require("nvim-web-devicons")
+									    .get_icon(ctx.label)
+									if dev_icon then
+										icon = dev_icon
+									end
+								else
+									icon = require("lspkind").symbolic(ctx.kind, {
+										mode = "symbol",
+									})
+								end
+
+								return icon .. ctx.icon_gap
+							end,
+
+							-- keep the highlight groups in sync with the icons.
+							highlight = function(ctx)
+								local hl = ctx.kind_hl
+								if vim.tbl_contains({ "Path" }, ctx.source_name) then
+									local dev_icon, dev_hl = require(
+										"nvim-web-devicons").get_icon(ctx.label)
+									if dev_icon then
+										hl = dev_hl
+									end
+								end
+								return hl
+							end,
+						}
+					}
+				}
+			},
+			documentation = { auto_show = true, auto_show_delay_ms = 500 },
+			ghost_text = { enabled = true },
+			enabled_providers = { "lsp", "path", "snippets", "buffer" },
+			snippets = { preset = 'luasnip' },
+
+			-- Experimental signature help support
+			signature = { enabled = true }
 		},
 		providers = {
 			-- dont show LuaLS require statements when lazydev has items
