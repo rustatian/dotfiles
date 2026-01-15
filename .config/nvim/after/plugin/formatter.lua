@@ -6,17 +6,13 @@ require("conform").setup({
 	},
 	formatters_by_ft = {
 		lua = { "stylua" },
-		python = { "ruff", "isort" },
+		python = {
+			"ruff_format",
+			"ruff_fix",
+			"ruff_organize_imports",
+		},
 		javascript = { "prettierd", "prettier", stop_after_first = true },
 		rust = { "rustfmt" },
 		go = { "gofmt", "gofumpt", stop_after_first = true },
-	},
-	keys = {
-		"<leader>f",
-		function()
-			require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
-		end,
-		mode = { "n", "v" },
-		desc = "Format Injected Langs",
 	},
 })

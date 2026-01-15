@@ -247,6 +247,10 @@ vim.lsp.config('ruff', {
 			showSyntaxErrors = true,
 			lint = {
 				enable = true,
+			},
+			format = {
+				preview = true,
+				backend = "uv"
 			}
 		}
 	}
