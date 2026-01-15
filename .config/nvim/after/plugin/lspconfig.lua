@@ -245,6 +245,9 @@ vim.lsp.config('ruff', {
 			fixAll = true,
 			organizeImports = true,
 			showSyntaxErrors = true,
+			lint = {
+				enable = true,
+			}
 		}
 	}
 })
