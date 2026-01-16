@@ -63,9 +63,9 @@ return {
 	-- GUI enhancements --
 	-----------------------
 	{
-		"ellisonleao/gruvbox.nvim",
-		priority = 1000,
-		config = true,
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000
 	},
 	{
 		"stevearc/dressing.nvim",
@@ -128,7 +128,7 @@ return {
 	--  Diagnostic   --
 	-------------------
 	"folke/trouble.nvim",
-	{             -- Useful plugin to show you pending keybinds.
+	{                 -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
 		config = function() -- This is the function that runs, AFTER loading
