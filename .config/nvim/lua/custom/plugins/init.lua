@@ -9,11 +9,6 @@ return {
 		"nvim-neotest/nvim-nio",
 	},
 
-	----------
-	--  AI  --
-	----------
-	{},
-
 	-------------
 	-- Folding --
 	-------------
@@ -30,29 +25,27 @@ return {
 	{
 		"p00f/clangd_extensions.nvim",
 		lazy = true,
-		config = function() end,
 		opts = {
 			inlay_hints = {
 				inline = false,
 			},
 			ast = {
-				--These require codicons (https://github.com/microsoft/vscode-codicons)
 				role_icons = {
-					type = "",
-					declaration = "",
-					expression = "",
-					specifier = "",
-					statement = "",
-					["template argument"] = "",
+					type = "",
+					declaration = "",
+					expression = "",
+					specifier = "",
+					statement = "",
+					["template argument"] = "",
 				},
 				kind_icons = {
-					Compound = "",
-					Recovery = "",
-					TranslationUnit = "",
-					PackExpansion = "",
-					TemplateTypeParm = "",
-					TemplateTemplateParm = "",
-					TemplateParamObject = "",
+					Compound = "",
+					Recovery = "",
+					TranslationUnit = "",
+					PackExpansion = "",
+					TemplateTypeParm = "",
+					TemplateTemplateParm = "",
+					TemplateParamObject = "",
 				},
 			},
 		},
@@ -63,6 +56,7 @@ return {
 	---------
 	{
 		"ziglang/zig.vim",
+		ft = "zig",
 	},
 
 	-----------------------
@@ -105,8 +99,6 @@ return {
 	},
 
 	"nvim-treesitter/nvim-treesitter-context",
-	"j-hui/fidget.nvim",
-	"onsails/lspkind.nvim",
 	{
 		"stevearc/conform.nvim",
 	},
@@ -126,12 +118,10 @@ return {
 	{
 		"saghen/blink.cmp",
 		version = "1.*",
-		lazy = false, -- lazy loading handled internally
-		-- optional: provides snippets for the snippet source
-		dependencies = "rafamadriz/friendly-snippets",
-
-		-- use a release tag to download pre-built binaries
-		opts = {},
+		lazy = false,
+		config = function()
+			-- Setup done in after/plugin/cmp.lua
+		end,
 	},
 
 	-------------------
@@ -150,10 +140,14 @@ return {
 				{ "<leader>c_", hidden = true },
 				{ "<leader>d",  group = "[D]ocument" },
 				{ "<leader>d_", hidden = true },
+				{ "<leader>h",  group = "[H]unk (Git)" },
+				{ "<leader>h_", hidden = true },
 				{ "<leader>r",  group = "[R]ename" },
 				{ "<leader>r_", hidden = true },
 				{ "<leader>s",  group = "[S]earch" },
 				{ "<leader>s_", hidden = true },
+				{ "<leader>t",  group = "[T]oggle" },
+				{ "<leader>t_", hidden = true },
 				{ "<leader>w",  group = "[W]orkspace" },
 				{ "<leader>w_", hidden = true },
 			})
@@ -165,7 +159,13 @@ return {
 	----------
 	{
 		"nvim-telescope/telescope.nvim",
-		dependencies = "nvim-lua/plenary.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "make",
+			},
+		},
 	},
 
 	{
@@ -180,18 +180,23 @@ return {
 	-- Autopairs
 	{
 		"windwp/nvim-autopairs",
+		event = "InsertEnter",
 		config = function()
 			require("nvim-autopairs").setup({})
 		end,
 	},
 
 	-- Git
-	"lewis6991/gitsigns.nvim",
+	{
+		"lewis6991/gitsigns.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+	},
 	"tpope/vim-fugitive",
 
 	-- Comment
 	{
 		"numToStr/Comment.nvim",
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("Comment").setup()
 		end,

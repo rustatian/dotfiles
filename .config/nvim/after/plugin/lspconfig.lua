@@ -1,13 +1,27 @@
 require("lazydev").setup()
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-capabilities = vim.tbl_deep_extend("force", capabilities, capabilities)
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.foldingRange = {
-	dynamicRegistration = false,
-	lineFoldingOnly = true,
-}
+capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities({}, false))
+capabilities = vim.tbl_deep_extend('force', capabilities, {
+	textDocument = {
+		completion = {
+			completionItem = {
+				snippetSupport = true,
+				resolveSupport = {
+					properties = {
+						'documentation',
+						'detail',
+						'additionalTextEdits',
+					}
+				}
+			}
+		},
+		foldingRange = {
+			dynamicRegistration = false,
+			lineFoldingOnly = true
+		}
+	}
+})
 
 local on_attach = function(client, _)
 	if client.server_capabilities.inlayHintProvider then
@@ -17,9 +31,6 @@ end
 
 -- Rust-Analyzer setup in the init.lua
 
--- local lspconfig = require("lspconfig")
-local util = require("lspconfig/util")
-
 vim.lsp.config("rust_analyzer", {
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -28,9 +39,7 @@ vim.lsp.config("rust_analyzer", {
 			diagnostics = {
 				enable = true,
 			},
-			checkOnSave = {
-				allTargets = true,
-			},
+			checkOnSave = true,
 			imports = {
 				granularity = {
 					group = "module",
@@ -127,6 +136,8 @@ vim.lsp.config("lua_ls", {
 })
 vim.lsp.enable("lua_ls")
 
+-- Go LSP ---------------------
+
 vim.lsp.config("golangci_lint_ls", {
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -139,8 +150,6 @@ vim.lsp.enable("golangci_lint_ls")
 vim.lsp.config("gopls", {
 	capabilities = capabilities,
 	on_attach = on_attach,
-	cmd = { "gopls" },
-	filetypes = { "go", "gomod", "gowork", "gotmpl" },
 	settings = {
 		gopls = {
 			usePlaceholders = true,
@@ -148,9 +157,14 @@ vim.lsp.config("gopls", {
 			buildFlags = { "-tags=debug" },
 			analyses = {
 				unusedparams = true,
+				shadow = true,
+				nilness = true,
+				unusedwrite = true,
+				useany = true,
 			},
 			staticcheck = true,
 			experimentalPostfixCompletions = true,
+			gofumpt = true,
 			hints = {
 				parameterNames = true,
 				assignVariableTypes = true,
@@ -212,29 +226,11 @@ vim.lsp.config("dockerls", {
 })
 vim.lsp.enable("dockerls")
 
-vim.lsp.config("jsonls", {
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-vim.lsp.enable("jsonls")
-
 vim.lsp.config("sqlls", {
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 vim.lsp.enable("sqlls")
-
-vim.lsp.config("basedpyright", {
-	capabilities = capabilities,
-	python = {
-		analysis = {
-			autoSearchPaths = true,
-			diagnosticMode = "openFilesOnly",
-			useLibraryCodeForTypes = true,
-		},
-	},
-})
-vim.lsp.enable("basedpyright")
 
 vim.lsp.config('ruff', {
 	capabilities = capabilities,
@@ -306,6 +302,8 @@ vim.lsp.config("marksman", {
 vim.lsp.enable("marksman")
 
 vim.lsp.config("yamlls", {
+	capabilities = capabilities,
+	on_attach = on_attach,
 	settings = {
 		yaml = {
 			schemas = {
@@ -319,6 +317,29 @@ vim.lsp.config("yamlls", {
 	},
 })
 vim.lsp.enable("yamlls")
+
+-- Diagnostic configuration
+vim.diagnostic.config({
+	virtual_text = {
+		prefix = "●",
+		spacing = 2,
+		source = "if_many",
+	},
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "E",
+			[vim.diagnostic.severity.WARN] = "W",
+			[vim.diagnostic.severity.HINT] = "H",
+			[vim.diagnostic.severity.INFO] = "I",
+		},
+	},
+	float = {
+		border = "rounded",
+		source = true,
+	},
+	severity_sort = true,
+	update_in_insert = false,
+})
 
 
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
