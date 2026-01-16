@@ -15,15 +15,16 @@ require("blink.cmp").setup({
 		list = { selection = { preselect = false, auto_insert = true } },
 		menu = {
 			auto_show = true,
+			min_width = 30,
+			max_height = 30,
 			draw = {
 				columns = {
-					{ "label", "label_description", gap = 1 },
-					{ "kind" },
+					{ "label", "kind", gap = 1 },
 					{ "detail" },
 				},
 				components = {
 					detail = {
-						width = { max = 30 },
+						width = { max = 80 },
 						text = function(ctx) return ctx.item.detail or "" end,
 						highlight = "BlinkCmpLabelDescription",
 					},
