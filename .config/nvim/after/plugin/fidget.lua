@@ -95,13 +95,7 @@ require("fidget").setup({
 			y_padding = 0, -- Padding from bottom edge of window boundary
 			align = "bottom", -- How to align the notification window
 			relative = "editor", -- What the notification window position is relative to
-		},
-	},
-
-	-- Options related to integrating with other plugins
-	integration = {
-		["nvim-tree"] = {
-			enable = true, -- Integrate with nvim-tree/nvim-tree.lua (if installed)
+			avoid = { "NvimTree" }, -- Avoid overlapping with nvim-tree
 		},
 	},
 

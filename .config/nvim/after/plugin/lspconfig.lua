@@ -180,12 +180,6 @@ vim.lsp.config("gopls", {
 vim.lsp.enable("gopls")
 
 -- C/C++ LSP ---------------------
-vim.lsp.config("cmake", {
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-vim.lsp.enable("cmake")
-
 vim.lsp.config("clangd", {
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -318,6 +312,56 @@ vim.lsp.config("yamlls", {
 })
 vim.lsp.enable("yamlls")
 
+-- Additional LSP servers ---------------------
+
+vim.lsp.config("systemd_lsp", {
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+vim.lsp.enable("systemd_lsp")
+
+vim.lsp.config("ts_ls", {
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+vim.lsp.enable("ts_ls")
+
+vim.lsp.config("fish_lsp", {
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+vim.lsp.enable("fish_lsp")
+
+vim.lsp.config("hyprls", {
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+vim.lsp.enable("hyprls")
+
+vim.lsp.config("gh_actions_ls", {
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+vim.lsp.enable("gh_actions_ls")
+
+vim.lsp.config("jqls", {
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+vim.lsp.enable("jqls")
+
+vim.lsp.config("html", {
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+vim.lsp.enable("html")
+
+vim.lsp.config("terraformls", {
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+vim.lsp.enable("terraformls")
+
 -- Diagnostic configuration
 vim.diagnostic.config({
 	virtual_text = {
@@ -378,7 +422,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		-- Fuzzy find all the symbols in your current document.
 		--  Symbols are things like variables, functions, types, etc.
-		map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+		map("<leader>ss", require("telescope.builtin").lsp_document_symbols, "[S]earch Document [S]ymbols")
 
 		-- Fuzzy find all the symbols in your current workspace
 		--  Similar to document symbols, except searches over your whole project.

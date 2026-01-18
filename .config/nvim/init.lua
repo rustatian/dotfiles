@@ -3,6 +3,9 @@ local set = vim.opt
 -- inlay hints
 vim.g.inlay_hints_visible = true
 
+-- Use dedicated Python 3.13 venv for Neovim plugins (some require Python <= 3.13)
+vim.g.python3_host_prog = vim.fn.stdpath("config") .. "/.venv/bin/python"
+
 vim.g.mapleader = ";"
 vim.g.maplocalleader = "\\"
 vim.g.loaded_netrw = 1

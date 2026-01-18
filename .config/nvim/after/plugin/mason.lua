@@ -6,10 +6,8 @@ end
 -- LSP servers (for mason-lspconfig)
 local servers = {
 	"bashls",
-	-- "basedpyright",
 	"buf_ls",
 	"clangd",
-	"codeqlls",
 	"copilot",
 	"docker_compose_language_service",
 	"docker_language_server",
@@ -22,36 +20,38 @@ local servers = {
 	"helm_ls",
 	"html",
 	"hyprls",
+	"intelephense",
 	"jqls",
 	"jsonls",
 	"lua_ls",
+	"marksman",
+	"ruff",
 	"rust_analyzer",
 	"sqlls",
 	"sqls",
 	"stylelint_lsp",
+	"systemd_lsp",
 	"terraformls",
 	"ts_ls",
+	"ty",
 	"yamlls",
 	"zls",
 }
 
 -- All Mason packages (formatters, linters, DAP, tools, etc.)
+-- NOTE: mason.setup() does not support ensure_installed for non-LSP packages.
+-- To install all packages manually, run:
+-- :MasonInstall clang-format cmakelang gofumpt goimports luaformatter mdformat prettier prettierd pyproject-fmt sql-formatter sqlfmt stylua taplo yamlfix yamlfmt buf checkmake checkstyle cmakelint codespell commitlint cpplint gitleaks gitlint golangci-lint jsonlint luacheck markdownlint markuplint misspell mypy protolint pydocstyle revive semgrep shellcheck stylelint systemdlint yamllint bash-debug-adapter codelldb cpptools debugpy delve codeql gh gitui iferr jq nomad terraform tree-sitter-cli uv wasm-language-tools
 local packages = {
 	-- Formatters
-	"black",
-	"blackd-client",
-	"blade-formatter",
 	"clang-format",
 	"cmakelang",
-	"docformatter",
 	"gofumpt",
 	"goimports",
 	"luaformatter",
 	"mdformat",
-	"nginx-config-formatter",
 	"prettier",
 	"prettierd",
-	"pyink",
 	"pyproject-fmt",
 	"sql-formatter",
 	"sqlfmt",
@@ -61,31 +61,29 @@ local packages = {
 	"yamlfmt",
 
 	-- Linters
+	"buf",
 	"checkmake",
 	"checkstyle",
 	"cmakelint",
 	"codespell",
 	"commitlint",
 	"cpplint",
-	"flake8",
 	"gitleaks",
 	"gitlint",
 	"golangci-lint",
-	"intelephense",
 	"jsonlint",
 	"luacheck",
-	"marksman",
+	"markdownlint",
 	"markuplint",
 	"misspell",
 	"mypy",
 	"protolint",
 	"pydocstyle",
-	"pyflakes",
-	"pylint",
 	"revive",
-	"ruff",
 	"semgrep",
+	"shellcheck",
 	"stylelint",
+	"systemdlint",
 	"yamllint",
 
 	-- Debug Adapters
@@ -96,20 +94,19 @@ local packages = {
 	"delve",
 
 	-- Other Tools
-	"ruff",
+	"codeql",
 	"gh",
 	"gitui",
 	"iferr",
 	"jq",
 	"nomad",
 	"terraform",
-	"ty",
+	"tree-sitter-cli",
 	"uv",
 	"wasm-language-tools",
 }
 
 mason.setup({
-	ensure_installed = packages,
 	ui = {
 		icons = {
 			package_installed = "✓",

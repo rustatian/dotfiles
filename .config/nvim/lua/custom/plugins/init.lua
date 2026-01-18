@@ -4,6 +4,9 @@ return {
 	----------
 	{
 		"folke/lazydev.nvim",
+		opts = {
+			library = { "nvim-dap-ui" },
+		},
 	},
 	{
 		"nvim-neotest/nvim-nio",
@@ -128,6 +131,33 @@ return {
 	--  Diagnostic   --
 	-------------------
 	"folke/trouble.nvim",
+
+	-----------
+	-- Debug --
+	-----------
+	{
+		"mfussenegger/nvim-dap",
+	},
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+	},
+	{
+		"theHamsta/nvim-dap-virtual-text",
+	},
+	{
+		"jay-babu/mason-nvim-dap.nvim",
+		dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
+	},
+	{
+		"leoluz/nvim-dap-go",
+		ft = "go",
+	},
+	{
+		"mfussenegger/nvim-dap-python",
+		ft = "python",
+	},
+
 	{                 -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
@@ -138,8 +168,6 @@ return {
 			require("which-key").add({
 				{ "<leader>c",  group = "[C]ode" },
 				{ "<leader>c_", hidden = true },
-				{ "<leader>d",  group = "[D]ocument" },
-				{ "<leader>d_", hidden = true },
 				{ "<leader>h",  group = "[H]unk (Git)" },
 				{ "<leader>h_", hidden = true },
 				{ "<leader>r",  group = "[R]ename" },
