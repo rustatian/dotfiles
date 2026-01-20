@@ -74,6 +74,21 @@ set_cursorline("WinLeave", false)
 set_cursorline("WinEnter", true)
 set_cursorline("FileType", false, "TelescopePrompt")
 
+-- Disable built-in LSP keymaps that conflict with Telescope mappings
+vim.api.nvim_create_autocmd('LspAttach', {
+	group = vim.api.nvim_create_augroup('DisableBuiltinLspMaps', { clear = true }),
+	callback = function(args)
+		local del = function(key)
+			pcall(vim.keymap.del, 'n', key, { buffer = args.buf })
+		end
+		del('grn') -- rename (we use <leader>rn)
+		del('gra') -- code action (we use <leader>ca)
+		del('grr') -- references (we use gr with Telescope)
+		del('gri') -- implementation (we use gI with Telescope)
+		del('grt') -- type definition (we use <leader>D with Telescope)
+	end,
+})
+
 ----------
 -- TABS --
 ----------

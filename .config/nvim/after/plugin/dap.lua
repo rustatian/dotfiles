@@ -3,10 +3,48 @@ local dapui = require("dapui")
 
 -- mason-nvim-dap: auto-install and configure adapters
 -- Note: Uses DAP adapter names, not Mason package names
+-- Docs: https://github.com/jay-babu/mason-nvim-dap.nvim
+-- Adapter configs: https://codeberg.org/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
 require("mason-nvim-dap").setup({
-	ensure_installed = { "python", "delve", "codelldb" },
+	ensure_installed = { "python", "delve", "codelldb", "cppdbg", "bash" },
 	automatic_installation = true,
-	handlers = {},
+	handlers = {
+		-- Default handler - REQUIRED for automatic setup
+		-- Without this, no adapters get configured (handlers = {} means no setup)
+		function(config)
+			require("mason-nvim-dap").default_setup(config)
+		end,
+
+		-- codelldb: override to use modern executable type (1.11.0+ supports stdio)
+		-- See: https://codeberg.org/mfussenegger/nvim-dap/wiki/C-C---Rust-(via--codelldb)
+		codelldb = function(config)
+			config.adapters = {
+				type = "executable",
+				command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
+			}
+			require("mason-nvim-dap").default_setup(config)
+		end,
+
+		-- cppdbg (vscode-cpptools) for C/C++
+		-- See: https://codeberg.org/mfussenegger/nvim-dap/wiki/C-C---Rust-(gdb-via--vscode-cpptools)
+		cppdbg = function(config)
+			config.adapters = {
+				id = "cppdbg",
+				type = "executable",
+				command = vim.fn.stdpath("data") .. "/mason/bin/OpenDebugAD7",
+			}
+			require("mason-nvim-dap").default_setup(config)
+		end,
+
+		-- bash-debug-adapter for shell scripts
+		bash = function(config)
+			config.adapters = {
+				type = "executable",
+				command = vim.fn.stdpath("data") .. "/mason/bin/bash-debug-adapter",
+			}
+			require("mason-nvim-dap").default_setup(config)
+		end,
+	},
 })
 
 -- DAP UI setup
