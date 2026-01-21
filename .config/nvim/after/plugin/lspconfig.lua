@@ -252,7 +252,7 @@ vim.lsp.config("ty", {
 	on_attach = on_attach,
 	settings = {
 		ty = {
-			disableLanguageServices = false,
+			disableLanguageServices = true,
 			showSyntaxErrors = true,
 			completions = {
 				autoImport = true,
@@ -281,10 +281,10 @@ vim.lsp.config("basedpyright", {
 			analysis = {
 				typeCheckingMode = "strict",
 				inlayHints = {
-					variableTypes = false,
-					functionReturnTypes = false,
-					callArgumentNames = false,
-					genericTypes = false,
+					variableTypes = true,
+					functionReturnTypes = true,
+					callArgumentNames = true,
+					genericTypes = true,
 				},
 			},
 		},
