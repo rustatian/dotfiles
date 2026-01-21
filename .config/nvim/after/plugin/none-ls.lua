@@ -4,27 +4,17 @@ local u = require("null-ls.utils")
 null_ls.setup({
 	sources = {
 		-- Python type checking
+		-- Run mypy from project's venv so plugins (like pydantic.mypy) are available
 		null_ls.builtins.diagnostics.mypy.with({
-			extra_args = function(params)
-				local args = {}
-
-				-- Find project root using same patterns as mypy's cwd
+			command = function(params)
 				local root = u.root_pattern("pyproject.toml", "mypy.ini", ".mypy.ini", "setup.cfg")(params.bufname)
-
 				if root then
-					-- Check for uv's .venv in project root
-					local venv_python = root .. "/.venv/bin/python"
-					if vim.fn.executable(venv_python) == 1 then
-						table.insert(args, "--python-executable")
-						table.insert(args, venv_python)
+					local venv_mypy = root .. "/.venv/bin/mypy"
+					if vim.fn.executable(venv_mypy) == 1 then
+						return venv_mypy
 					end
-				elseif os.getenv("VIRTUAL_ENV") then
-					-- Fallback to VIRTUAL_ENV if set
-					table.insert(args, "--python-executable")
-					table.insert(args, os.getenv("VIRTUAL_ENV") .. "/bin/python")
 				end
-
-				return args
+				return "mypy"
 			end,
 		}),
 
