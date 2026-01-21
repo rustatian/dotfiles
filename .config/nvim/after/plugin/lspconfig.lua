@@ -1,26 +1,26 @@
 require("lazydev").setup()
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities({}, false))
-capabilities = vim.tbl_deep_extend('force', capabilities, {
+capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities({}, false))
+capabilities = vim.tbl_deep_extend("force", capabilities, {
 	textDocument = {
 		completion = {
 			completionItem = {
 				snippetSupport = true,
 				resolveSupport = {
 					properties = {
-						'documentation',
-						'detail',
-						'additionalTextEdits',
-					}
-				}
-			}
+						"documentation",
+						"detail",
+						"additionalTextEdits",
+					},
+				},
+			},
 		},
 		foldingRange = {
 			dynamicRegistration = false,
-			lineFoldingOnly = true
-		}
-	}
+			lineFoldingOnly = true,
+		},
+	},
 })
 
 local on_attach = function(client, _)
@@ -91,8 +91,8 @@ vim.lsp.config("lua_ls", {
 		if client.workspace_folders then
 			local path = client.workspace_folders[1].name
 			if
-			    path ~= vim.fn.stdpath("config")
-			    and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
+				path ~= vim.fn.stdpath("config")
+				and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
 			then
 				return
 			end
@@ -226,7 +226,7 @@ vim.lsp.config("sqlls", {
 })
 vim.lsp.enable("sqlls")
 
-vim.lsp.config('ruff', {
+vim.lsp.config("ruff", {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	init_options = {
@@ -240,14 +240,14 @@ vim.lsp.config('ruff', {
 			},
 			format = {
 				preview = true,
-				backend = "uv"
-			}
-		}
-	}
+				backend = "uv",
+			},
+		},
+	},
 })
-vim.lsp.enable('ruff')
+vim.lsp.enable("ruff")
 
-vim.lsp.config('ty', {
+vim.lsp.config("ty", {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
@@ -264,14 +264,33 @@ vim.lsp.config('ty', {
 			diagnosticMode = "workspace",
 			configuration = {
 				rules = {
-					["unresolved-reference"] = "warn"
-				}
-			}
+					["unresolved-reference"] = "warn",
+				},
+			},
 		},
 	},
 })
 
-vim.lsp.enable('ty')
+vim.lsp.enable("ty")
+
+vim.lsp.config("basedpyright", {
+	capabilities = capabilities,
+	on_attach = on_attach,
+	settings = {
+		basedpyright = {
+			analysis = {
+				typeCheckingMode = "strict",
+				inlayHints = {
+					variableTypes = false,
+					functionReturnTypes = false,
+					callArgumentNames = false,
+					genericTypes = false,
+				},
+			},
+		},
+	},
+})
+vim.lsp.enable("basedpyright")
 
 vim.lsp.config("intelephense", {
 	capabilities = capabilities,
@@ -302,10 +321,8 @@ vim.lsp.config("yamlls", {
 		yaml = {
 			schemas = {
 				["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-				["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] =
-				"/*.k8s.yaml",
-				["https://cdn.jsdelivr.net/gh/roadrunner-server/roadrunner@latest/schemas/config/3.0.schema.json"] =
-				".rr*.yaml",
+				["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] = "/*.k8s.yaml",
+				["https://cdn.jsdelivr.net/gh/roadrunner-server/roadrunner@latest/schemas/config/3.0.schema.json"] = ".rr*.yaml",
 			},
 		},
 	},
@@ -384,7 +401,6 @@ vim.diagnostic.config({
 	severity_sort = true,
 	update_in_insert = false,
 })
-
 
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
