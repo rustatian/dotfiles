@@ -1,81 +1,58 @@
--- Default options:
-require("catppuccin").setup({
-	flavour = "mocha", -- latte, frappe, macchiato, mocha
-	background = {  -- :h background
-		light = "latte",
-		dark = "mocha",
+require("tokyonight").setup({
+	-- use the night style
+	style = "night",
+	terminal_colors = true,
+	-- disable italic for functions
+	styles = {
+		comments = { italic = false },
+		keywords = { italic = false },
+		functions = { italic = false },
+		variables = { italic = false },
 	},
-	transparent_background = false, -- disables setting the background color.
-	float = {
-		transparent = false,     -- enable transparent floating windows
-		solid = false,           -- use solid styling for floating windows, see |winborder|
-	},
-	show_end_of_buffer = false,  -- shows the '~' characters after the end of buffers
-	term_colors = true,          -- sets terminal colors (e.g. `g:terminal_color_0`)
-	dim_inactive = {
-		enabled = false,         -- dims the background color of inactive window
-		shade = "dark",
-		percentage = 0.15,       -- percentage of the shade to apply to the inactive window
-	},
-	no_italic = true,            -- Force no italic
-	no_bold = true,              -- Force no bold
-	no_underline = true,         -- Force no underline
-	styles = {                   -- Handles the styles of general hi groups (see `:h highlight-args`):
-		comments = { "italic" }, -- Change the style of comments
-		conditionals = { "italic" },
-		loops = {},
-		functions = {},
-		keywords = {},
-		strings = {},
-		variables = {},
-		numbers = {},
-		booleans = {},
-		properties = {},
-		types = {},
-		operators = {},
-		-- miscs = {}, -- Uncomment to turn off hard-coded styles
-	},
-	lsp_styles = { -- Handles the style of specific lsp hl groups (see `:h lsp-highlight`).
-		virtual_text = {
-			errors = { "italic" },
-			hints = { "italic" },
-			warnings = { "italic" },
-			information = { "italic" },
-			ok = { "italic" },
-		},
-		underlines = {
-			errors = { "underline" },
-			hints = { "underline" },
-			warnings = { "underline" },
-			information = { "underline" },
-			ok = { "underline" },
-		},
-		inlay_hints = {
-			background = true,
-		},
-	},
-	color_overrides = {},
-	custom_highlights = {},
-	default_integrations = true,
-	auto_integrations = false,
-	integrations = {
-		cmp = true,
-		gitsigns = true,
-		nvimtree = true,
-		notify = false,
-		mini = {
-			enabled = true,
-			indentscope_color = "",
-		},
-		-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
-	},
+	sidebars = "dark",
+	floats = "dark",
+	transparent = false,
+
+	-- Change the "hint" color to the "orange" color, and make the "error" color bright red
+	on_colors = function(colors)
+		colors.hint = colors.orange
+		colors.error = "#ff0000"
+	end,
+	on_highlights = function(hl, c)
+		local prompt = "#2d3149"
+		hl.TelescopeNormal = {
+			bg = c.bg_dark,
+			fg = c.fg_dark,
+		}
+		hl.TelescopeBorder = {
+			bg = c.bg_dark,
+			fg = c.bg_dark,
+		}
+		hl.TelescopePromptNormal = {
+			bg = prompt,
+		}
+		hl.TelescopePromptBorder = {
+			bg = prompt,
+			fg = prompt,
+		}
+		hl.TelescopePromptTitle = {
+			bg = prompt,
+			fg = prompt,
+		}
+		hl.TelescopePreviewTitle = {
+			bg = c.bg_dark,
+			fg = c.bg_dark,
+		}
+		hl.TelescopeResultsTitle = {
+			bg = c.bg_dark,
+			fg = c.bg_dark,
+		}
+	end,
 })
 
--- setup must be called before loading
-vim.cmd.colorscheme "catppuccin"
-vim.cmd.hi("Comment gui=none")
+vim.cmd([[colorscheme tokyonight]])
 
 require("barbecue").setup({
-	theme = "catppuccin", -- theme
+	theme = "tokyonight", -- theme
 	attach_navic = false, -- prevent barbecue from automatically attaching nvim-navic
 })

@@ -66,9 +66,10 @@ return {
 	-- GUI enhancements --
 	-----------------------
 	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
 	},
 	{
 		"stevearc/dressing.nvim",
@@ -100,6 +101,12 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		enabled = true,
 	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		lazy = false,
+		branch = "main",
+		build = ":TSUpdate",
+	},
 
 	"nvim-treesitter/nvim-treesitter-context",
 	{
@@ -126,6 +133,18 @@ return {
 			-- Setup done in after/plugin/cmp.lua
 		end,
 	},
+
+	-------------------------
+	--- LSP configuration ---
+	-------------------------
+	{
+		"williamboman/mason.nvim",
+		build = ":MasonUpdate", -- :MasonUpdate updates registry contents
+	},
+	{
+		"neovim/nvim-lspconfig",
+	},
+	"williamboman/mason-lspconfig.nvim",
 
 	-------------------
 	--  Diagnostic   --
@@ -162,7 +181,7 @@ return {
 		ft = "python",
 	},
 
-	{                 -- Useful plugin to show you pending keybinds.
+	{ -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
 		config = function() -- This is the function that runs, AFTER loading
@@ -170,17 +189,17 @@ return {
 
 			-- Document existing key chains
 			require("which-key").add({
-				{ "<leader>c",  group = "[C]ode" },
+				{ "<leader>c", group = "[C]ode" },
 				{ "<leader>c_", hidden = true },
-				{ "<leader>h",  group = "[H]unk (Git)" },
+				{ "<leader>h", group = "[H]unk (Git)" },
 				{ "<leader>h_", hidden = true },
-				{ "<leader>r",  group = "[R]ename" },
+				{ "<leader>r", group = "[R]ename" },
 				{ "<leader>r_", hidden = true },
-				{ "<leader>s",  group = "[S]earch" },
+				{ "<leader>s", group = "[S]earch" },
 				{ "<leader>s_", hidden = true },
-				{ "<leader>t",  group = "[T]oggle" },
+				{ "<leader>t", group = "[T]oggle" },
 				{ "<leader>t_", hidden = true },
-				{ "<leader>w",  group = "[W]orkspace" },
+				{ "<leader>w", group = "[W]orkspace" },
 				{ "<leader>w_", hidden = true },
 			})
 		end,

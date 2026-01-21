@@ -5,6 +5,7 @@ vim.g.inlay_hints_visible = true
 
 -- Use dedicated Python 3.13 venv for Neovim plugins (some require Python <= 3.13)
 vim.g.python3_host_prog = vim.fn.stdpath("config") .. "/.venv/bin/python"
+set.runtimepath:append(os.getenv("HOME") .. "/.config/treesitter")
 
 vim.g.mapleader = ";"
 vim.g.maplocalleader = "\\"
@@ -31,7 +32,7 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:,vert: ]]
 vim.o.foldenable = true
 vim.o.foldtext = ""
 vim.o.foldcolumn = "0" -- '0' is not bad
-vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 
 -- set termguicolors to enable highlight groups
@@ -75,17 +76,17 @@ set_cursorline("WinEnter", true)
 set_cursorline("FileType", false, "TelescopePrompt")
 
 -- Disable built-in LSP keymaps that conflict with Telescope mappings
-vim.api.nvim_create_autocmd('LspAttach', {
-	group = vim.api.nvim_create_augroup('DisableBuiltinLspMaps', { clear = true }),
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("DisableBuiltinLspMaps", { clear = true }),
 	callback = function(args)
 		local del = function(key)
-			pcall(vim.keymap.del, 'n', key, { buffer = args.buf })
+			pcall(vim.keymap.del, "n", key, { buffer = args.buf })
 		end
-		del('grn') -- rename (we use <leader>rn)
-		del('gra') -- code action (we use <leader>ca)
-		del('grr') -- references (we use gr with Telescope)
-		del('gri') -- implementation (we use gI with Telescope)
-		del('grt') -- type definition (we use <leader>D with Telescope)
+		del("grn") -- rename (we use <leader>rn)
+		del("gra") -- code action (we use <leader>ca)
+		del("grr") -- references (we use gr with Telescope)
+		del("gri") -- implementation (we use gI with Telescope)
+		del("grt") -- type definition (we use <leader>D with Telescope)
 	end,
 })
 
@@ -107,7 +108,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	if vim.v.shell_error ~= 0 then
 		vim.api.nvim_echo({
 			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-			{ out,                            "WarningMsg" },
+			{ out, "WarningMsg" },
 			{ "\nPress any key to exit..." },
 		}, true, {})
 		vim.fn.getchar()
