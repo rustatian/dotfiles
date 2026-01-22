@@ -16,7 +16,7 @@ require("catppuccin").setup({
 		shade = "dark",
 		percentage = 0.15, -- percentage of the shade to apply to the inactive window
 	},
-	no_italic = false, -- Force no italic
+	no_italic = true, -- Force no italic
 	no_bold = false, -- Force no bold
 	no_underline = false, -- Force no underline
 	styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
@@ -61,10 +61,16 @@ require("catppuccin").setup({
 		cmp = true,
 		gitsigns = true,
 		nvimtree = true,
-		notify = false,
+		notify = true,
 		mini = {
 			enabled = true,
 			indentscope_color = "",
+		},
+		barbecue = {
+			dim_dirname = true, -- directory name is dimmed by default
+			bold_basename = true,
+			dim_context = false,
+			alt_background = false,
 		},
 	},
 })
@@ -73,6 +79,6 @@ require("catppuccin").setup({
 vim.cmd.colorscheme("catppuccin")
 
 require("barbecue").setup({
-	theme = "catppuccin", -- theme
+	theme = "catppuccin-mocha", -- theme
 	attach_navic = false, -- prevent barbecue from automatically attaching nvim-navic
 })
