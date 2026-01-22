@@ -4,66 +4,56 @@ require("nvim-treesitter").setup({
 })
 
 require("nvim-treesitter").install({
-	"make",
-	"html",
 	"bash",
-	"yaml",
-	"markdown",
-	"dockerfile",
-	"php",
-	"python",
-	"lua",
-	"rust",
 	"c",
 	"cpp",
+	"dockerfile",
 	"go",
 	"gomod",
 	"gosum",
-	"toml",
-	"yaml",
-	"yml",
+	"html",
+	"javascript",
 	"json",
 	"lua",
+	"make",
+	"markdown",
+	"php",
 	"python",
-	"zig",
 	"rust",
+	"toml",
 	"typescript",
-	"javascript",
+	"yaml",
+	"zig",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = {
-		"make",
-		"html",
 		"bash",
-		"zig",
-		"yaml",
-		"markdown",
-		"dockerfile",
-		"php",
-		"python",
-		"lua",
-		"rust",
 		"c",
 		"cpp",
+		"dockerfile",
 		"go",
 		"gomod",
 		"gosum",
-		"toml",
-		"yaml",
-		"yml",
+		"html",
+		"javascript",
 		"json",
 		"lua",
+		"make",
+		"markdown",
+		"php",
 		"python",
 		"rust",
+		"toml",
 		"typescript",
-		"javascript",
+		"yaml",
+		"zig",
 	},
 	callback = function()
 		vim.treesitter.start()
 		-- folds, provided by Neovim
-		vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-		vim.wo.foldmethod = "expr"
+		vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+		vim.wo[0][0].foldmethod = "expr"
 		-- indentation, provided by nvim-treesitter
 		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 	end,
