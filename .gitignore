@@ -4,3 +4,4 @@
 **/lazy-lock.json
 **/*.so
 **/.venv/
+.config/zed/prompts
