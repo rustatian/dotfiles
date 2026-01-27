@@ -6,7 +6,6 @@ end
 -- LSP servers (for mason-lspconfig)
 local servers = {
 	"bashls",
-	"basedpyright",
 	"buf_ls",
 	"clangd",
 	"copilot",
