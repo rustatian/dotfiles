@@ -34,6 +34,7 @@ local servers = {
 	"terraformls",
 	"ts_ls",
 	"ty",
+	"basedpyright",
 	"yamlls",
 	"zls",
 }

@@ -247,30 +247,53 @@ vim.lsp.config("ruff", {
 })
 vim.lsp.enable("ruff")
 
-vim.lsp.config("ty", {
+-- vim.lsp.config("ty", {
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- 	settings = {
+-- 		ty = {
+-- 			showSyntaxErrors = true,
+-- 			completions = {
+-- 				autoImport = true,
+-- 			},
+-- 			inlayHints = {
+-- 				variableTypes = true,
+-- 				callArgumentNames = true,
+-- 			},
+-- 			diagnosticMode = "workspace",
+-- 			configuration = {
+-- 				rules = {
+-- 					["unresolved-reference"] = "warn",
+-- 				},
+-- 			},
+-- 		},
+-- 	},
+-- })
+-- vim.lsp.enable("ty")
+
+vim.lsp.config("basedpyright", {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
-		ty = {
-			showSyntaxErrors = true,
-			completions = {
-				autoImport = true,
-			},
-			inlayHints = {
-				variableTypes = true,
-				callArgumentNames = true,
-			},
-			diagnosticMode = "workspace",
-			configuration = {
-				rules = {
-					["unresolved-reference"] = "warn",
+		basedpyright = {
+			analysis = {
+				diagnosticMode = "workspace",
+				typeCheckingMode = "strict",
+				autoSearchPaths = true,
+				useLibraryCodeForTypes = true,
+				autoImportCompletions = true,
+				inlayHints = {
+					variableTypes = true,
+					callArgumentNames = true,
+					callArgumentNamesMatching = true,
+					functionReturnTypes = true,
+					genericTypes = true,
 				},
 			},
 		},
 	},
 })
-
-vim.lsp.enable("ty")
+vim.lsp.enable("basedpyright")
 
 vim.lsp.config("intelephense", {
 	capabilities = capabilities,
