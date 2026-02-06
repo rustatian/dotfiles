@@ -33,8 +33,7 @@ local servers = {
 	"systemd_lsp",
 	"terraformls",
 	"ts_ls",
-	-- "ty",
-	"basedpyright",
+	"ty",
 	"yamlls",
 	"zls",
 }

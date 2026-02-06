@@ -1,0 +1,15 @@
+[
+	{
+		"label": "Debug: poe start-regional-worker",
+		"command": "python -m debugpy --listen 5678 --wait-for-client -m poe start-regional-worker",
+		"env": {},
+		"use_new_terminal": true,
+		"allow_concurrent_runs": false,
+		"reveal": "always",
+		"reveal_target": "dock",
+		"hide": "never",
+		"shell": "system",
+		"show_summary": true,
+		"show_command": true,
+	},
+]
