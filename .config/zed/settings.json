@@ -139,7 +139,7 @@
 					"arguments": ["format", "-"],
 				},
 			},
-			"language_servers": ["ty", "!basedpyright", "..."],
+			"language_servers": ["!ty", "basedpyright", "..."],
 		},
 		"Rust": {
 			"format_on_save": "on",
@@ -311,18 +311,20 @@
 		},
 		"basedpyright": {
 			"settings": {
-				"basedpyright.analysis": {
-					"diagnosticMode": "workspace",
-					"typeCheckingMode": "strict",
-					"autoSearchPaths": true,
-					"useLibraryCodeForTypes": true,
-					"autoImportCompletions": true,
-					"inlayHints": {
-						"variableTypes": true,
-						"callArgumentNames": true,
-						"callArgumentNamesMatching": true,
-						"functionReturnTypes": true,
-						"genericTypes": true,
+				"basedpyright": {
+					"analysis": {
+						"diagnosticMode": "workspace",
+						"typeCheckingMode": "strict",
+						"autoSearchPaths": true,
+						"useLibraryCodeForTypes": true,
+						"autoImportCompletions": true,
+						"inlayHints": {
+							"variableTypes": true,
+							"callArgumentNames": true,
+							"callArgumentNamesMatching": true,
+							"functionReturnTypes": true,
+							"genericTypes": true,
+						},
 					},
 				},
 			},
