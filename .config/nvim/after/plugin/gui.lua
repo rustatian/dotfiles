@@ -72,6 +72,7 @@ require("catppuccin").setup({
 			dim_context = false,
 			alt_background = false,
 		},
+		bufferline = true,
 	},
 })
 
