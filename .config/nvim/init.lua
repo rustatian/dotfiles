@@ -28,7 +28,7 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = "yes"
 
 -- fold text
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:,vert: ]]
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:,vert:│]]
 vim.o.foldenable = true
 vim.o.foldtext = ""
 vim.o.foldcolumn = "0" -- '0' is not bad
@@ -50,7 +50,15 @@ set.splitbelow = true
 
 -- set how neovim will display the following chars
 set.list = true
-set.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+-- set.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+set.listchars = set.listchars + "space:·"
+vim.api.nvim_set_hl(0, "IndentBlanklineChar", { link = "Whitespace" })
+
+function GetCurrentIconFile()
+	local filename = vim.fn.expand("%:t")
+	local icon = require("nvim-web-devicons").get_icon(filename)
+	return icon or ""
+end
 
 set.encoding = "UTF-8"
 set.mouse = "a"

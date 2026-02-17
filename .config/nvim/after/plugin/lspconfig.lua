@@ -154,6 +154,7 @@ vim.lsp.config("gopls", {
 		gopls = {
 			usePlaceholders = true,
 			completeUnimported = true,
+			semanticTokens = true,
 			buildFlags = { "-tags=debug" },
 			analyses = {
 				unusedparams = true,

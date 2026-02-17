@@ -66,9 +66,9 @@ return {
 	-- GUI enhancements --
 	-----------------------
 	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
+		"scottmckendry/cyberdream.nvim",
+		lazy = false,
+		priority = 1000000,
 	},
 	{
 		"stevearc/dressing.nvim",
@@ -246,6 +246,28 @@ return {
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 	},
+
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {
+			indent = {
+				highlight = {
+					"WhiteSpace",
+				},
+				char = "┊",
+			},
+			scope = {
+				show_start = false,
+				show_end = false,
+				char = "┊",
+				highlight = {
+					"IndentBlanklineChar",
+				},
+			},
+		},
+	},
+
 	"tpope/vim-fugitive",
 
 	-- Comment
