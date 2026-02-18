@@ -10,7 +10,7 @@ require("cyberdream").setup({
 		IndentBlanklineChar = { fg = "#7b8496" },
 		TreesitterContext = { bg = "#232429" },
 		TreesitterContextLineNumber = { bg = "#232429" },
-		TreesitterContextBottom = { bg = "#232429", underline = true },
+		TreesitterContextBottom = { bg = "#232429" },
 		CursorLineNr = { fg = "#ffffff" },
 	},
 })
