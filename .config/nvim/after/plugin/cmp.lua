@@ -4,7 +4,7 @@ luasnip.config.setup({
 	updateevents = "TextChanged,TextChangedI",
 })
 require("blink.cmp").setup({
-	enabled = function() return not vim.tbl_contains({ "lua", "markdown" }, vim.bo.filetype) end,
+	enabled = function() return not vim.tbl_contains({ "markdown" }, vim.bo.filetype) end,
 	cmdline = { enabled = false },
 	appearance = {
 		nerd_font_variant = 'mono',
