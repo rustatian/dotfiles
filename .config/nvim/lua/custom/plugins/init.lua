@@ -66,7 +66,7 @@ return {
 	-- GUI enhancements --
 	-----------------------
 	{
-		"scottmckendry/cyberdream.nvim",
+		"ellisonleao/gruvbox.nvim",
 		lazy = false,
 		priority = 1000000,
 	},
@@ -91,11 +91,6 @@ return {
 			"SmiteshP/nvim-navic",
 			"nvim-tree/nvim-web-devicons", -- optional dependency
 		},
-	},
-	{
-		"akinsho/bufferline.nvim",
-		version = "*",
-		dependencies = "nvim-tree/nvim-web-devicons",
 	},
 	{
 		"j-hui/fidget.nvim",
@@ -250,22 +245,28 @@ return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
-		opts = {
-			indent = {
-				highlight = {
-					"WhiteSpace",
+		config = function()
+			-- Create highlight before ibl.setup() validates it;
+			-- gruvbox overrides will replace this when the colorscheme loads
+			vim.api.nvim_set_hl(0, "IndentBlanklineChar", { link = "Whitespace" })
+
+			require("ibl").setup({
+				indent = {
+					highlight = {
+						"WhiteSpace",
+					},
+					char = "┊",
 				},
-				char = "┊",
-			},
-			scope = {
-				show_start = false,
-				show_end = false,
-				char = "┊",
-				highlight = {
-					"IndentBlanklineChar",
+				scope = {
+					show_start = false,
+					show_end = false,
+					char = "┊",
+					highlight = {
+						"IndentBlanklineChar",
+					},
 				},
-			},
-		},
+			})
+		end,
 	},
 
 	"tpope/vim-fugitive",

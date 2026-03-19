@@ -1,26 +1,36 @@
-require("cyberdream").setup({
-	transparent = false,
-	borderless_pickers = false,
-	saturation = 1,
-	cache = true,
-	highlights = {
-		TroubleNormal = { bg = "NONE", ctermbg = "NONE" },
-		TroubleNormalNC = { bg = "NONE", ctermbg = "NONE" },
-		WinSeparator = { fg = "#3c4048", bg = "NONE" },
-		IndentBlanklineChar = { fg = "#7b8496" },
-		TreesitterContext = { bg = "#232429" },
-		TreesitterContextLineNumber = { bg = "#232429" },
-		TreesitterContextBottom = { bg = "#232429" },
-		CursorLineNr = { fg = "#ffffff" },
+require("gruvbox").setup({
+	terminal_colors = true,
+	undercurl = true,
+	underline = true,
+	bold = true,
+	italic = {
+		strings = false,
+		emphasis = false,
+		comments = false,
+		operators = false,
+		folds = false,
 	},
+	strikethrough = true,
+	invert_selection = false,
+	invert_signs = false,
+	invert_tabline = false,
+	inverse = true,
+	contrast = "",
+	palette_overrides = {},
+	overrides = {
+		IndentBlanklineChar = { link = "GruvboxFg4" },
+		["@lsp.mod.readonly"] = { italic = false },
+		["@lsp.typemod.variable.readonly"] = { bold = true, italic = false },
+		["@lsp.mod.deprecated"] = { strikethrough = false },
+	},
+	dim_inactive = false,
+	transparent_mode = false,
 })
 
-vim.cmd("colorscheme cyberdream")
-vim.api.nvim_set_hl(0, "@lsp.mod.readonly", { link = "@constant" })
-vim.api.nvim_set_hl(0, "@lsp.typemod.variable.readonly", { link = "@constant" })
-vim.api.nvim_set_hl(0, "@lsp.mod.deprecated", { link = "DiagnosticDeprecated" })
+vim.o.background = "dark"
+vim.cmd("colorscheme gruvbox")
 
 require("barbecue").setup({
-	theme = "cyberdream",
+	theme = "auto",
 	attach_navic = false, -- prevent barbecue from automatically attaching nvim-navic
 })

@@ -52,7 +52,6 @@ set.splitbelow = true
 set.list = true
 -- set.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 set.listchars = set.listchars + "space:·"
-vim.api.nvim_set_hl(0, "IndentBlanklineChar", { link = "Whitespace" })
 
 set.encoding = "UTF-8"
 set.mouse = "a"
