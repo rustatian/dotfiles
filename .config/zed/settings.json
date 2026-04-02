@@ -5,7 +5,7 @@
 	"agent_ui_font_size": 13.0,
 	"redact_private_values": true,
 	"edit_predictions": {
-		"provider": "copilot",
+		"provider": "copilot"
 	},
 	"ssh_connections": [
 		{
@@ -14,16 +14,16 @@
 			"projects": [
 				{
 					"paths": [
-						"/home/piashchv/projects/temporal-linux-patching-poc/./",
-					],
-				},
-			],
-		},
+						"/home/piashchv/projects/temporal-linux-patching-poc/./"
+					]
+				}
+			]
+		}
 	],
 	"diagnostics": {
 		"inline": {
-			"enabled": true,
-		},
+			"enabled": true
+		}
 	},
 	"cursor_shape": "underline",
 	"text_rendering_mode": "platform_default",
@@ -31,90 +31,129 @@
 	"buffer_line_height": "standard",
 	"icon_theme": "Material Icon Theme",
 	"session": {
-		"trust_all_worktrees": true,
+		"trust_all_worktrees": true
 	},
 	"terminal": {
 		"font_size": 13.0,
 		"font_family": "Berkeley Mono",
+		"font_features": {
+			"calt": true,
+			"ccmp": true,
+			"locl": true,
+			"ss01": true,
+			"ss02": true,
+			"ss03": true,
+			"ss04": true,
+			"ss05": true,
+			"ss06": true,
+			"ss07": true,
+			"ss08": true
+		},
 		"cursor_shape": "underline",
 		"blinking": "on",
-		"max_scroll_history_lines": 1000,
+		"max_scroll_history_lines": 1000
 	},
 	"telemetry": {
 		"diagnostics": false,
-		"metrics": false,
+		"metrics": false
 	},
 	"base_keymap": "VSCode",
 	"agent": {
 		"default_profile": "write",
 		"default_model": {
 			"provider": "copilot_chat",
-			"model": "claude-opus-4.5",
+			"model": "claude-opus-4.5"
 		},
 		"enabled": true,
 		"button": true,
 		"favorite_models": [
 			{
 				"provider": "copilot_chat",
-				"model": "claude-opus-4.5",
+				"model": "claude-opus-4.5"
 			},
 			{
 				"provider": "copilot_chat",
-				"model": "claude-opus-4.6",
-			},
+				"model": "claude-opus-4.6"
+			}
 		],
-		"model_parameters": [],
+		"model_parameters": []
 	},
 	"preview_tabs": {
-		"enabled": false,
+		"enabled": false
 	},
 	"gutter": {
-		"line_numbers": true,
+		"line_numbers": true
 	},
 	"minimap": {
-		"show": "always",
-		"max_width_columns": 25,
+		"show": "never",
+		"max_width_columns": 25
 	},
 	"cursor_blink": false,
 	"autosave": {
 		"after_delay": {
-			"milliseconds": 1000,
-		},
+			"milliseconds": 1000
+		}
 	},
 	"tabs": {
 		"file_icons": true,
 		"git_status": true,
-		"show_diagnostics": "all",
+		"show_diagnostics": "all"
 	},
 	"title_bar": {
 		"show_menus": false,
-		"show_branch_icon": true,
+		"show_branch_icon": true
 	},
 	"tab_bar": {
-		"show": true,
+		"show": true
 	},
 	"buffer_font_family": "Berkeley Mono",
 	"colorize_brackets": true,
 	"show_whitespaces": "selection",
 	"show_edit_predictions": true,
-	"soft_wrap": "editor_width",
+	"soft_wrap": "none",
 	"hard_tabs": true,
 	"tab_size": 4,
 	"vim_mode": true,
+	"vim": {
+		"use_system_clipboard": "always"
+	},
 	"ui_font_size": 13.0,
 	"buffer_font_size": 13.0,
-	"buffer_font_weight": 400,
+	"buffer_font_weight": 400.0,
+	"buffer_font_features": {
+		"calt": true,
+		"liga": true
+	},
 	"theme": {
 		"mode": "system",
 		"light": "Gruvbox Light",
-		"dark": "Gruvbox Dark Soft",
+		"dark": "Gruvbox Dark"
 	},
+	"restore_on_startup": "launchpad",
+	"file_scan_exclusions": [
+		"**/.git",
+		"**/.svn",
+		"**/.hg",
+		"**/.jj",
+		"**/CVS",
+		"**/.DS_Store",
+		"**/Thumbs.db",
+		"**/.classpath",
+		"**/.settings",
+		"**/__pycache__",
+		"**/.mypy_cache",
+		"**/.ruff_cache",
+		"**/.venv",
+		"**/.pytest_cache",
+		"**/node_modules",
+		"**/dist"
+	],
 	// Global inlay hints (matching neovim config)
 	"inlay_hints": {
 		"enabled": true,
 		"show_type_hints": true,
 		"show_parameter_hints": true,
-		"show_other_hints": true,
+		"show_other_hints": true
 	},
 	// Global format on save
 	"format_on_save": "on",
@@ -122,29 +161,36 @@
 	"languages": {
 		"Python": {
 			"prettier": {
-				"allowed": true,
+				"allowed": true
 			},
 			"indent_guides": {
 				"background_coloring": "disabled",
-				"coloring": "indent_aware",
+				"coloring": "indent_aware"
 			},
 			"format_on_save": "on",
 			"inlay_hints": {
 				"show_background": true,
 				"enabled": true,
-				"show_parameter_hints": true,
+				"show_parameter_hints": true
 			},
 			"code_actions_on_format": {
 				"source.organizeImports.ruff": true,
-				"source.fixAll.ruff": true,
+				"source.fixAll.ruff": true
 			},
 			"formatter": {
 				"external": {
 					"command": "ruff",
-					"arguments": ["format", "-"],
-				},
+					"arguments": [
+						"format",
+						"-"
+					]
+				}
 			},
-			"language_servers": ["!ty", "basedpyright", "..."],
+			"language_servers": [
+				"!ty",
+				"basedpyright",
+				"..."
+			]
 		},
 		"Rust": {
 			"format_on_save": "on",
@@ -152,8 +198,8 @@
 			"inlay_hints": {
 				"enabled": true,
 				"show_parameter_hints": true,
-				"show_type_hints": true,
-			},
+				"show_type_hints": true
+			}
 		},
 		"Go": {
 			"format_on_save": "on",
@@ -161,140 +207,201 @@
 			"inlay_hints": {
 				"enabled": true,
 				"show_parameter_hints": true,
-				"show_type_hints": true,
+				"show_type_hints": true
 			},
 			"code_actions_on_format": {
-				"source.organizeImports": true,
-			},
+				"source.organizeImports": true
+			}
 		},
 		"Zig": {
 			"format_on_save": "on",
 			"formatter": "language_server",
 			"inlay_hints": {
-				"enabled": true,
-			},
+				"enabled": true
+			}
 		},
 		"C": {
 			"format_on_save": "on",
 			"formatter": {
 				"external": {
 					"command": "clang-format",
-					"arguments": ["-"],
-				},
+					"arguments": [
+						"-"
+					]
+				}
 			},
 			"inlay_hints": {
-				"enabled": true,
-			},
+				"enabled": true
+			}
 		},
 		"C++": {
 			"format_on_save": "on",
 			"formatter": {
 				"external": {
 					"command": "clang-format",
-					"arguments": ["-"],
-				},
+					"arguments": [
+						"-"
+					]
+				}
 			},
 			"inlay_hints": {
-				"enabled": true,
-			},
+				"enabled": true
+			}
 		},
 		"TypeScript": {
 			"format_on_save": "on",
 			"formatter": {
 				"external": {
 					"command": "prettierd",
-					"arguments": ["--stdin-filepath", "{buffer_path}"],
-				},
-			},
+					"arguments": [
+						"--stdin-filepath",
+						"{buffer_path}"
+					]
+				}
+			}
 		},
 		"TSX": {
 			"format_on_save": "on",
 			"formatter": {
 				"external": {
 					"command": "prettierd",
-					"arguments": ["--stdin-filepath", "{buffer_path}"],
-				},
-			},
+					"arguments": [
+						"--stdin-filepath",
+						"{buffer_path}"
+					]
+				}
+			}
 		},
 		"JavaScript": {
 			"format_on_save": "on",
 			"formatter": {
 				"external": {
 					"command": "prettierd",
-					"arguments": ["--stdin-filepath", "{buffer_path}"],
-				},
-			},
+					"arguments": [
+						"--stdin-filepath",
+						"{buffer_path}"
+					]
+				}
+			}
 		},
 		"JSX": {
 			"format_on_save": "on",
 			"formatter": {
 				"external": {
 					"command": "prettierd",
-					"arguments": ["--stdin-filepath", "{buffer_path}"],
-				},
-			},
+					"arguments": [
+						"--stdin-filepath",
+						"{buffer_path}"
+					]
+				}
+			}
 		},
 		"JSON": {
 			"format_on_save": "on",
 			"formatter": {
 				"external": {
 					"command": "prettierd",
-					"arguments": ["--stdin-filepath", "{buffer_path}"],
-				},
-			},
+					"arguments": [
+						"--stdin-filepath",
+						"{buffer_path}"
+					]
+				}
+			}
 		},
 		"Lua": {
 			"format_on_save": "on",
 			"formatter": {
 				"external": {
 					"command": "stylua",
-					"arguments": ["-"],
-				},
-			},
+					"arguments": [
+						"-"
+					]
+				}
+			}
 		},
 		"YAML": {
 			"format_on_save": "on",
 			"formatter": {
 				"external": {
 					"command": "yamlfmt",
-					"arguments": ["-"],
-				},
-			},
+					"arguments": [
+						"-"
+					]
+				}
+			}
 		},
 		"Markdown": {
 			"format_on_save": "on",
 			"formatter": {
 				"external": {
 					"command": "prettierd",
-					"arguments": ["--stdin-filepath", "{buffer_path}"],
-				},
-			},
+					"arguments": [
+						"--stdin-filepath",
+						"{buffer_path}"
+					]
+				}
+			}
 		},
 		"SQL": {
 			"format_on_save": "on",
 			"formatter": {
 				"external": {
 					"command": "sql-formatter",
-					"arguments": [],
-				},
-			},
+					"arguments": []
+				}
+			}
 		},
 		"Terraform": {
 			"format_on_save": "on",
-			"formatter": "language_server",
+			"formatter": "language_server"
 		},
 		"HTML": {
+			"format_on_save": "on"
+		},
+		"CSS": {
 			"format_on_save": "on",
+			"formatter": {
+				"external": {
+					"command": "prettierd",
+					"arguments": [
+						"--stdin-filepath",
+						"{buffer_path}"
+					]
+				}
+			}
+		},
+		"JSONC": {
+			"format_on_save": "on",
+			"formatter": {
+				"external": {
+					"command": "prettierd",
+					"arguments": [
+						"--stdin-filepath",
+						"{buffer_path}"
+					]
+				}
+			}
+		},
+		"Shell Script": {
+			"format_on_save": "on",
+			"formatter": {
+				"external": {
+					"command": "shfmt",
+					"arguments": [
+						"-"
+					]
+				}
+			}
 		},
 		"Dockerfile": {
-			"format_on_save": "off",
+			"format_on_save": "off"
 		},
 		"PHP": {
 			"format_on_save": "off",
 			"inlay_hints": {
-				"enabled": true,
-			},
-		},
+				"enabled": true
+			}
+		}
 	},
 	// LSP server configurations
 	"lsp": {
@@ -306,13 +413,15 @@
 					"organizeImports": true,
 					"showSyntaxErrors": true,
 					"lint": {
-						"extendSelect": ["I"],
+						"extendSelect": [
+							"I"
+						]
 					},
 					"format": {
-						"preview": true,
-					},
-				},
-			},
+						"preview": true
+					}
+				}
+			}
 		},
 		"basedpyright": {
 			"settings": {
@@ -324,58 +433,170 @@
 						"useLibraryCodeForTypes": true,
 						"autoImportCompletions": true,
 						"inlayHints": {
-							"variableTypes": true,
+							"variableTypes": false,
 							"callArgumentNames": true,
-							"callArgumentNamesMatching": true,
+							"callArgumentNamesMatching": false,
 							"functionReturnTypes": true,
-							"genericTypes": true,
-						},
-					},
-				},
-			},
+							"genericTypes": false
+						}
+					}
+				}
+			}
 		},
 		"ty": {
 			"settings": {
 				"showSyntaxErrors": true,
 				"completions": {
-					"autoImport": true,
+					"autoImport": true
 				},
 				"inlayHints": {
 					"variableTypes": true,
-					"callArgumentNames": true,
+					"callArgumentNames": true
 				},
 				"diagnosticMode": "workspace",
 				"configuration": {
 					"rules": {
-						"unresolved-reference": "warn",
-					},
-				},
-			},
+						"unresolved-reference": "warn"
+					}
+				}
+			}
 		},
 		"rust-analyzer": {
 			"initialization_options": {
 				"checkOnSave": true,
+				"lru": {
+					"capacity": 8192
+				},
+				"numThreads": 12,
+				"cachePriming": {
+					"numThreads": 12
+				},
+				"completion": {
+					"fullFunctionSignatures": {
+						"enable": true
+					}
+				},
 				"diagnostics": {
 					"enable": true,
+					"experimental": {
+						"enable": true
+					},
+					"styleLints": {
+						"enable": true
+					}
+				},
+				"hover": {
+					"actions": {
+						"references": {
+							"enable": true
+						}
+					},
+					"show": {
+						"traitAssocItems": 3
+					}
 				},
 				"imports": {
 					"granularity": {
-						"group": "module",
+						"group": "module"
 					},
 					"prefix": "self",
+					"preferPrelude": true
+				},
+				"inlayHints": {
+					"lifetimeElisionHints": {
+						"enable": "always"
+					},
+					"bindingModeHints": {
+						"enable": true
+					},
+					"closureCaptureHints": {
+						"enable": true
+					},
+					"closureStyle": "rust_analyzer",
+					"maxLength": null,
+					"chainingHints": {
+						"enable": true
+					},
+					"implicitDrops": {
+						"enable": true
+					},
+					"expressionAdjustmentHints": {
+						"enable": "always"
+					},
+					"closureReturnTypeHints": {
+						"enable": "always"
+					},
+					"discriminantHints": {
+						"enable": "always"
+					},
+					"genericParameterHints": {
+						"type": {
+							"enable": true
+						}
+					}
+				},
+				"interpret": {
+					"tests": true
+				},
+				"lens": {
+					"references": {
+						"adt": {
+							"enable": true
+						},
+						"method": {
+							"enable": true
+						},
+						"trait": {
+							"enable": true
+						},
+						"enumVariant": {
+							"enable": true
+						}
+					}
+				},
+				"typing": {
+					"autoClosingAngleBrackets": {
+						"enable": true
+					}
 				},
 				"cargo": {
 					"buildScripts": {
-						"enable": true,
-					},
+						"enable": true
+					}
 				},
 				"procMacro": {
-					"enable": true,
+					"enable": true
+				},
+				"rustfmt": {
+					"rangeFormatting": {
+						"enable": true
+					}
+				},
+				"semanticHighlighting": {
+					"punctuation": {
+						"enable": true,
+						"separate": {
+							"macro": {
+								"bang": true
+							}
+						},
+						"specialization": {
+							"enable": true
+						}
+					},
+					"operator": {
+						"specialization": {
+							"enable": true
+						}
+					}
+				},
+				"assist": {
+					"preferSelf": true
 				},
 				"experimental": {
-					"serverStatusNotification": true,
-				},
-			},
+					"serverStatusNotification": true
+				}
+			}
 		},
 		"gopls": {
 			"initialization_options": {
@@ -383,13 +604,15 @@
 				"completeUnimported": true,
 				"staticcheck": true,
 				"gofumpt": true,
-				"buildFlags": ["-tags=debug"],
+				"buildFlags": [
+					"-tags=debug"
+				],
 				"analyses": {
 					"unusedparams": true,
 					"shadow": true,
 					"nilness": true,
 					"unusedwrite": true,
-					"useany": true,
+					"useany": true
 				},
 				"hints": {
 					"parameterNames": true,
@@ -398,9 +621,24 @@
 					"rangeVariableTypes": true,
 					"compositeLiteralTypes": true,
 					"compositeLiteralFields": true,
-					"functionTypeParameters": true,
+					"functionTypeParameters": true
 				},
-			},
+				"ui.semanticTokens": true,
+				"ui.codelenses": {
+					"gc_details": true,
+					"generate": true,
+					"tidy": true
+				}
+			}
+		},
+		"zls": {
+			"initialization_options": {
+				"highlight_global_var_declarations": true,
+				"enable_semantic_tokens": true,
+				"warn_style": true,
+				"inlay_hints_hide_redundant_arg_names": true,
+				"inlay_hints_hide_redundant_mut_specifier": true
+			}
 		},
 		"clangd": {
 			"binary": {
@@ -410,9 +648,9 @@
 					"--header-insertion=iwyu",
 					"--completion-style=detailed",
 					"--function-arg-placeholders",
-					"--fallback-style=llvm",
-				],
-			},
+					"--fallback-style=llvm"
+				]
+			}
 		},
 		"yaml-language-server": {
 			"settings": {
@@ -420,10 +658,10 @@
 					"schemas": {
 						"https://json.schemastore.org/github-workflow.json": "/.github/workflows/*",
 						"https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json": "/*.k8s.yaml",
-						"https://cdn.jsdelivr.net/gh/roadrunner-server/roadrunner@latest/schemas/config/3.0.schema.json": ".rr*.yaml",
-					},
-				},
-			},
-		},
-	},
+						"https://cdn.jsdelivr.net/gh/roadrunner-server/roadrunner@latest/schemas/config/3.0.schema.json": ".rr*.yaml"
+					}
+				}
+			}
+		}
+	}
 }

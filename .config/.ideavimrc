@@ -1,0 +1,245 @@
+" =============================================================================
+" Settings (synced with ~/.config/nvim/init.lua)
+" =============================================================================
+
+set scrolloff=5
+set showmode
+set showcmd
+
+" Line numbers (init.lua:58-59)
+set number
+set relativenumber
+
+" Search (init.lua:16,23-24)
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" System clipboard (init.lua:60)
+set clipboard+=unnamed
+
+" Join lines intelligently via IDE
+set ideajoin
+
+" Clear search highlight with Escape (init.lua:17)
+nmap <Esc> :nohlsearch<CR>
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
+" =============================================================================
+" Leader key (init.lua:10)
+" =============================================================================
+
+let mapleader = ";"
+
+" =============================================================================
+" Plugins
+" =============================================================================
+
+" --- Emulated vim plugins ---
+set surround                   " tpope/vim-surround (mini.surround in nvim)
+set textobj-entire             " text object for entire buffer
+set textobj-indent             " text object for indented blocks
+set argtextobj                 " text object for function arguments (mini.ai)
+set matchit                    " % jumps between matching keywords
+set easymotion                 " motion plugin
+set nerdtree                   " file tree over IDE project view
+set quickscope                 " highlight unique chars for f/F/t/T
+set peekaboo                   " preview registers before paste
+set notimeout                  " no timeout for easymotion
+
+" --- Vim plugin emulations ---
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+
+" --- Which-Key (matches folke/which-key.nvim) ---
+set which-key
+let g:WhichKey_ShowVimActions = "true"
+let g:WhichKey_DefaultDelay = 300
+
+" Which-Key group descriptions (custom/plugins/init.lua:190-203)
+let g:WhichKeyDesc_code      = "<leader>c Code"
+let g:WhichKeyDesc_hunk      = "<leader>h Hunk (Git)"
+let g:WhichKeyDesc_rename    = "<leader>r Rename"
+let g:WhichKeyDesc_search    = "<leader>s Search"
+let g:WhichKeyDesc_toggle    = "<leader>t Toggle"
+let g:WhichKeyDesc_workspace = "<leader>w Workspace"
+let g:WhichKeyDesc_debug     = "<leader>d Debug"
+
+" =============================================================================
+" Navigation / Go-to (lspconfig.lua:429-465)
+" =============================================================================
+
+" Go to definition (nvim: gd)
+nmap gd <Action>(GotoDeclaration)
+let g:WhichKeyDesc_gd = "gd Go to Definition"
+
+" Go to references (nvim: gr)
+nmap gr <Action>(FindUsages)
+let g:WhichKeyDesc_gr = "gr Find Usages"
+
+" Go to implementation (nvim: gI)
+nmap gI <Action>(GotoImplementation)
+let g:WhichKeyDesc_gI = "gI Go to Implementation"
+
+" Go to super method / declaration (nvim: gD)
+nmap gD <Action>(GotoSuperMethod)
+let g:WhichKeyDesc_gD = "gD Go to Super Method"
+
+" Type definition (nvim: <leader>D)
+nmap <leader>D <Action>(GotoTypeDeclaration)
+let g:WhichKeyDesc_type_def = "<leader>D Type Definition"
+
+" Hover documentation (nvim: K)
+nmap K <Action>(ShowHoverInfo)
+
+" Signature help (nvim: <C-k>)
+nmap <C-k> <Action>(ParameterInfo)
+
+" Rename symbol (nvim: <leader>rn)
+nmap <leader>rn <Action>(RenameElement)
+let g:WhichKeyDesc_rename_el = "<leader>rn Rename Symbol"
+
+" Code actions / quick fix (nvim: <leader>ca)
+nmap <leader>ca <Action>(ShowIntentionActions)
+let g:WhichKeyDesc_code_action = "<leader>ca Code Action"
+
+" Document symbols (nvim: <leader>ss)
+nmap <leader>ss <Action>(FileStructurePopup)
+let g:WhichKeyDesc_doc_symbols = "<leader>ss Document Symbols"
+
+" Workspace symbols (nvim: <leader>ws)
+nmap <leader>ws <Action>(GotoSymbol)
+let g:WhichKeyDesc_ws_symbols = "<leader>ws Workspace Symbols"
+
+" Reformat code
+map \r <Action>(ReformatCode)
+
+" =============================================================================
+" Search (telescope.lua)
+" =============================================================================
+
+" Search files (nvim: <leader>sf)
+nmap <leader>sf <Action>(GotoFile)
+let g:WhichKeyDesc_search_files = "<leader>sf Search Files"
+
+" Search by grep (nvim: <leader>sg)
+nmap <leader>sg <Action>(FindInPath)
+let g:WhichKeyDesc_search_grep = "<leader>sg Search by Grep"
+
+" Search current word (nvim: <leader>sw)
+nmap <leader>sw <Action>(FindWordAtCaret)
+let g:WhichKeyDesc_search_word = "<leader>sw Search Current Word"
+
+" Recent files (nvim: <leader>?)
+nmap <leader>? <Action>(RecentFiles)
+let g:WhichKeyDesc_recent_files = "<leader>? Recent Files"
+
+" Search in current buffer (nvim: <leader>/)
+nmap <leader>/ <Action>(Find)
+let g:WhichKeyDesc_buffer_search = "<leader>/ Search in Buffer"
+
+" Search diagnostics (nvim: <leader>sd)
+nmap <leader>sd <Action>(ActivateProblemsViewToolWindow)
+let g:WhichKeyDesc_search_diag = "<leader>sd Search Diagnostics"
+
+" Search buffers (nvim: <leader>sb)
+nmap <leader>sb <Action>(Switcher)
+let g:WhichKeyDesc_search_buf = "<leader>sb Search Buffers"
+
+" =============================================================================
+" Diagnostics (lspconfig.lua:409-412)
+" =============================================================================
+
+" Show error description (nvim: <space>e)
+nmap <space>e <Action>(ShowErrorDescription)
+
+" Previous/next diagnostic (nvim: [d / ]d)
+nmap [d <Action>(GotoPreviousError)
+nmap ]d <Action>(GotoNextError)
+
+" =============================================================================
+" Git (git.lua — gitsigns mappings)
+" =============================================================================
+
+" Next/prev change hunk (nvim: ]c / [c)
+nmap ]c <Action>(VcsShowNextChangeMarker)
+nmap [c <Action>(VcsShowPrevChangeMarker)
+
+" Preview hunk (nvim: <leader>hp)
+nmap <leader>hp <Action>(VcsShowCurrentChangeMarker)
+let g:WhichKeyDesc_hunk_preview = "<leader>hp Preview Hunk"
+
+" Rollback hunk (nvim: <leader>hr)
+nmap <leader>hr <Action>(Vcs.RollbackChangedLines)
+let g:WhichKeyDesc_hunk_rollback = "<leader>hr Rollback Hunk"
+
+" Blame line (nvim: <leader>hb)
+nmap <leader>hb <Action>(Annotate)
+let g:WhichKeyDesc_hunk_blame = "<leader>hb Blame"
+
+" Diff (nvim: <leader>hd)
+nmap <leader>hd <Action>(Compare.LastVersion)
+let g:WhichKeyDesc_hunk_diff = "<leader>hd Diff"
+
+" Toggle blame (nvim: <leader>tb — toggle_current_line_blame in nvim,
+" but IntelliJ Annotate serves both blame and toggle purposes)
+nmap <leader>tb <Action>(Annotate)
+let g:WhichKeyDesc_toggle_blame = "<leader>tb Toggle Blame"
+
+" =============================================================================
+" Debug (dap.lua)
+" =============================================================================
+
+" Start/continue debug (nvim: <leader>dc)
+nmap <leader>dc <Action>(Debug)
+let g:WhichKeyDesc_debug_continue = "<leader>dc Debug Continue/Start"
+
+" Terminate debug (nvim: <leader>dx)
+nmap <leader>dx <Action>(Stop)
+let g:WhichKeyDesc_debug_stop = "<leader>dx Debug Terminate"
+
+" Toggle breakpoint (nvim: <leader>db)
+nmap <leader>db <Action>(ToggleLineBreakpoint)
+let g:WhichKeyDesc_debug_bp = "<leader>db Toggle Breakpoint"
+
+" Conditional breakpoint (nvim: <leader>dB)
+nmap <leader>dB <Action>(EditBreakpoint)
+let g:WhichKeyDesc_debug_bp_cond = "<leader>dB Conditional Breakpoint"
+
+" Step over (nvim: <leader>do)
+nmap <leader>do <Action>(StepOver)
+let g:WhichKeyDesc_debug_over = "<leader>do Step Over"
+
+" Step into (nvim: <leader>di)
+nmap <leader>di <Action>(StepInto)
+let g:WhichKeyDesc_debug_into = "<leader>di Step Into"
+
+" Step out (nvim: <leader>dO)
+nmap <leader>dO <Action>(StepOut)
+let g:WhichKeyDesc_debug_out = "<leader>dO Step Out"
+
+" Evaluate expression (nvim: <leader>de)
+nmap <leader>de <Action>(EvaluateExpression)
+let g:WhichKeyDesc_debug_eval = "<leader>de Evaluate Expression"
+
+" Resume (nvim: <leader>dr — REPL toggle in nvim, Resume is closest IDE equivalent)
+nmap <leader>dr <Action>(Resume)
+let g:WhichKeyDesc_debug_resume = "<leader>dr Resume"
+
+" Run/debug test (nvim: <leader>dt)
+nmap <leader>dt <Action>(RunClass)
+let g:WhichKeyDesc_debug_test = "<leader>dt Run Test"
+
+" Debug tool window (nvim: <leader>du)
+nmap <leader>du <Action>(ActivateDebugToolWindow)
+let g:WhichKeyDesc_debug_ui = "<leader>du Debug Tool Window"
+
+" =============================================================================
+" File tree (nvim-tree.lua:29)
+" =============================================================================
+
+" Toggle NERDTree / project view (nvim: <C-n> → NvimTreeToggle)
+nmap <C-n> :NERDTreeToggle<CR>
