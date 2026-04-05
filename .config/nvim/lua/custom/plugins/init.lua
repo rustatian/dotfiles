@@ -66,9 +66,9 @@ return {
 	-- GUI enhancements --
 	-----------------------
 	{
-		"ellisonleao/gruvbox.nvim",
+		"olimorris/onedarkpro.nvim",
 		lazy = false,
-		priority = 1000000,
+		priority = 1000,
 	},
 	{
 		"stevearc/dressing.nvim",
@@ -247,7 +247,7 @@ return {
 		main = "ibl",
 		config = function()
 			-- Create highlight before ibl.setup() validates it;
-			-- gruvbox overrides will replace this when the colorscheme loads
+			-- onedarkpro overrides will replace this when the colorscheme loads
 			vim.api.nvim_set_hl(0, "IndentBlanklineChar", { link = "Whitespace" })
 
 			require("ibl").setup({
