@@ -62,15 +62,11 @@
 		"default_profile": "write",
 		"default_model": {
 			"provider": "copilot_chat",
-			"model": "claude-opus-4.5"
+			"model": "claude-opus-4.6"
 		},
 		"enabled": true,
 		"button": true,
 		"favorite_models": [
-			{
-				"provider": "copilot_chat",
-				"model": "claude-opus-4.5"
-			},
 			{
 				"provider": "copilot_chat",
 				"model": "claude-opus-4.6"
@@ -127,7 +123,7 @@
 	"theme": {
 		"mode": "system",
 		"light": "Gruvbox Light",
-		"dark": "Gruvbox Dark"
+		"dark": "One Dark"
 	},
 	"restore_on_startup": "launchpad",
 	"file_scan_exclusions": [
@@ -187,8 +183,8 @@
 				}
 			},
 			"language_servers": [
-				"!ty",
-				"basedpyright",
+				"ty",
+				"!basedpyright",
 				"..."
 			]
 		},

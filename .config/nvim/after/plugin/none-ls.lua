@@ -16,6 +16,21 @@ null_ls.setup({
 				end
 				return "mypy"
 			end,
+			-- Skip dependency files. When the buffer is inside a virtualenv or
+			-- an installed site-packages directory, running mypy on it is useless
+			-- and fails with "shadows library module" whenever the filename
+			-- collides with an installed top-level module (e.g. mypy_extensions.py).
+			-- `runtime_condition` short-circuits the generator before `command` runs.
+			runtime_condition = function(params)
+				local bufname = params.bufname or ""
+				if bufname:find("/%.venv/", 1, false) then
+					return false
+				end
+				if bufname:find("/site%-packages/", 1, false) then
+					return false
+				end
+				return true
+			end,
 		}),
 
 		-- Spelling/typos
