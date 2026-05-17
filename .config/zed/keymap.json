@@ -1,0 +1,84 @@
+// Zed keymap mirroring nvim setup at ~/.config/nvim
+// Leader = ";"  (nvim: vim.g.mapleader = ";")
+// Bindings are scoped to vim mode contexts. See: https://zed.dev/docs/key-bindings
+[
+	// ─── Normal mode: LSP navigation ───
+	// Mirrors lspconfig.lua:408-450
+	{
+		"context": "Editor && vim_mode == normal && !menu",
+		"bindings": {
+			// Goto family (g-prefix)
+			"g d": "editor::GoToDefinition",
+			"g D": "editor::GoToDeclaration",
+			"g r": "editor::FindAllReferences",
+			"g I": "editor::GoToImplementation",
+			"g t": "editor::GoToTypeDefinition",
+
+			// Hover & signature
+			"K": "editor::Hover",
+			"ctrl-k": "editor::ShowSignatureHelp",
+
+			// Diagnostics: [d / ]d and space-based
+			"[ d": "editor::GoToPreviousDiagnostic",
+			"] d": "editor::GoToDiagnostic",
+			"space e": "editor::Hover",
+			"space q": "diagnostics::Deploy",
+
+			// ─── Leader (;) — telescope-style search ───
+			// Mirrors telescope.lua:15-42
+			"; s f": "file_finder::Toggle",          // <leader>sf — find files
+			"; s g": "pane::DeploySearch",            // <leader>sg — live grep (project-wide)
+			"; s b": "tab_switcher::Toggle",          // <leader>sb — buffers
+			"; s d": "diagnostics::Deploy",           // <leader>sd — diagnostics list
+			"; s s": "outline::Toggle",               // <leader>ss — document symbols
+			"; s h": "command_palette::Toggle",       // <leader>sh — closest to help-tags
+			"; w s": "project_symbols::Toggle",       // <leader>ws — workspace symbols
+			"; ?": "tab_switcher::Toggle",            // <leader>?  — recent files (closest)
+			"; /": "buffer_search::Deploy",           // <leader>/  — fuzzy current buffer
+
+			// ─── Leader — code actions / rename / type def ───
+			"; c a": "editor::ToggleCodeActions",     // <leader>ca — code action
+			"; r n": "editor::Rename",                // <leader>rn — rename
+			"; D": "editor::GoToTypeDefinition",       // <leader>D  — type def
+
+			// File tree (nvim: <C-n> NvimTreeToggle)
+			"ctrl-n": "workspace::ToggleLeftDock",
+
+			// ─── Git hunks (gitsigns) ───
+			// Mirrors gitsigns.lua:42-92
+			"[ c": "editor::GoToPreviousHunk",
+			"] c": "editor::GoToHunk",
+			"; h s": "git::StageAndNext",             // <leader>hs — stage hunk
+			"; h u": "git::UnstageAndNext",           // <leader>hu — undo stage
+			"; h r": "git::Restore",                  // <leader>hr — reset hunk
+			"; h b": "editor::BlameHover",            // <leader>hb — blame popup at cursor
+			"; h B": "git::Blame",                    // <leader>hB — full blame view
+			"; h p": "editor::ToggleSelectedDiffHunks", // <leader>hp — preview hunk
+			"; t d": "editor::ToggleSelectedDiffHunks"  // <leader>td — toggle diff display
+			// Note: nvim's <leader>tb (toggle inline blame) has no Zed action equivalent.
+			// Inline blame is controlled by the `git.inline_blame.enabled` setting (no runtime toggle).
+
+			// Convenience: clear search highlight on Esc (nvim init.lua mapping)
+			// Zed's vim mode handles this by default — left here as documentation only
+		}
+	},
+
+	// ─── Insert mode: Copilot accept ───
+	// Mirrors copilot.lua: <C-J> → accept Copilot suggestion
+	{
+		"context": "Editor && vim_mode == insert",
+		"bindings": {
+			"ctrl-j": "editor::AcceptEditPrediction"
+		}
+	},
+
+	// ─── Visual mode: keep leader chords for code actions on selection ───
+	{
+		"context": "Editor && vim_mode == visual && !menu",
+		"bindings": {
+			"; c a": "editor::ToggleCodeActions",
+			"; s g": "pane::DeploySearch",
+			"; /": "buffer_search::Deploy"
+		}
+	}
+]

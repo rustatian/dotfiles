@@ -66,9 +66,12 @@ return {
 	-- GUI enhancements --
 	-----------------------
 	{
-		"olimorris/onedarkpro.nvim",
+		"xiantang/darcula-dark.nvim",
 		lazy = false,
 		priority = 1000,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
 	},
 	{
 		"stevearc/dressing.nvim",
@@ -246,8 +249,7 @@ return {
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 		config = function()
-			-- Create highlight before ibl.setup() validates it;
-			-- onedarkpro overrides will replace this when the colorscheme loads
+			-- Create highlight before ibl.setup() validates it
 			vim.api.nvim_set_hl(0, "IndentBlanklineChar", { link = "Whitespace" })
 
 			require("ibl").setup({

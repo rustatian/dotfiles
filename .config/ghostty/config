@@ -1,7 +1,7 @@
-theme = One Double Dark
+theme = JetBrains Darcula
 
 font-family = "Berkeley Mono"
-font-size = 14
+font-size = 13
 font-thicken = true
 font-thicken-strength = 250
 
