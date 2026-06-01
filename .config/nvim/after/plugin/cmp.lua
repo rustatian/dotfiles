@@ -35,7 +35,10 @@ require("blink.cmp").setup({
 		ghost_text = { enabled = true },
 	},
 	sources = {
-		default = { 'lsp', 'path', 'snippets', 'buffer' },
+		default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev' },
+		providers = {
+			lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", score_offset = 100 },
+		},
 	},
 	snippets = { preset = 'luasnip' },
 	signature = { enabled = true },

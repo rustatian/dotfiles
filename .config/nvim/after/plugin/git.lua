@@ -54,7 +54,7 @@ require("gitsigns").setup({
 				return "]c"
 			end
 			vim.schedule(function()
-				gs.next_hunk()
+				gs.nav_hunk("next")
 			end)
 			return "<Ignore>"
 		end, { expr = true, desc = "Next hunk" })
@@ -64,7 +64,7 @@ require("gitsigns").setup({
 				return "[c"
 			end
 			vim.schedule(function()
-				gs.prev_hunk()
+				gs.nav_hunk("prev")
 			end)
 			return "<Ignore>"
 		end, { expr = true, desc = "Prev hunk" })
@@ -73,7 +73,6 @@ require("gitsigns").setup({
 		map("n", "<leader>hs", gs.stage_hunk, { desc = "Stage hunk" })
 		map("n", "<leader>hr", gs.reset_hunk, { desc = "Reset hunk" })
 		map("n", "<leader>hS", gs.stage_buffer, { desc = "Stage buffer" })
-		map("n", "<leader>hu", gs.undo_stage_hunk, { desc = "Undo stage hunk" })
 		map("n", "<leader>hR", gs.reset_buffer, { desc = "Reset buffer" })
 		map("n", "<leader>hp", gs.preview_hunk, { desc = "Preview hunk" })
 		map("n", "<leader>hb", function()

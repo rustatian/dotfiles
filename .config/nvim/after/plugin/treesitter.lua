@@ -3,7 +3,7 @@ require("nvim-treesitter").setup({
 	install_dir = os.getenv("HOME") .. "/.config/treesitter",
 })
 
-require("nvim-treesitter").install({
+local parsers = {
 	"bash",
 	"c",
 	"cpp",
@@ -24,31 +24,12 @@ require("nvim-treesitter").install({
 	"typescript",
 	"yaml",
 	"zig",
-})
+}
+
+require("nvim-treesitter").install(parsers)
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = {
-		"bash",
-		"c",
-		"cpp",
-		"dockerfile",
-		"go",
-		"gomod",
-		"gosum",
-		"html",
-		"javascript",
-		"json",
-		"lua",
-		"make",
-		"markdown",
-		"php",
-		"python",
-		"rust",
-		"toml",
-		"typescript",
-		"yaml",
-		"zig",
-	},
+	pattern = parsers,
 	callback = function()
 		vim.treesitter.start()
 		-- folds, provided by Neovim

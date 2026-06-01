@@ -8,9 +8,7 @@ local servers = {
 	"bashls",
 	"buf_ls",
 	"clangd",
-	"copilot",
 	"docker_compose_language_service",
-	"docker_language_server",
 	"dockerls",
 	"fish_lsp",
 	"gh_actions_ls",
@@ -28,7 +26,6 @@ local servers = {
 	"ruff",
 	"rust_analyzer",
 	"sqlls",
-	"sqls",
 	"stylelint_lsp",
 	"systemd_lsp",
 	"terraformls",
@@ -49,5 +46,5 @@ mason.setup({
 
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
-	automatic_installation = true,
+	automatic_enable = false,
 })

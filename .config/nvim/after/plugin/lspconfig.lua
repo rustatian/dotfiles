@@ -1,5 +1,3 @@
-require("lazydev").setup()
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities({}, false))
 capabilities = vim.tbl_deep_extend("force", capabilities, {
@@ -23,9 +21,9 @@ capabilities = vim.tbl_deep_extend("force", capabilities, {
 	},
 })
 
-local on_attach = function(client, _)
+local on_attach = function(client, bufnr)
 	if client.server_capabilities.inlayHintProvider then
-		vim.lsp.inlay_hint.enable(true)
+		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 	end
 end
 
@@ -73,7 +71,17 @@ vim.lsp.config("jsonls", {
 	on_attach = on_attach,
 })
 vim.lsp.enable("jsonls")
+
+vim.lsp.config("helm_ls", {
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
 vim.lsp.enable("helm_ls")
+
+vim.lsp.config("gitlab_ci_ls", {
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
 vim.lsp.enable("gitlab_ci_ls")
 
 vim.lsp.config("buf_ls", {
@@ -82,6 +90,11 @@ vim.lsp.config("buf_ls", {
 	cmd = { "buf", "lsp", "serve", "--timeout=0", "--log-format=text" },
 })
 vim.lsp.enable("buf_ls")
+
+vim.lsp.config("stylelint_lsp", {
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
 vim.lsp.enable("stylelint_lsp")
 
 vim.lsp.config("lua_ls", {
@@ -239,10 +252,6 @@ vim.lsp.config("ruff", {
 			lint = {
 				enable = true,
 			},
-			format = {
-				preview = true,
-				backend = "uv",
-			},
 		},
 	},
 })
@@ -383,8 +392,12 @@ vim.diagnostic.config({
 })
 
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "[d", function()
+	vim.diagnostic.jump({ count = -1, float = true })
+end)
+vim.keymap.set("n", "]d", function()
+	vim.diagnostic.jump({ count = 1, float = true })
+end)
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys
