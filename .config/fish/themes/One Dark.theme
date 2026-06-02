@@ -1,0 +1,52 @@
+# name: One Dark
+# license: MIT
+# preferred_background: 282c34
+#
+# Foreground: abb2bf
+# Selection:  3e4451
+# Comment:    5c6370
+# Red:        e06c75
+# Orange:     d19a66
+# Yellow:     e5c07b
+# Green:      98c379
+# Purple:     c678dd
+# Cyan:       56b6c2
+# Blue:       61afef
+
+fish_color_normal abb2bf
+fish_color_autosuggestion 5c6370
+fish_color_cancel e06c75 --reverse
+fish_color_command 61afef
+fish_color_comment 5c6370
+fish_color_cwd 98c379
+fish_color_cwd_root e06c75
+fish_color_end d19a66
+fish_color_error e06c75
+fish_color_escape 56b6c2
+fish_color_history_current --bold
+fish_color_host c678dd
+fish_color_host_remote c678dd
+fish_color_keyword c678dd
+fish_color_operator 56b6c2
+fish_color_option d19a66
+fish_color_param abb2bf
+fish_color_quote 98c379
+fish_color_redirection 56b6c2
+fish_color_search_match --background=3e4451 --bold
+fish_color_selection --background=3e4451 --bold
+fish_color_status e06c75
+fish_color_user 56b6c2
+fish_color_valid_path --underline
+fish_pager_color_background
+fish_pager_color_completion abb2bf
+fish_pager_color_description 5c6370
+fish_pager_color_prefix 61afef
+fish_pager_color_progress 5c6370
+fish_pager_color_secondary_background
+fish_pager_color_secondary_completion abb2bf
+fish_pager_color_secondary_description 5c6370
+fish_pager_color_secondary_prefix 61afef
+fish_pager_color_selected_background --background=3e4451
+fish_pager_color_selected_completion abb2bf
+fish_pager_color_selected_description 5c6370
+fish_pager_color_selected_prefix 61afef

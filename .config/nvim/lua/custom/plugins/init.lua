@@ -66,6 +66,11 @@ return {
 	-- GUI enhancements --
 	-----------------------
 	{
+		"navarasu/onedark.nvim",
+		lazy = false,
+		priority = 1000,
+	},
+	{
 		"stevearc/dressing.nvim",
 		opts = {},
 	},
