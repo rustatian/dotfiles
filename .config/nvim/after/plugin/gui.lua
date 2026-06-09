@@ -1,21 +1,24 @@
-require("onedark").setup({
-	style = "dark", -- dark, darker, cool, deep, warm, warmer, light
-	transparent = false,
-	term_colors = true,
-	code_style = {
-		comments = "none",
-		keywords = "none",
-		functions = "none",
-		strings = "none",
-		variables = "none",
+require("gruvbox").setup({
+	terminal_colors = true,
+	undercurl = true,
+	underline = true,
+	bold = true,
+	italic = {
+		strings = false,
+		emphasis = false,
+		comments = false,
+		operators = false,
+		folds = false,
 	},
-	diagnostics = {
-		darker = true,
-		undercurl = true,
-		background = true,
-	},
+	strikethrough = true,
+	invert_selection = false,
+	inverse = true,
+	contrast = "", -- "hard", "soft" or "" (empty = medium, matches "Gruvbox Dark")
+	dim_inactive = false,
+	transparent_mode = false,
 })
-require("onedark").load()
+vim.o.background = "dark"
+vim.cmd("colorscheme gruvbox")
 
 require("barbecue").setup({
 	theme = "auto",

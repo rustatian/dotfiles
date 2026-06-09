@@ -66,7 +66,7 @@ return {
 	-- GUI enhancements --
 	-----------------------
 	{
-		"navarasu/onedark.nvim",
+		"ellisonleao/gruvbox.nvim",
 		lazy = false,
 		priority = 1000,
 	},
