@@ -6,6 +6,7 @@
 	filemode = true
 	autocrlf = false
 	ignorecase = true
+	editor = nvim
 
 [add.interactive]
     useBuiltin = false # required for git 2.37.0
@@ -50,3 +51,5 @@
 
 [includeIf "gitdir:~/projects/internal/roche/"]
 	path = ~/.gitconfig-roche
+[coderabbit]
+	machineId = cli/2fb74a329ae04255a437b924c1455aa1

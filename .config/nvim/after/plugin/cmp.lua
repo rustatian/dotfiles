@@ -19,10 +19,23 @@ require("blink.cmp").setup({
 			max_height = 30,
 			draw = {
 				columns = {
-					{ "label", "kind", gap = 1 },
+					{ "kind_icon" },
+					{ "label" },
 					{ "detail" },
 				},
 				components = {
+					kind_icon = {
+						ellipsis = false,
+						text = function(ctx)
+							local icon = require("mini.icons").get("lsp", ctx.kind)
+							return icon .. ctx.icon_gap
+						end,
+						highlight = function(ctx)
+							local _, hl = require("mini.icons").get("lsp", ctx.kind)
+							-- priority 20000 so the icon color beats the cursorline highlight (10000)
+							return { { group = hl, priority = 20000 } }
+						end,
+					},
 					detail = {
 						width = { max = 80 },
 						text = function(ctx) return ctx.item.detail or "" end,

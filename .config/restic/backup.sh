@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -u
 
 restic --insecure-no-password \
 	-r /mnt/synology/MegaArchBackup \
@@ -10,6 +10,11 @@ restic --insecure-no-password \
 	--exclude='node_modules' \
 	--exclude='target' \
 	--exclude='__pycache__'
+rc=$?
+# exit code 3 = some source files could not be read; normal on a live /home
+if [ "$rc" -ne 0 ] && [ "$rc" -ne 3 ]; then
+	exit "$rc"
+fi
 
 restic --insecure-no-password \
 	-r /mnt/synology/MegaArchBackup \
@@ -17,5 +22,4 @@ restic --insecure-no-password \
 	--keep-monthly 1 \
 	--keep-weekly 4 \
 	--keep-daily 31 \
-	--keep-hourly 48 \
-	--prune
+	--keep-hourly 48

@@ -1,0 +1,8 @@
+[Unit]
+Description=Restic repository prune
+ConditionPathIsMountPoint=/mnt/synology
+
+[Service]
+Type=oneshot
+TimeoutStartSec=infinity
+ExecStart=/usr/bin/restic --insecure-no-password -r /mnt/synology/MegaArchBackup prune

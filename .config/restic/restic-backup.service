@@ -3,7 +3,6 @@ Description=Local Restic backup service
 ConditionPathIsMountPoint=/mnt/synology
 
 [Service]
-Type=simple
-Restart=on-failure
-RestartSec=30
+Type=oneshot
+TimeoutStartSec=infinity
 ExecStart=/home/valery/.config/restic/backup.sh

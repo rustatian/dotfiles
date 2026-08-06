@@ -1,0 +1,269 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+	"format_on_save": "on",
+	"diagnostics": {
+		"inline": {
+			"enabled": true,
+		},
+	},
+	"cli_default_open_behavior": "existing_window",
+	"markdown_preview_code_font_family": "Berkeley Mono",
+	"markdown_preview_font_family": "Berkeley Mono",
+	"agent_ui_font_size": 14.0,
+	"ssh_connections": [
+		{
+			"host": "rcl-roche",
+			"args": [],
+			"projects": [
+				{
+					"paths": [
+						"/home/piashchv/projects/roche/temporal-linux-patching-poc",
+					],
+				},
+				{
+					"paths": ["/home/piashchv/projects/roche/vse-composable"],
+				},
+			],
+		},
+	],
+	"buffer_line_height": "standard",
+	"icon_theme": "Material Icon Theme",
+	"project_panel": {
+		"default_width": 200.0,
+		"dock": "left",
+	},
+	"file_scan_exclusions": [
+		"**/.git",
+		"**/.hg",
+		"**/CVS",
+		"**/.DS_Store",
+		"**/Thumbs.db",
+		"**/.classpath",
+		"**/.settings",
+		"**/__pycache__",
+		"**/.pytest_cache",
+		"**/.ruff_cache",
+		"**/.venv",
+	],
+	"cursor_shape": "underline",
+	"markdown_preview_font_size": 14.0,
+	"agent_buffer_font_size": 14.0,
+	"ui_font_family": ".ZedSans",
+	"edit_predictions": {
+		"provider": "zed",
+	},
+	"vim_mode": true,
+	"terminal": {
+		"dock": "right",
+		"font_size": 12.0,
+		"font_family": "Berkeley Mono",
+		// Berkeley Mono stylistic sets. ss01 pins the slashed zero (already this
+		// build's default) so a future font rebuild can't silently change it.
+		"font_features": {
+			"ss01": true, // zero.slashed
+			"ss05": true, // r.german
+			"ss06": true, // brokenbar
+		},
+		"cursor_shape": "underline",
+		"blinking": "on",
+		"max_scroll_history_lines": 10000,
+	},
+	"telemetry": {
+		"diagnostics": false,
+		"metrics": false,
+	},
+	"base_keymap": "VSCode",
+	"agent": {
+		"enabled": true,
+		"button": true,
+		"favorite_models": [],
+		"model_parameters": [],
+	},
+	"preview_tabs": {
+		"enabled": false,
+	},
+	"gutter": {
+		"line_numbers": true,
+	},
+	"minimap": {
+		"show": "never",
+		"max_width_columns": 25,
+	},
+	"cursor_blink": false,
+	"use_system_path_prompts": false,
+	"autosave": {
+		"after_delay": {
+			"milliseconds": 1000,
+		},
+	},
+	"buffer_font_family": "Berkeley Mono",
+	// See the note on terminal.font_features.
+	"buffer_font_features": {
+		"ss01": true, // zero.slashed
+		"ss05": true, // r.german
+		"ss06": true, // brokenbar
+	},
+	"file_types": {
+		"asm-collection": ["*.{a80,z80,asm,inc,s}"],
+		"dotenv": [".env*"],
+		"asm-collection-list": ["*.{list,lis}"],
+	},
+	"colorize_brackets": true,
+	"show_whitespaces": "trailing",
+	"show_edit_predictions": true,
+	"semantic_tokens": "combined",
+	"soft_wrap": "none",
+	"hard_tabs": true,
+	"tab_size": 4,
+	"agent_servers": {
+		"claude-acp": {
+			"default_config_options": {
+				"effort": "xhigh",
+				"model": "default",
+			},
+			"type": "registry",
+		},
+	},
+	"ui_font_size": 15.0,
+	"buffer_font_size": 13.0,
+	"theme": {
+		"mode": "system",
+		"light": "One Light",
+		"dark": "Gruvbox Dark",
+	},
+	"languages": {
+		"Python": {
+			"code_actions_on_format": {
+				"source.organizeImports.ruff": true,
+				"source.fixAll.ruff": true,
+			},
+			"language_servers": [
+				// Enable ty, disable basedpyright, and enable all
+				// other registered language servers (ruff, pylsp, pyright).
+				"ty",
+				"ruff",
+				"!basedpyright",
+				"!pyright",
+				"!pylsp",
+				"...",
+			],
+		},
+		"C": {
+			"format_on_save": "on",
+			"tab_size": 4,
+		},
+		"Shell Script": {
+			"format_on_save": "on",
+			"formatter": {
+				"external": {
+					"command": "shfmt",
+					// Change `--indent 2` to match your preferred tab_size
+					"arguments": [
+						"--filename",
+						"{buffer_path}",
+						"--indent",
+						"2",
+					],
+				},
+			},
+		},
+	},
+	"lsp": {
+		"json-language-server": {
+			"settings": {
+				"json": {
+					"schemas": [
+						{
+							"fileMatch": ["config/*.json"],
+							"url": "./schemas/custom-schema.json",
+						},
+						{
+							"fileMatch": ["*.config.json"],
+							"url": "~/global-schemas/shared.json",
+						},
+						{
+							"fileMatch": ["*/*.luarc.json"],
+							"url": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+						},
+					],
+				},
+			},
+		},
+		"yaml-language-server": {
+			"settings": {
+				"yaml": {
+					"keyOrdering": true,
+					"format": {
+						"singleQuote": true,
+					},
+				},
+			},
+		},
+		"ty": {
+			"settings": {
+				"disableLanguageServices": false,
+			},
+		},
+		"rust-analyzer": {
+			"enable_lsp_tasks": true,
+			"initialization_options": {
+				"inlayHints": {
+					"maxLength": null,
+					"lifetimeElisionHints": {
+						"enable": "skip_trivial",
+						"useParameterNames": true,
+					},
+					"closureReturnTypeHints": {
+						"enable": "always",
+					},
+				},
+				"diagnostics": {
+					"experimental": {
+						"enable": true,
+					},
+				},
+				"cargo": {
+					"allTargets": true,
+				},
+				"check": {
+					"workspace": true,
+				},
+			},
+		},
+		"ruff": {
+			"initialization_options": {
+				"settings": {
+					"exclude": ["*"],
+				},
+			},
+		},
+		"gopls": {
+			"initialization_options": {
+				"hints": {
+					"assignVariableTypes": true,
+					"compositeLiteralFields": true,
+					"compositeLiteralTypes": true,
+					"constantValues": true,
+					"functionTypeParameters": true,
+					"parameterNames": true,
+					"rangeVariableTypes": true,
+				},
+				"codelenses": {
+					"test": true,
+					"generate": true,
+					"regenerate_cgo": true,
+					"tidy": true,
+					"upgrade_dependency": true,
+					"vendor": true,
+				},
+			},
+		},
+	},
+}
