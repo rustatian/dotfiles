@@ -1,7 +1,7 @@
 theme = Gruvbox Dark
 
-font-family = "Berkeley Mono"
-font-size = 11
+font-family = "Berkeley Mono Medium"
+font-size = 14
 
 font-feature = ss01
 font-feature = ss02

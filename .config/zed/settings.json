@@ -1,43 +1,78 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
+	"disable_ai": false,
+	"diff_view_style": "split",
+	"lsp_document_colors": "inlay",
+	"code_lens": "on",
+	"inlay_hints": {
+		"show_other_hints": false,
+  "show_parameter_hints": true,
+  "show_type_hints": false,
+  "show_value_hints": false,
+  "enabled": true
+	},
+	"git": {
+		"diff_base": "default_branch"
+	},
+	"outline_panel": {
+		"dock": "right"
+	},
+	"collaboration_panel": {
+		"dock": "left"
+	},
+	"git_panel": {
+		"fallback_branch_name": "development",
+		"dock": "left"
+	},
+	"proxy": "",
 	"format_on_save": "on",
 	"diagnostics": {
 		"inline": {
-			"enabled": true,
-		},
+			"enabled": true
+		}
 	},
 	"cli_default_open_behavior": "existing_window",
 	"markdown_preview_code_font_family": "Berkeley Mono",
 	"markdown_preview_font_family": "Berkeley Mono",
 	"agent_ui_font_size": 14.0,
 	"ssh_connections": [
-		{
-			"host": "rcl-roche",
-			"args": [],
-			"projects": [
-				{
-					"paths": [
-						"/home/piashchv/projects/roche/temporal-linux-patching-poc",
-					],
-				},
-				{
-					"paths": ["/home/piashchv/projects/roche/vse-composable"],
-				},
-			],
-		},
-	],
+  {
+   "host": "rcl-roche",
+   "args": [],
+   "projects": [
+    {
+     "paths": [
+      "/home/piashchv/projects/roche/artifactory_as_code"
+     ]
+    },
+    {
+     "paths": [
+      "/home/piashchv/projects/roche/temporal-linux-patching-poc"
+     ]
+    }
+   ]
+  },
+  {
+   "host": "maindev",
+   "args": [],
+   "projects": [
+    {
+     "paths": [
+      "/home/valery/projects/opensource/github/rapira/core"
+     ]
+    },
+    {
+     "paths": [
+      "/home/valery/projects/opensource/github/rapira/tiketos"
+     ]
+    }
+   ]
+  }
+ ],
 	"buffer_line_height": "standard",
 	"icon_theme": "Material Icon Theme",
 	"project_panel": {
 		"default_width": 200.0,
-		"dock": "left",
+		"dock": "left"
 	},
 	"file_scan_exclusions": [
 		"**/.git",
@@ -50,70 +85,102 @@
 		"**/__pycache__",
 		"**/.pytest_cache",
 		"**/.ruff_cache",
-		"**/.venv",
+		"**/.venv"
 	],
 	"cursor_shape": "underline",
 	"markdown_preview_font_size": 14.0,
 	"agent_buffer_font_size": 14.0,
-	"ui_font_family": ".ZedSans",
+	"ui_font_family": ".SystemUIFont",
 	"edit_predictions": {
-		"provider": "zed",
+		"mode": "subtle",
+		"provider": "zed"
 	},
+	"experimental.theme_overrides": {
+		"syntax": {
+			"comment": { "font_style": "normal" },
+			"comment.doc": { "font_style": "normal" }
+		}
+	},
+	"buffer_font_fallbacks": ["Symbols Nerd Font Mono"],
 	"vim_mode": true,
 	"terminal": {
+		"toolbar": {
+			"breadcrumbs": false
+		},
+		"font_fallbacks": ["Symbols Nerd Font Mono"],
 		"dock": "right",
-		"font_size": 12.0,
+		"font_size": 13.0,
 		"font_family": "Berkeley Mono",
-		// Berkeley Mono stylistic sets. ss01 pins the slashed zero (already this
-		// build's default) so a future font rebuild can't silently change it.
 		"font_features": {
 			"ss01": true, // zero.slashed
 			"ss05": true, // r.german
-			"ss06": true, // brokenbar
+			"ss06": true // brokenbar
 		},
 		"cursor_shape": "underline",
 		"blinking": "on",
-		"max_scroll_history_lines": 10000,
+		"max_scroll_history_lines": 10000
 	},
 	"telemetry": {
 		"diagnostics": false,
-		"metrics": false,
+		"metrics": false
 	},
-	"base_keymap": "VSCode",
+	"base_keymap": "Zed",
 	"agent": {
+		"inline_assistant_model": {
+   "provider": "openai-subscribed",
+   "model": "gpt-6-astra",
+   "enable_thinking": false
+  },
+  "profiles": {
+   
+  },
+  "dock": "right",
+		"default_model": {
+			"provider": "openai-subscribed",
+			"model": "gpt-5.6-sol",
+			"enable_thinking": true,
+			"effort": "max"
+		},
 		"enabled": true,
 		"button": true,
-		"favorite_models": [],
-		"model_parameters": [],
+		"favorite_models": [
+   {
+    "provider": "openai-subscribed",
+    "model": "gpt-6-astra",
+    "enable_thinking": true,
+    "effort": "medium"
+   }
+  ],
+		"model_parameters": []
 	},
 	"preview_tabs": {
-		"enabled": false,
+		"enabled": false
 	},
 	"gutter": {
-		"line_numbers": true,
+		"line_numbers": true
 	},
 	"minimap": {
 		"show": "never",
-		"max_width_columns": 25,
+		"max_width_columns": 25
 	},
 	"cursor_blink": false,
 	"use_system_path_prompts": false,
 	"autosave": {
 		"after_delay": {
-			"milliseconds": 1000,
-		},
+			"milliseconds": 1000
+		}
 	},
 	"buffer_font_family": "Berkeley Mono",
 	// See the note on terminal.font_features.
 	"buffer_font_features": {
 		"ss01": true, // zero.slashed
 		"ss05": true, // r.german
-		"ss06": true, // brokenbar
+		"ss06": true // brokenbar
 	},
 	"file_types": {
 		"asm-collection": ["*.{a80,z80,asm,inc,s}"],
 		"dotenv": [".env*"],
-		"asm-collection-list": ["*.{list,lis}"],
+		"asm-collection-list": ["*.{list,lis}"]
 	},
 	"colorize_brackets": true,
 	"show_whitespaces": "trailing",
@@ -123,93 +190,95 @@
 	"hard_tabs": true,
 	"tab_size": 4,
 	"agent_servers": {
-		"claude-acp": {
-			"default_config_options": {
-				"effort": "xhigh",
-				"model": "default",
-			},
-			"type": "registry",
-		},
-	},
-	"ui_font_size": 15.0,
+  "codex-acp": {
+   "type": "registry"
+  },
+  "claude-acp": {
+   "type": "registry"
+  },
+  "opencode": {
+   "type": "registry"
+  }
+ },
+	"ui_font_size": 14.0,
 	"buffer_font_size": 13.0,
 	"theme": {
 		"mode": "system",
 		"light": "One Light",
-		"dark": "Gruvbox Dark",
+		"dark": "Gruvbox Dark Medium"
 	},
 	"languages": {
+		"JSONC": {
+			"prettier": {
+				"trailingComma": "none"
+			}
+		},
 		"Python": {
+			"formatter": {
+				"language_server": {
+					"name": "ruff"
+				}
+			},
+			"format_on_save": "on",
 			"code_actions_on_format": {
 				"source.organizeImports.ruff": true,
-				"source.fixAll.ruff": true,
+				"source.fixAll.ruff": true
 			},
 			"language_servers": [
-				// Enable ty, disable basedpyright, and enable all
-				// other registered language servers (ruff, pylsp, pyright).
 				"ty",
 				"ruff",
 				"!basedpyright",
 				"!pyright",
 				"!pylsp",
-				"...",
-			],
+				"..."
+			]
 		},
 		"C": {
 			"format_on_save": "on",
-			"tab_size": 4,
+			"tab_size": 4
 		},
 		"Shell Script": {
 			"format_on_save": "on",
 			"formatter": {
 				"external": {
 					"command": "shfmt",
-					// Change `--indent 2` to match your preferred tab_size
 					"arguments": [
 						"--filename",
 						"{buffer_path}",
 						"--indent",
-						"2",
-					],
-				},
-			},
-		},
+						"2"
+					]
+				}
+			}
+		}
 	},
 	"lsp": {
+		"clangd": {
+			"binary": {
+				"path": "/opt/homebrew/opt/llvm/bin/clangd"
+			}
+		},
 		"json-language-server": {
 			"settings": {
 				"json": {
-					"schemas": [
-						{
-							"fileMatch": ["config/*.json"],
-							"url": "./schemas/custom-schema.json",
-						},
-						{
-							"fileMatch": ["*.config.json"],
-							"url": "~/global-schemas/shared.json",
-						},
-						{
-							"fileMatch": ["*/*.luarc.json"],
-							"url": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
-						},
-					],
-				},
-			},
+					"schemas": []
+				}
+			}
 		},
 		"yaml-language-server": {
 			"settings": {
 				"yaml": {
-					"keyOrdering": true,
+					"keyOrdering": false,
 					"format": {
-						"singleQuote": true,
-					},
-				},
-			},
+						"singleQuote": true
+					}
+				}
+			}
 		},
 		"ty": {
 			"settings": {
-				"disableLanguageServices": false,
-			},
+				"disableLanguageServices": false
+			}
 		},
 		"rust-analyzer": {
 			"enable_lsp_tasks": true,
@@ -218,31 +287,29 @@
 					"maxLength": null,
 					"lifetimeElisionHints": {
 						"enable": "skip_trivial",
-						"useParameterNames": true,
+						"useParameterNames": true
 					},
 					"closureReturnTypeHints": {
-						"enable": "always",
-					},
+						"enable": "always"
+					}
 				},
 				"diagnostics": {
 					"experimental": {
-						"enable": true,
-					},
+						"enable": true
+					}
 				},
 				"cargo": {
-					"allTargets": true,
+					"allTargets": true
 				},
 				"check": {
-					"workspace": true,
-				},
-			},
+					"workspace": true
+				}
+			}
 		},
 		"ruff": {
 			"initialization_options": {
-				"settings": {
-					"exclude": ["*"],
-				},
-			},
+				"settings": {}
+			}
 		},
 		"gopls": {
 			"initialization_options": {
@@ -253,7 +320,7 @@
 					"constantValues": true,
 					"functionTypeParameters": true,
 					"parameterNames": true,
-					"rangeVariableTypes": true,
+					"rangeVariableTypes": true
 				},
 				"codelenses": {
 					"test": true,
@@ -261,9 +328,9 @@
 					"regenerate_cgo": true,
 					"tidy": true,
 					"upgrade_dependency": true,
-					"vendor": true,
-				},
-			},
-		},
-	},
+					"vendor": true
+				}
+			}
+		}
+	}
 }

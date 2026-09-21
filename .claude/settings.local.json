@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/valery/projects/opensource/github/rustatian/dotfiles/.config/nvim -not -path */.venv/* -type f)",
+      "Bash(find /Users/valery/projects/opensource/github/rustatian/dotfiles/.config/nvim/lua -type f -name *.lua)",
+      "Bash(nvim --headless -c \"lua vim.defer_fn\\(function\\(\\) vim.cmd\\(''qall!''\\) end, 3000\\)\")",
+      "Bash(nvim --headless -c 'colorscheme' -c 'qa!')",
+      "Bash(nvim --headless -c 'echo execute\\(\"\"highlight IndentBlanklineChar\"\"\\)' -c 'qa!')",
+      "Bash(gh search:*)",
+      "Bash(gh issue:*)",
+      "WebFetch(domain:docs.anthropic.com)",
+      "WebFetch(domain:plugins.jetbrains.com)",
+      "WebFetch(domain:github.com)",
+      "mcp__plugin_context7_context7__resolve-library-id",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:neovim.io)",
+      "mcp__plugin_context7_context7__query-docs",
+      "WebFetch(domain:reddit.com)",
+      "Bash(nvim --version)",
+      "Bash(gh api *)",
+      "Bash(git *)",
+      "Bash(fc-list)",
+      "Read(//home/valery/.local/share/nvim/lazy/blink.cmp/**)",
+      "Read(//home/valery/.local/share/nvim/lazy/**)",
+      "Read(//home/valery/.local/share/nvim/lazy/mini.nvim/**)",
+      "Bash(awk '/H.icons = \\\\{/{f=1} f&&/lsp = \\\\{/{g=1} g{print NR\": \"$0} g&&/^\\\\s*\\\\},\\\\s*$/{c++; if\\(c>=1\\){exit}}' lua/mini/icons.lua)"
+    ]
+  }
+}
