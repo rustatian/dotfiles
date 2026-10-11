@@ -1,8 +1,10 @@
 #!/bin/bash
 set -u
 
+restic --insecure-no-password -r /mnt/NFSBackups/MegaArchBackup unlock
+
 restic --insecure-no-password \
-	-r /mnt/synology/MegaArchBackup \
+	-r /mnt/NFSBackups/MegaArchBackup \
 	backup /home/valery \
 	--exclude='.cache' \
 	--exclude='Downloads' \
@@ -17,7 +19,7 @@ if [ "$rc" -ne 0 ] && [ "$rc" -ne 3 ]; then
 fi
 
 restic --insecure-no-password \
-	-r /mnt/synology/MegaArchBackup \
+	-r /mnt/NFSBackups/MegaArchBackup \
 	forget \
 	--keep-monthly 1 \
 	--keep-weekly 4 \

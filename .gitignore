@@ -5,3 +5,4 @@
 **/*.so
 **/.venv/
 .config/zed/prompts
+.claude

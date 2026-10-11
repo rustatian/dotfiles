@@ -1,9 +1,19 @@
 # Restic Backup Service
 
-Hourly `restic backup` + `forget` of `/home/valery` to `/mnt/synology/MegaArchBackup`,
-plus a daily `restic prune` (03:30) as a separate unit. Both services are gated on
-`ConditionPathIsMountPoint=/mnt/synology`, so they are silently skipped while the NAS
-is not mounted.
+Hourly `restic backup` + `forget` of `/home/valery` to `/mnt/NFSBackups/MegaArchBackup`, plus a daily `restic prune` (03:30) as a separate unit. If the NAS is not reachable, the service fails and `systemctl --user --failed` shows it.
+
+## NAS mount
+
+The repository is on the UniFi UNAS NFS share `10.0.0.249:/var/nfs/shared/NFSBackups`. Add the IP of this host to the NFS allow list of the share in UniFi Drive.
+
+Omarchy masks `NetworkManager-wait-online.service`, so a boot-time NFS mount starts before DHCP completes and fails. `x-systemd.automount` sets up the mount point at boot and mounts the share on first access:
+
+```bash
+sudo pacman -S --needed restic
+printf '\n%s\n' '10.0.0.249:/var/nfs/shared/NFSBackups /mnt/NFSBackups nfs x-systemd.automount 0 0' | sudo tee -a /etc/fstab
+sudo systemctl daemon-reload
+sudo systemctl start mnt-NFSBackups.automount
+```
 
 ## Installation
 
@@ -28,8 +38,8 @@ is not mounted.
 3. If the repository does not exist yet (checks first, init only creates a new one):
 
    ```bash
-   restic --insecure-no-password -r /mnt/synology/MegaArchBackup cat config ||
-   restic --insecure-no-password -r /mnt/synology/MegaArchBackup init
+   restic --insecure-no-password -r /mnt/NFSBackups/MegaArchBackup cat config ||
+   restic --insecure-no-password -r /mnt/NFSBackups/MegaArchBackup init
    ```
 
 ## Usage
@@ -56,8 +66,8 @@ journalctl --user -fu restic-backup.service
 
 ## Recovery
 
-If a hard shutdown mid-backup leaves a stale lock (usually self-clears):
+A killed run (for example a hard shutdown during a backup) leaves a stale lock. A stale lock blocks `forget` and `prune`. `backup.sh` runs `restic unlock` before each backup, and this removes only stale locks. To remove a stale lock before the next hourly run:
 
 ```bash
-restic --insecure-no-password -r /mnt/synology/MegaArchBackup unlock
+restic --insecure-no-password -r /mnt/NFSBackups/MegaArchBackup unlock
 ```
