@@ -5,10 +5,10 @@
 	"code_lens": "on",
 	"inlay_hints": {
 		"show_other_hints": false,
-  "show_parameter_hints": true,
-  "show_type_hints": false,
-  "show_value_hints": false,
-  "enabled": true
+		"show_parameter_hints": true,
+		"show_type_hints": false,
+		"show_value_hints": false,
+		"enabled": true
 	},
 	"git": {
 		"diff_base": "default_branch"
@@ -33,39 +33,39 @@
 	"cli_default_open_behavior": "existing_window",
 	"agent_ui_font_size": 14.0,
 	"ssh_connections": [
-  {
-   "host": "rcl-roche",
-   "args": [],
-   "projects": [
-    {
-     "paths": [
-      "/home/piashchv/projects/roche/artifactory_as_code"
-     ]
-    },
-    {
-     "paths": [
-      "/home/piashchv/projects/roche/temporal-linux-patching-poc"
-     ]
-    }
-   ]
-  },
-  {
-   "host": "maindev",
-   "args": [],
-   "projects": [
-    {
-     "paths": [
-      "/home/valery/projects/opensource/github/rapira/core"
-     ]
-    },
-    {
-     "paths": [
-      "/home/valery/projects/opensource/github/rapira/tiketos"
-     ]
-    }
-   ]
-  }
- ],
+		{
+			"host": "rcl-roche",
+			"args": [],
+			"projects": [
+				{
+					"paths": [
+						"/home/piashchv/projects/roche/artifactory_as_code"
+					]
+				},
+				{
+					"paths": [
+						"/home/piashchv/projects/roche/temporal-linux-patching-poc"
+					]
+				}
+			]
+		},
+		{
+			"host": "maindev",
+			"args": [],
+			"projects": [
+				{
+					"paths": [
+						"/home/valery/projects/opensource/github/rapira/core"
+					]
+				},
+				{
+					"paths": [
+						"/home/valery/projects/opensource/github/rapira/tiketos"
+					]
+				}
+			]
+		}
+	],
 	"buffer_line_height": "standard",
 	"icon_theme": "Material Icon Theme",
 	"project_panel": {
@@ -124,14 +124,12 @@
 	"base_keymap": "Zed",
 	"agent": {
 		"inline_assistant_model": {
-   "provider": "openai-subscribed",
-   "model": "gpt-6-astra",
-   "enable_thinking": false
-  },
-  "profiles": {
-   
-  },
-  "dock": "right",
+			"provider": "openai-subscribed",
+			"model": "gpt-6-astra",
+			"enable_thinking": false
+		},
+		"profiles": {},
+		"dock": "right",
 		"default_model": {
 			"provider": "openai-subscribed",
 			"model": "gpt-5.6-sol",
@@ -141,13 +139,13 @@
 		"enabled": true,
 		"button": true,
 		"favorite_models": [
-   {
-    "provider": "openai-subscribed",
-    "model": "gpt-6-astra",
-    "enable_thinking": true,
-    "effort": "medium"
-   }
-  ],
+			{
+				"provider": "openai-subscribed",
+				"model": "gpt-6-astra",
+				"enable_thinking": true,
+				"effort": "medium"
+			}
+		],
 		"model_parameters": []
 	},
 	"preview_tabs": {
@@ -187,16 +185,16 @@
 	"hard_tabs": true,
 	"tab_size": 4,
 	"agent_servers": {
-  "codex-acp": {
-   "type": "registry"
-  },
-  "claude-acp": {
-   "type": "registry"
-  },
-  "opencode": {
-   "type": "registry"
-  }
- },
+		"codex-acp": {
+			"type": "registry"
+		},
+		"claude-acp": {
+			"type": "registry"
+		},
+		"opencode": {
+			"type": "registry"
+		}
+	},
 	"ui_font_size": 14.0,
 	"buffer_font_size": 13.0,
 	"theme": {
