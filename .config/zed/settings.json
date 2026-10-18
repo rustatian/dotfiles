@@ -94,17 +94,25 @@
 	},
 	"experimental.theme_overrides": {
 		"syntax": {
-			"comment": { "font_style": "normal" },
-			"comment.doc": { "font_style": "normal" }
+			"comment": {
+				"font_style": "normal"
+			},
+			"comment.doc": {
+				"font_style": "normal"
+			}
 		}
 	},
-	"buffer_font_fallbacks": ["Symbols Nerd Font Mono"],
+	"buffer_font_fallbacks": [
+		"Symbols Nerd Font Mono"
+	],
 	"vim_mode": true,
 	"terminal": {
 		"toolbar": {
 			"breadcrumbs": false
 		},
-		"font_fallbacks": ["Symbols Nerd Font Mono"],
+		"font_fallbacks": [
+			"Symbols Nerd Font Mono"
+		],
 		"dock": "right",
 		"font_size": 13.0,
 		"font_family": "Berkeley Mono",
@@ -173,9 +181,15 @@
 		"ss06": true // brokenbar
 	},
 	"file_types": {
-		"asm-collection": ["*.{a80,z80,asm,inc,s}"],
-		"dotenv": [".env*"],
-		"asm-collection-list": ["*.{list,lis}"]
+		"asm-collection": [
+			"*.{a80,z80,asm,inc,s}"
+		],
+		"dotenv": [
+			".env*"
+		],
+		"asm-collection-list": [
+			"*.{list,lis}"
+		]
 	},
 	"colorize_brackets": true,
 	"show_whitespaces": "trailing",
@@ -250,7 +264,7 @@
 	"lsp": {
 		"clangd": {
 			"binary": {
-				"path": "/opt/homebrew/opt/llvm/bin/clangd"
+				"path": "/usr/bin/clangd"
 			}
 		},
 		"json-language-server": {
