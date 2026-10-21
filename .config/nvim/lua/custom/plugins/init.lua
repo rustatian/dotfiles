@@ -66,7 +66,8 @@ return {
 	-- GUI enhancements --
 	-----------------------
 	{
-		"ellisonleao/gruvbox.nvim",
+		"catppuccin/nvim",
+		name = "catppuccin",
 		lazy = false,
 		priority = 1000,
 	},

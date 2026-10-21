@@ -1,24 +1,10 @@
-require("gruvbox").setup({
-	terminal_colors = true,
-	undercurl = true,
-	underline = true,
-	bold = true,
-	italic = {
-		strings = false,
-		emphasis = false,
-		comments = false,
-		operators = false,
-		folds = false,
-	},
-	strikethrough = true,
-	invert_selection = false,
-	inverse = true,
-	contrast = "", -- "hard", "soft" or "" (empty = medium, matches "Gruvbox Dark")
-	dim_inactive = false,
-	transparent_mode = false,
+require("catppuccin").setup({
+	flavour = "mocha",
+	term_colors = true,
+	no_italic = true,
 })
 vim.o.background = "dark"
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme catppuccin-mocha")
 
 require("barbecue").setup({
 	theme = "auto",
