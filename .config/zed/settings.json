@@ -214,7 +214,7 @@
 	"theme": {
 		"mode": "system",
 		"light": "One Light",
-		"dark": "Gruvbox Dark Medium"
+		"dark": "Catppuccin Mocha - No Italics"
 	},
 	"languages": {
 		"JSONC": {
