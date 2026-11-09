@@ -43,8 +43,6 @@
 [url "git@git.spiralscout.com:"]
 	insteadOf = https://git.spiralscout.com/
 
-[includeIf "gitdir:~/projects/internal/roche/"]
-	path = ~/.gitconfig-roche
 [coderabbit]
 	machineId = cli/2fb74a329ae04255a437b924c1455aa1
 [gpg]
