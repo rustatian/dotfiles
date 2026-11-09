@@ -28,7 +28,7 @@
     conflictstyle = diff3
 
 [user]
-	signingkey = 0090AFE67BB8349DA5FEE47D4C79FAB5E41D2143
+	signingkey = /Users/valery/.ssh/github_new.pub
 	email = piashchynski.valery@gmail.com
 	name = Valery Piashchynski
 
@@ -47,3 +47,7 @@
 	path = ~/.gitconfig-roche
 [coderabbit]
 	machineId = cli/2fb74a329ae04255a437b924c1455aa1
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = /Users/valery/.ssh/allowed_signers

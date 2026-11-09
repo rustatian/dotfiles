@@ -1,13 +1,18 @@
 {
-	"disable_ai": false,
+	"use_display_p3": true,
+ "markdown_preview": {
+  "limit_content_width": false
+ },
+ "preferred_line_length": 120,
+ "disable_ai": false,
 	"diff_view_style": "split",
 	"lsp_document_colors": "inlay",
 	"code_lens": "on",
 	"inlay_hints": {
 		"show_other_hints": false,
 		"show_parameter_hints": true,
-		"show_type_hints": false,
-		"show_value_hints": false,
+		"show_type_hints": true,
+		"show_value_hints": true,
 		"enabled": true
 	},
 	"git": {
@@ -33,39 +38,34 @@
 	"cli_default_open_behavior": "existing_window",
 	"agent_ui_font_size": 14.0,
 	"ssh_connections": [
-		{
-			"host": "rcl-roche",
-			"args": [],
-			"projects": [
-				{
-					"paths": [
-						"/home/piashchv/projects/roche/artifactory_as_code"
-					]
-				},
-				{
-					"paths": [
-						"/home/piashchv/projects/roche/temporal-linux-patching-poc"
-					]
-				}
-			]
-		},
-		{
-			"host": "maindev",
-			"args": [],
-			"projects": [
-				{
-					"paths": [
-						"/home/valery/projects/opensource/github/rapira/core"
-					]
-				},
-				{
-					"paths": [
-						"/home/valery/projects/opensource/github/rapira/tiketos"
-					]
-				}
-			]
-		}
-	],
+  {
+   "host": "maindev",
+   "args": [],
+   "projects": [
+    {
+     "paths": [
+      "/home/valery/projects/opensource/github/rapira/core"
+     ]
+    },
+    {
+     "paths": [
+      "/home/valery/projects/opensource/github/rapira/tiketos"
+     ]
+    }
+   ]
+  },
+  {
+   "host": "rlc-roche",
+   "args": [],
+   "projects": [
+    {
+     "paths": [
+      "/home/piashchv/projects/roche/temporal-linux-patching-poc"
+     ]
+    }
+   ]
+  }
+ ],
 	"buffer_line_height": "standard",
 	"icon_theme": "Material Icon Theme",
 	"project_panel": {
@@ -131,7 +131,18 @@
 	},
 	"base_keymap": "Zed",
 	"agent": {
-		"inline_assistant_model": {
+		"tool_permissions": {
+   "tools": {
+    "terminal": {
+     "always_allow": [
+      {
+       "pattern": "^git\\b"
+      }
+     ]
+    }
+   }
+  },
+  "inline_assistant_model": {
 			"provider": "openai-subscribed",
 			"model": "gpt-6-astra",
 			"enable_thinking": false
@@ -140,20 +151,26 @@
 		"dock": "right",
 		"default_model": {
 			"provider": "openai-subscribed",
-			"model": "gpt-5.6-sol",
+			"model": "gpt-6-astra",
 			"enable_thinking": true,
 			"effort": "max"
 		},
 		"enabled": true,
 		"button": true,
 		"favorite_models": [
-			{
-				"provider": "openai-subscribed",
-				"model": "gpt-6-astra",
-				"enable_thinking": true,
-				"effort": "medium"
-			}
-		],
+   {
+    "provider": "openai-subscribed",
+    "model": "gpt-6-astra",
+    "enable_thinking": true,
+    "effort": "max"
+   },
+   {
+    "provider": "openai-subscribed",
+    "model": "gpt-6.1-sol",
+    "enable_thinking": true,
+    "effort": "max"
+   }
+  ],
 		"model_parameters": []
 	},
 	"preview_tabs": {
@@ -203,10 +220,10 @@
 			"type": "registry"
 		},
 		"claude-acp": {
-			"type": "registry"
-		},
-		"opencode": {
-			"type": "registry"
+			"default_config_options": {
+    "ultracode": false
+   },
+   "type": "registry"
 		}
 	},
 	"ui_font_size": 14.0,
