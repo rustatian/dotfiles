@@ -1,0 +1,6 @@
+[core]
+	ignorecase = true
+[user]
+	signingkey = /Users/valery/.ssh/github_new.pub
+[gpg "ssh"]
+	allowedSignersFile = /Users/valery/.ssh/allowed_signers

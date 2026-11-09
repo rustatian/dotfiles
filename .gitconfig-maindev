@@ -1,0 +1,4 @@
+[user]
+	signingkey = /home/valery/.ssh/github_new.pub
+[gpg "ssh"]
+	allowedSignersFile = /home/valery/.ssh/allowed_signers
